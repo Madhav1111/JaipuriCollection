@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap");
+
+/* ===============================
+   NAVBAR ROOT
+================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
+  height: 125px;
+
+  background: linear-gradient(
+    135deg,
+    #4b0012,
+    #6d0019,
+    #8f1628,
+    #6d0019,
+    #4b0012
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===============================
+   MENU BUTTON
+================================ */
+.menu-btn {
+  position: absolute;
+  left: 22px;
+  top: 30%;
+
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+.menu-icon {
+  color: #d4af37;
+
+  font-size: 30px;
+  line-height: 1;
+
+  font-weight: 300;
+}
+
+.menu-text {
+  color: #d4af37;
+
+  font-size: 6px;
+
+  letter-spacing: 3px;
+
+  font-weight: 500;
+}
+
+.menu-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ===============================
+   LOGO
+================================ */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+
+  transform: translateX(13px) translateY(10px);
+}
+
+/* ===============================
+   SPACER
+================================ */
+.nav-spacer {
+  width: 34px;
+}
+
+/* ===============================
+   SIDE MENU
+================================ */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+
+  width: 75%;
+  height: 100vh;
+
+  background: #fffaf4;
+
+  z-index: 200;
+
+  padding: 24px;
+
+  transition: left 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+/* ===============================
+   CLOSE BUTTON
+================================ */
+.close-btn {
+  align-self: flex-end;
+
+  font-size: 28px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  color: #6d0019;
+}
+
+/* ===============================
+   MENU LINKS
+================================ */
+.menu-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-top: 10px;
+}
+
+/* ===============================
+   MENU CARDS
+================================ */
+.menu-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 20px;
+
+  padding: 18px 20px;
+
+  background: #fffaf4;
+
+  text-decoration: none;
+
+  color: #4b0012;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-2px);
+  background: #fdf3df;
+}
+
+/* ===============================
+   BACKDROP
+================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 150;
+}
