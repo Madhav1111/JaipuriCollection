@@ -1,0 +1,55 @@
+/* ===============================
+   SCROLLING ANNOUNCEMENT STRIP
+================================ */
+
+.announcement-wrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #f0c75e,
+    #d4af37
+  );
+
+  overflow: hidden;
+
+  border-top: 1px solid rgba(122, 16, 32, 0.15);
+  border-bottom: 1px solid rgba(122, 16, 32, 0.15);
+}
+
+.announcement-track {
+  display: flex;
+  width: max-content;
+
+  animation: scrollText 12s linear infinite;
+}
+
+.announcement-track span {
+  padding: 10px 30px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  color: #5a1020;
+
+  white-space: nowrap;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+
+@keyframes scrollText {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
