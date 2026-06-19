@@ -11,7 +11,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 
-  height: 120px;
+  height: 90px;
 
   background: linear-gradient(
     135deg,
@@ -81,11 +81,11 @@
   justify-content: center;
 }
 .logo {
-  height: 172px;
+  height: 135px;
   width: auto;
   object-fit: contain;
 
-  transform: translateX(13px) translateY(10px);
+  transform: translateX(18px) translateY(5px);
 }
 
 /* ===============================
