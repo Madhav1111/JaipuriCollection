@@ -1,7 +1,49 @@
+import { useState, useRef } from "react";
 import "./AiRoomPreview.css";
 
 function AIRoomPreview() {
-  console.log("AiRoomPreview rendered");
+  const [sliderPosition, setSliderPosition] = useState(50);
+
+  const previewRef = useRef(null);
+
+  const handleMove = (clientX) => {
+    if (!previewRef.current) return;
+
+    const rect = previewRef.current.getBoundingClientRect();
+
+    let position = ((clientX - rect.left) / rect.width) * 100;
+
+    position = Math.max(0, Math.min(100, position));
+
+    setSliderPosition(position);
+  };
+
+  const handleMouseDown = () => {
+    const move = (e) => handleMove(e.clientX);
+
+    const stop = () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseup", stop);
+    };
+
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", stop);
+  };
+
+  const handleTouchStart = () => {
+    const move = (e) => {
+      handleMove(e.touches[0].clientX);
+    };
+
+    const stop = () => {
+      window.removeEventListener("touchmove", move);
+      window.removeEventListener("touchend", stop);
+    };
+
+    window.addEventListener("touchmove", move);
+    window.removeEventListener("touchend", stop);
+  };
+
   return (
     <section className="ai-room-section">
       {/* Heading */}
@@ -57,29 +99,52 @@ function AIRoomPreview() {
 
         {/* RIGHT */}
 
-        <div className="preview-card">
+        <div className="preview-card" ref={previewRef}>
           <div className="preview-tag left-tag">Your Room</div>
 
           <div className="preview-tag right-tag">AI Preview</div>
 
-          {/* BEFORE IMAGE */}
+          {/* BEFORE */}
+
           <img
             src="/images/before.webp"
             className="before-image"
             alt="Your Room"
           />
 
-          <div className="after-wrapper">
+          {/* AFTER */}
+
+          <div
+            className="after-wrapper"
+            style={{
+              width: `${100 - sliderPosition}%`,
+              left: `${sliderPosition}%`,
+            }}
+          >
             <img
               src="/images/after.webp"
-              alt="AI Preview"
               className="after-image"
+              alt="AI Preview"
             />
           </div>
 
-          <div className="preview-divider"></div>
+          {/* DIVIDER */}
 
-          <div className="preview-handle">❮❯</div>
+          <div
+            className="preview-divider"
+            style={{ left: `${sliderPosition}%` }}
+          ></div>
+
+          {/* HANDLE */}
+
+          <div
+            className="preview-handle"
+            style={{ left: `${sliderPosition}%` }}
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+          >
+            ❮❯
+          </div>
         </div>
       </div>
     </section>
