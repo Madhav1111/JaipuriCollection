@@ -2,15 +2,9 @@ import { useEffect, useState } from "react";
 import "./Hero.css";
 
 const slides = [
-  {
-    bg: "/images/bedsheet-banner.jpg",
-  },
-  {
-    bg: "/images/suits.png",
-  },
-  {
-    bg: "/images/saree.png",
-  },
+  { bg: "/images/suits.png" },
+  { bg: "/images/saree.png" },
+  { bg: "/images/bedsheet-banner.jpg" },
 ];
 
 function HeroBanner() {
@@ -31,8 +25,7 @@ function HeroBanner() {
 
   return (
     <section className="hero-banner">
-      <div key={activeSlide} className="hero-bg">
-
+      <div className="hero-bg">
         <img
           src={currentSlide.bg}
           alt="Jaipuri Collection"
@@ -44,9 +37,7 @@ function HeroBanner() {
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`dot ${
-                  index === activeSlide ? "active" : ""
-                }`}
+                className={`dot ${index === activeSlide ? "active" : ""}`}
                 onClick={() => setActiveSlide(index)}
               />
             ))}
@@ -59,7 +50,6 @@ function HeroBanner() {
             {isPlaying ? "⏸" : "▶️"}
           </button>
         </div>
-
       </div>
     </section>
   );
