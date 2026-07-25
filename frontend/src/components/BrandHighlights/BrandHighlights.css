@@ -1,0 +1,199 @@
+/* ===================================
+   BRAND HIGHLIGHTS
+=================================== */
+
+.brand-highlights {
+  width: 100%;
+  padding: 30px 0 50px;
+  background: #fcf8f2;
+}
+
+/* ===================================
+   FEATURE ROW
+=================================== */
+
+.feature-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 10px;
+  margin-bottom: 24px;
+}
+
+/* ===================================
+   FEATURE CARD
+=================================== */
+
+.feature-card {
+  width: 96px;
+  height: 110px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 6px;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(123, 21, 53, 0.12);
+}
+
+/* ===================================
+   ICON
+=================================== */
+
+.feature-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff4d9, #f2d38d);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* ===================================
+   TITLE
+=================================== */
+
+.feature-card h3 {
+  font-size: 0.56rem;
+  font-weight: 700;
+  color: #65152e;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+/* ===================================
+   SUBTITLE
+=================================== */
+
+.feature-card span {
+  font-size: 0.48rem;
+  color: #8f816e;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ===================================
+   STATS STRIP
+=================================== */
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: linear-gradient(135deg, #7b1535, #541126);
+  padding: 18px 10px;
+  margin: 0 10px 22px;
+  border-radius: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  color: #fff;
+}
+
+.stat-icon {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.stat-item h2 {
+  color: #f3d17a;
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.stat-item p {
+  margin-top: 4px;
+  font-size: 0.48rem;
+  line-height: 1.2;
+  color: #f7efe8;
+  text-transform: uppercase;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+
+.footer-ending {
+  margin-top: 18px;
+
+  padding: 24px 20px 28px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(212, 175, 55, 0.18);
+
+  background: transparent;
+}
+
+.footer-title {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.55rem;
+
+  font-weight: 700;
+
+  color: #6f102d;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  max-width: 260px;
+
+  margin: 0 auto 16px;
+
+  color: #8b7a67;
+
+  font-size: 0.82rem;
+
+  line-height: 1.6;
+}
+
+.footer-copy {
+  margin-bottom: 6px;
+
+  color: #6f102d;
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+}
+
+.footer-links {
+  color: #9b8b78;
+
+  font-size: 0.68rem;
+
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .footer-ending {
+    margin-top: 16px;
+
+    padding: 22px 16px 24px;
+  }
+
+  .footer-copy {
+    font-size: 22px;
+    margin-bottom: -20px;
+  }
+}

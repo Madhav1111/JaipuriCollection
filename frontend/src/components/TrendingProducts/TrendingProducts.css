@@ -1,0 +1,746 @@
+/* ===================================
+   TRENDING SECTION
+=================================== */
+
+.trending-section{
+    width:100%;
+    padding:70px 22px 80px;
+
+    background:
+        radial-gradient(circle at top,#fffaf1 0%,#fcf8f2 45%,#f7f1e8 100%);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Jaipur Pattern */
+
+.trending-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:url("/images/jaipur-pattern.png") center/500px;
+
+    opacity:.025;
+
+    pointer-events:none;
+
+}
+
+/* ===================================
+   HEADING
+=================================== */
+
+.trending-heading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    margin-bottom:55px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.heading-crown{
+
+    font-size:34px;
+
+    margin-bottom:12px;
+
+}
+
+.trending-heading h2{
+
+    font-size:2.4rem;
+
+    color:#6f102d;
+
+    letter-spacing:4px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    text-transform:uppercase;
+
+}
+
+.trending-heading p{
+
+    color:#9c8569;
+
+    font-size:.95rem;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:18px;
+
+}
+
+.heading-line{
+
+    width:140px;
+
+    height:2px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #d6ab4d,
+        transparent
+    );
+
+    margin:10px 0;
+
+}
+
+/* ===================================
+   CAROUSEL
+=================================== */
+
+.carousel-wrapper{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.trending-carousel{
+
+    display:flex;
+
+    gap:28px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding:8px;
+
+    scrollbar-width:none;
+
+}
+
+.trending-carousel::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+/* ===================================
+   ARROWS
+=================================== */
+
+.carousel-arrow{
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(18px);
+
+    color:#7a1535;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+    transition:.35s;
+
+    z-index:5;
+
+}
+
+.carousel-arrow:hover{
+
+    background:#7a1535;
+
+    color:white;
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 18px 40px rgba(122,21,53,.35);
+
+}
+
+.left-arrow{
+
+    margin-right:20px;
+
+}
+
+.right-arrow{
+
+    margin-left:20px;
+
+}
+/* ===================================
+   LUXURY PRODUCT CARD
+=================================== */
+
+.luxury-card{
+
+    min-width:295px;
+
+    background:linear-gradient(
+        180deg,
+        #ffffff,
+        #fffdf9
+    );
+
+    border-radius:30px;
+
+    padding:18px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.12);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.08),
+        0 2px 8px rgba(0,0,0,.03);
+
+    transition:.45s ease;
+
+    flex-shrink:0;
+
+}
+
+/* Luxury Hover */
+
+.luxury-card:hover{
+
+    transform:
+        translateY(-10px);
+
+    border-color:rgba(212,175,55,.35);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.12),
+        0 0 35px rgba(212,175,55,.15);
+
+}
+
+/* ===================================
+   PREMIUM BADGE
+=================================== */
+
+.product-badge{
+
+    position:absolute;
+
+    top:18px;
+    left:18px;
+
+    padding:8px 15px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        90deg,
+        #c9922d,
+        #f3dc93
+    );
+
+    color:#5c2d00;
+
+    font-size:.66rem;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    z-index:10;
+
+    box-shadow:
+        0 8px 18px rgba(212,175,55,.35);
+
+}
+
+/* ===================================
+   WISHLIST
+=================================== */
+
+.wishlist-btn{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    color:#8b1538;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.12);
+
+    z-index:20;
+
+}
+
+.wishlist-btn:hover{
+
+    background:#8b1538;
+
+    color:white;
+
+    transform:scale(1.08);
+
+}
+
+/* ===================================
+   IMAGE
+=================================== */
+
+.product-image-wrap{
+
+    width:100%;
+
+    height:270px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    margin-top:48px;
+
+    background:#f8f2ea;
+
+    box-shadow:
+        inset 0 0 1px rgba(0,0,0,.05),
+        0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.product-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.55s;
+
+}
+
+.luxury-card:hover .product-image{
+
+    transform:scale(1.06);
+
+}
+
+/* ===================================
+   PRODUCT INFO
+=================================== */
+
+.product-info{
+
+    margin-top:22px;
+
+}
+
+.product-category{
+
+    display:inline-block;
+
+    color:#a58a62;
+
+    font-size:.74rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+
+}
+
+.product-info h3{
+
+    color:#2f1a1f;
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    line-height:1.25;
+
+}
+
+.rating{
+
+    color:#d2a742;
+
+    font-size:.88rem;
+
+    margin-bottom:18px;
+
+}
+
+.rating span{
+
+    color:#6d6d6d;
+
+    margin-left:6px;
+
+}/* ===================================
+   PRODUCT BOTTOM
+=================================== */
+
+.product-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-top:8px;
+
+}
+
+.price{
+
+    margin:0;
+
+    font-size:1.55rem;
+
+    font-weight:700;
+
+    color:#7b1535;
+
+    letter-spacing:.5px;
+
+}
+
+.product-bottom small{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:#9c8569;
+
+    font-size:.78rem;
+
+    letter-spacing:.5px;
+
+}
+
+/* ===================================
+   PLUS BUTTON
+=================================== */
+
+.plus-btn{
+
+    width:52px;
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #c99537,
+        #f6de97
+    );
+
+    color:#4d1a08;
+
+    font-size:30px;
+
+    font-weight:300;
+
+    box-shadow:
+        0 12px 28px rgba(212,175,55,.35);
+
+    transition:.35s;
+
+}
+
+.plus-btn:hover{
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+
+    box-shadow:
+        0 18px 38px rgba(212,175,55,.45);
+
+}
+
+/* ===================================
+   LUXURY HOVER GLOW
+=================================== */
+
+.luxury-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-50%;
+
+    width:70%;
+
+    height:260%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:rotate(22deg);
+
+    transition:.8s;
+
+    pointer-events:none;
+
+}
+
+.luxury-card:hover::before{
+
+    left:140%;
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:768px){
+
+.trending-section{
+
+    padding:20px 14px 45px;
+
+}
+
+/* Heading */
+
+.trending-heading{
+
+    margin-bottom:24px;
+
+}
+
+.heading-crown{
+
+    font-size:18px;
+
+    margin-bottom:4px;
+
+}
+
+.trending-heading h2{
+
+    font-size:1.35rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:4px;
+
+}
+
+.trending-heading p{
+
+    font-size:.72rem;
+
+    margin-bottom:10px;
+
+}
+
+.heading-line{
+
+    width:70px;
+
+}
+
+/* Arrows */
+
+.carousel-arrow{
+
+    display:none;
+
+}
+
+/* Slider */
+
+.trending-carousel{
+
+    gap:14px;
+
+    padding:4px;
+
+    scroll-snap-type:x mandatory;
+
+}
+
+/* Cards */
+
+.luxury-card{
+
+    min-width:220px;
+
+    padding:14px;
+
+    border-radius:22px;
+
+    scroll-snap-align:start;
+
+}
+
+/* Image */
+
+.product-image-wrap{
+
+    height:170px;
+
+    margin-top:38px;
+
+    border-radius:18px;
+
+}
+
+/* Badge */
+
+.product-badge{
+
+    top:14px;
+    left:14px;
+
+    font-size:.55rem;
+
+    padding:6px 10px;
+
+}
+
+/* Heart */
+
+.wishlist-btn{
+
+    top:14px;
+    right:14px;
+
+    width:34px;
+    height:34px;
+
+    font-size:16px;
+
+}
+
+/* Text */
+
+.product-info{
+
+    margin-top:16px;
+
+}
+
+.product-category{
+
+    font-size:.62rem;
+
+    letter-spacing:1px;
+
+}
+
+.product-info h3{
+
+    font-size:1rem;
+
+    margin-bottom:8px;
+
+}
+
+.rating{
+
+    font-size:.72rem;
+
+    margin-bottom:12px;
+
+}
+
+/* Price */
+
+.price{
+
+    font-size:1.1rem;
+
+}
+
+.product-bottom small{
+
+    font-size:.65rem;
+
+}
+
+/* Plus */
+
+.plus-btn{
+
+    width:40px;
+    height:40px;
+
+    font-size:22px;
+
+}
+
+}
