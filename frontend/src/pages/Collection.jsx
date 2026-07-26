@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import AnnouncementStrip from "../components/AnnouncementStrip/AnnouncementStrip";
 import Navbar from "../components/Navbar/Navbar";
 import AnnouncementBar from "../components/AnnouncementBar/AnnouncementBar";
-
+import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
+import ProductGrid from "../components/ProductGrid/ProductGrid";
 import "../styles/collection.css";
+import FilterBar from "../components/FilterBar/FilterBar";
 
 export default function Collection() {
   const { slug } = useParams();
@@ -18,7 +20,10 @@ export default function Collection() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoaded(false);
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShowPlayButton(false);
   }, [slug]);
 
@@ -52,8 +57,8 @@ export default function Collection() {
       <AnnouncementStrip />
 
       <section className="collection-page">
+        {/* Hero */}
         <div className="collection-hero">
-          {/* Placeholder image */}
           <img
             className="hero-media"
             src="/images/collection-poster.jpg"
@@ -65,7 +70,6 @@ export default function Collection() {
             }}
           />
 
-          {/* Hero Video */}
           <video
             ref={videoRef}
             className="hero-media"
@@ -99,8 +103,6 @@ export default function Collection() {
 
             <h1>Royal Floral Bedsheets</h1>
 
-           
-
             <div className="collection-badges">
               <span>100% Cotton</span>
               <span>Handcrafted</span>
@@ -108,6 +110,11 @@ export default function Collection() {
             </div>
           </div>
         </div>
+
+        {/* Shop By Category */}
+        <ShopByCategory />
+        <FilterBar />
+        <ProductGrid />
       </section>
     </>
   );

@@ -1,0 +1,276 @@
+/* ===========================
+   PRODUCT GRID
+=========================== */
+
+.product-grid-section {
+  padding: 0 16px 28px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.product-card {
+  position: relative;
+
+  background: #fffdf9;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+
+  transition: all .3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, .10),
+    0 6px 18px rgba(0,0,0,.05);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.product-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 0.82;
+
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform .45s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   BADGE
+=========================== */
+
+.product-badge {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #d7aa46,
+    #b8860b
+  );
+
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .4px;
+
+  z-index: 2;
+}
+
+/* ===========================
+   WISHLIST
+=========================== */
+
+.wishlist-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.96);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.10);
+
+  transition: .25s;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ===========================
+   INFO
+=========================== */
+
+.product-info {
+  padding: 16px;
+}
+
+.product-info h3 {
+  margin: 0;
+
+  color: #2d1b16;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.product-meta {
+  margin-top: 7px;
+
+  color: #6d625c;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+/* ===========================
+   PRICE ROW
+=========================== */
+
+.product-bottom {
+  margin-top: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+   PRICE
+=========================== */
+
+.product-price {
+  color: #5b0f22;
+
+  font-size: 26px;
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+}
+
+/* ===========================
+   ADD BUTTON
+=========================== */
+
+.add-cart-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #d7aa46,
+    #b8860b
+  );
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(212,166,59,.35);
+
+  transition: .25s ease;
+}
+
+.add-cart-btn:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 10px 22px rgba(212,166,59,.45);
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:480px){
+
+.product-grid-section{
+padding:0 14px 24px;
+}
+
+.product-grid{
+gap:14px;
+}
+
+.product-info{
+padding:14px;
+}
+
+.product-info h3{
+font-size:16px;
+}
+
+.product-meta{
+font-size:12px;
+}
+
+.product-price{
+font-size:24px;
+}
+
+.wishlist-btn{
+width:36px;
+height:36px;
+font-size:18px;
+}
+
+.add-cart-btn{
+width:40px;
+height:40px;
+font-size:24px;
+}
+
+}

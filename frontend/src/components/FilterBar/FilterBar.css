@@ -1,0 +1,121 @@
+/* ===========================
+   FILTER BAR
+=========================== */
+
+.filter-section {
+  padding: 0px 16px 14px;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 8px 10px;
+
+  background: linear-gradient(
+    180deg,
+    #fffdfb 0%,
+    #fdf6f2 100%
+  );
+
+  border: 1px solid rgba(200, 155, 60, 0.12);
+
+  border-radius: 16px;
+
+  box-shadow: 0 6px 18px rgba(91, 15, 34, 0.05);
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.filter-btn,
+.sort-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: #fff;
+  border: none;
+
+  padding: 9px 14px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #5b0f22;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover,
+.sort-btn:hover {
+  background: #5b0f22;
+  color: #fff;
+}
+
+.filter-btn:active,
+.sort-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===========================
+   PRODUCT COUNT
+=========================== */
+
+.product-count {
+  flex: 1;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #5b0f22;
+}
+
+/* ===========================
+   ICONS
+=========================== */
+
+.filter-icon {
+  font-size: 13px;
+}
+
+.sort-arrow {
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 480px) {
+  .filter-section {
+    padding: 2px 12px 12px;
+  }
+
+  .filter-bar {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .filter-btn,
+  .sort-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .product-count {
+    font-size: 14px;
+  }
+}
