@@ -41,8 +41,6 @@ function AIRoomPreview() {
   const handleTouchMove = (e) => {
     if (!dragging) return;
 
-    e.preventDefault();
-
     updateSlider(e.touches[0].clientX);
   };
 
@@ -64,17 +62,13 @@ function AIRoomPreview() {
       <div className="ai-room-card">
         {/* LEFT */}
         <div className="ai-left">
-          <div className="ai-badge">
-            NEW & EXCLUSIVE
-          </div>
+          <div className="ai-badge">NEW & EXCLUSIVE</div>
 
-          <h2 className="ai-title">
-            AI Room Preview ✨
-          </h2>
+          <h2 className="ai-title">AI Room Preview ✨</h2>
 
           <p className="ai-subtitle">
-            See how our premium Jaipuri collections look
-            inside your own bedroom before placing an order.
+            See how our premium Jaipuri collections look inside your own bedroom
+            before placing an order.
           </p>
 
           {/* Steps */}
@@ -102,13 +96,9 @@ function AIRoomPreview() {
             </div>
           </div>
 
-          <button className="ai-btn">
-            TRY IN MY ROOM ✨
-          </button>
+          <button className="ai-btn">TRY IN MY ROOM ✨</button>
 
-          <small className="ai-note">
-            It's quick, easy & magical ✨
-          </small>
+          <small className="ai-note">It's quick, easy & magical ✨</small>
         </div>
 
         {/* RIGHT */}
@@ -122,13 +112,9 @@ function AIRoomPreview() {
           onTouchMove={handleTouchMove}
           onTouchEnd={stopDragging}
         >
-          <div className="preview-tag left-tag">
-            Your Room
-          </div>
+          <div className="preview-tag left-tag">Your Room</div>
 
-          <div className="preview-tag right-tag">
-            AI Preview
-          </div>
+          <div className="preview-tag right-tag">AI Preview</div>
 
           {/* BEFORE IMAGE */}
 

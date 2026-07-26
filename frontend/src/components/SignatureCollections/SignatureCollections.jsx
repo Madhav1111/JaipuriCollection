@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import "./SignatureCollections.css";
 
 function SignatureCollections() {
   return (
     <section className="signature-section">
-
       {/* Heading */}
       <div className="signature-wrap">
         <div className="signature-title">
@@ -14,28 +14,21 @@ function SignatureCollections() {
 
       {/* Cards Container */}
       <div className="cards-wrapper">
-
         <div className="collection-grid">
+          <Link to="/collection/bedsheets" className="collection-link">
+            <div className="collection-card">
+              <img src="/images/bedsheet.jpg" alt="Royal Floral Bedsheets" />
 
-          {/* Bedsheets */}
-          <div className="collection-card">
-            <img
-              src="/images/bedsheet.jpg"
-              alt="Royal Floral Bedsheets"
-            />
-
-            <div className="card-overlay">
-              <h3>Royal Florals Bedsheets</h3>
-              <span>Explore Collection →</span>
+              <div className="card-overlay">
+                <h3>Royal Florals Bedsheets</h3>
+                <span>Explore Collection →</span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Suits */}
           <div className="collection-card">
-            <img
-              src="/images/suits.jpg"
-              alt="Festive Grace Suits"
-            />
+            <img src="/images/suits.jpg" alt="Festive Grace Suits" />
 
             <div className="card-overlay">
               <h3>Festive Grace Suits</h3>
@@ -45,10 +38,7 @@ function SignatureCollections() {
 
           {/* Sarees */}
           <div className="collection-card">
-            <img
-              src="/images/saree.jpg"
-              alt="Timeless Elegance Sarees"
-            />
+            <img src="/images/saree.jpg" alt="Timeless Elegance Sarees" />
 
             <div className="card-overlay">
               <h3>Timeless Elegance Sarees</h3>
@@ -58,21 +48,15 @@ function SignatureCollections() {
 
           {/* Dohars */}
           <div className="collection-card">
-            <img
-              src="/images/dohar.jpg"
-              alt="All Season Comfort Dohars"
-            />
+            <img src="/images/dohar.jpg" alt="All Season Comfort Dohars" />
 
             <div className="card-overlay">
               <h3>All Season Comfort Dohars</h3>
               <span>Explore Collection →</span>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

@@ -1,15 +1,27 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 
 const slides = [
-  { bg: "/images/suits.png" },
-  { bg: "/images/saree.png" },
-  { bg: "/images/bedsheet-banner.jpg" },
+  {
+    bg: "/images/suits.png",
+    link: "/collection/bedsheets",
+  },
+  {
+    bg: "/images/saree.png",
+    link: "/collection/bedsheets",
+  },
+  {
+    bg: "/images/bedsheet-banner.jpg",
+    link: "/collection/bedsheets",
+  },
 ];
 
 function HeroBanner() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -25,7 +37,11 @@ function HeroBanner() {
 
   return (
     <section className="hero-banner">
-      <div className="hero-bg">
+      <div
+        className="hero-bg"
+        onClick={() => navigate(currentSlide.link)}
+        style={{ cursor: "pointer" }}
+      >
         <img
           src={currentSlide.bg}
           alt="Jaipuri Collection"
@@ -38,14 +54,20 @@ function HeroBanner() {
               <button
                 key={index}
                 className={`dot ${index === activeSlide ? "active" : ""}`}
-                onClick={() => setActiveSlide(index)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveSlide(index);
+                }}
               />
             ))}
           </div>
 
           <button
             className="slider-toggle"
-            onClick={() => setIsPlaying((prev) => !prev)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsPlaying((prev) => !prev);
+            }}
           >
             {isPlaying ? "⏸" : "▶️"}
           </button>
