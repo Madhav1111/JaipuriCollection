@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import DiscoverCollections from "../components/DiscoverCollections/DiscoverCollections";
 
 import AnnouncementStrip from "../components/AnnouncementStrip/AnnouncementStrip";
 import Navbar from "../components/Navbar/Navbar";
@@ -115,6 +116,7 @@ export default function Collection() {
         <ShopByCategory />
         <FilterBar />
         <ProductGrid />
+        <DiscoverCollections />
       </section>
     </>
   );
