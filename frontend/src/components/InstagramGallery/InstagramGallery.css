@@ -1,0 +1,285 @@
+/* ==========================================
+   INSTAGRAM REELS SECTION
+========================================== */
+
+.instagram-section {
+  
+
+  padding: 20px 0 30px;
+
+  background: linear-gradient(to bottom, #faf7f2, #fffdfb);
+
+  border-top: 1px solid #ece1d6;
+}
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.instagram-heading {
+  text-align: center;
+
+  padding: 0 18px;
+
+  margin-bottom: 26px;
+}
+
+.heading-line {
+  width: 70px;
+  height: 1px;
+
+  margin: 0 auto 18px;
+
+  background: #d8b36b;
+}
+
+.heading-top {
+  display: block;
+
+  color: #c69a45;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 10px;
+}
+
+.instagram-heading h2 {
+  margin: 0;
+
+  color: #4d1d28;
+
+  font-size: 30px;
+
+  font-family: Georgia, serif;
+
+  font-weight: 600;
+}
+
+.heading-divider {
+  margin: 4px;
+
+  color: #c69a45;
+
+  font-size: 16px;
+}
+
+.instagram-heading p {
+  margin: 0 auto;
+
+  max-width: 240px;
+
+  color: #6f645c;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================
+   REELS SLIDER
+========================================== */
+
+.reels-slider{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding:0 16px 8px;
+    scroll-snap-type:x mandatory;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
+
+.reels-slider::-webkit-scrollbar{
+    display:none;
+}
+
+/* ==========================================
+   REEL CARD
+========================================== */
+
+.reel-card{
+
+    position:relative;
+
+    flex:0 0 185px;
+
+    height:330px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    scroll-snap-align:center;
+
+    background:#ddd;
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.12);
+
+    transition:.35s;
+}
+
+.reel-card.featured{
+
+    flex:0 0 210px;
+
+    height:360px;
+}
+
+.reel-card video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+/* ==========================================
+   DARK OVERLAY
+========================================== */
+
+.gradient{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.75) 0%,
+        rgba(0,0,0,.35) 38%,
+        rgba(0,0,0,0) 68%
+    );
+}
+
+/* ==========================================
+   REELS ICON
+========================================== */
+
+.reels-badge{
+
+    position:absolute;
+
+    top:14px;
+    left:14px;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.92);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+}
+
+/* ==========================================
+   PLAY BUTTON
+========================================== */
+
+.center-play{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:78px;
+    height:78px;
+
+    border-radius:50%;
+
+    border:4px solid white;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(6px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.reel-text{
+
+    position:absolute;
+
+    left:16px;
+    right:16px;
+    bottom:18px;
+
+    color:white;
+}
+
+.reel-text h3{
+
+    margin:0 0 6px;
+
+    font-size:17px;
+
+    line-height:1.25;
+
+    font-weight:700;
+}
+
+.reel-text span{
+
+    font-size:14px;
+
+    opacity:.9;
+}
+/* ==========================================
+   SLIDER DOTS
+========================================== */
+
+.slider-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:22px 0 26px;
+}
+
+.slider-dots span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border:1.5px solid #b68c45;
+    background:transparent;
+    transition:.3s;
+}
+
+.slider-dots .active{
+    background:#5a1f33;
+    border-color:#5a1f33;
+    width:11px;
+    height:11px;
+}
