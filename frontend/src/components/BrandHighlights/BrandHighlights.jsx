@@ -80,18 +80,7 @@ function BrandHighlights() {
 
       {/* FOOTER */}
 
-      <section className="footer-ending">
-
-       
-
-        <p className="footer-copy">
-          ©️ 2026 JAIPURI COLLECTIONS
-        </p>
-
-        
-
-      </section>
-
+   
     </section>
   );
 }

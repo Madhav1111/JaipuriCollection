@@ -7,6 +7,7 @@ import SignatureCollections from "../components/SignatureCollections/SignatureCo
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts";
 import BrandHighlights from "../components/BrandHighlights/BrandHighlights";
 import InstagramGallery from "../components/InstagramGallery/InstagramGallery";
+import Footer from "../components/Footer/Footer";
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
       <TrendingProducts />
       <InstagramGallery />
       <BrandHighlights />
+      <Footer/>
     </>
   );
 }

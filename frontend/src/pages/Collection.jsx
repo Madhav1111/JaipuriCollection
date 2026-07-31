@@ -9,8 +9,8 @@ import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
 import "../styles/collection.css";
 import FilterBar from "../components/FilterBar/FilterBar";
-
 import AIRoomPreview from "../components/AIRoomPreview/AIRoomPreview";
+import Footer from "../components/Footer/Footer";
 
 export default function Collection() {
   const { slug } = useParams();
@@ -120,6 +120,7 @@ export default function Collection() {
         <ProductGrid />
         <DiscoverCollections />
         <AIRoomPreview />
+        <Footer />
       </section>
     </>
   );
