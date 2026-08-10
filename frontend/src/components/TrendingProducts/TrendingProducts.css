@@ -381,7 +381,7 @@
    PRODUCT INFO
 =================================== */
 
-.product-info{
+.product-des-info{
 
     margin-top:22px;
 
@@ -403,7 +403,7 @@
 
 }
 
-.product-info h3{
+.product-des-info h3{
 
     color:#2f1a1f;
 
@@ -688,7 +688,7 @@
 
 /* Text */
 
-.product-info{
+.product-des-info{
 
     margin-top:16px;
 
@@ -702,7 +702,7 @@
 
 }
 
-.product-info h3{
+.product-des-info h3{
 
     font-size:1rem;
 

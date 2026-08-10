@@ -58,7 +58,7 @@ function TrendingProducts() {
 
             </div>
 
-            <div className="product-info">
+            <div className="product-des-info">
 
               <span className="product-category">
                 Premium Bedsheet
@@ -120,7 +120,7 @@ function TrendingProducts() {
 
             </div>
 
-            <div className="product-info">
+            <div className="product-des-info">
 
               <span className="product-category">
                 Premium Suit
@@ -182,7 +182,7 @@ function TrendingProducts() {
 
             </div>
 
-            <div className="product-info">
+            <div className="product-des-info">
 
               <span className="product-category">
                 Designer Saree

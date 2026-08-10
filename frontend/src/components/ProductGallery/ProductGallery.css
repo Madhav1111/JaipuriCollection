@@ -1,0 +1,200 @@
+/* ==========================================
+   PRODUCT GALLERY
+========================================== */
+
+.product-gallery {
+  padding: 0;
+
+  background: #faf7f2;
+}
+
+/* ==========================================
+   MAIN IMAGE
+========================================== */
+
+.gallery-main {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 0 0 28px 28px;
+  width: 100%;
+
+  background: #ffffff;
+
+  box-shadow: none;
+}
+
+.main-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  aspect-ratio: 1/1;
+
+  object-fit: cover;
+}
+
+/* ==========================================
+   BADGE
+========================================== */
+
+.product-badge {
+  position: absolute;
+
+  top: 16px;
+
+  left: 16px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: #7a233b;
+
+  color: #fff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.wishlist-btn,
+
+.wishlist-btn {
+  top: 16px;
+
+  right: 16px;
+}
+
+
+/* ==========================================
+   IMAGE COUNT
+========================================== */
+
+.image-count {
+  position: absolute;
+
+  bottom: 16px;
+
+  right: 16px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  color: #fff;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+/* ==========================================
+   THUMBNAILS
+========================================== */
+
+.thumbnail-row {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 18px;
+
+  overflow-x: auto;
+
+  padding: 14px 16px 0;
+}
+
+.thumbnail-row::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail {
+  flex: 0 0 72px;
+
+  width: 72px;
+
+  height: 72px;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  border: 2px solid transparent;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.thumbnail.active {
+  border-color: #7a233b;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 430px) {
+
+  
+
+  .gallery-main{
+    width: 100%;
+    margin: 0;
+    border-radius: 0 0 22px 22px;
+  }
+
+  .main-image{
+    width: 100%;
+    height: 450px;       /* adjust 420–460px if needed */
+    aspect-ratio: unset;
+    object-fit: cover;
+  }
+
+  .thumbnail-row{
+    padding: 12px 12px 0;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .thumbnail{
+    width: 68px;
+    height: 68px;
+    flex: 0 0 68px;
+    border-radius: 14px;
+  }
+
+  .product-badge{
+    top: 14px;
+    left: 14px;
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+
+  .wishlist-btn{
+    top: 14px;
+    right: 14px;
+  }
+
+  .share-btn{
+    top: 72px;
+    right: 14px;
+  }
+
+  .image-count{
+    bottom: 14px;
+    right: 14px;
+  }
+
+}
