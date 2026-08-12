@@ -546,6 +546,61 @@
   line-height: 1.3;
 }
 
+.purchase-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+  flex: 1;
+
+  height: 48px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.add-to-cart-btn {
+  background: #fffdf9;
+
+  color: #7a233b;
+
+  border: 1px solid #7a233b;
+}
+
+.add-to-cart-btn:hover {
+  background: #f7e7e4;
+}
+
+.buy-now-btn {
+  background: #7a233b;
+
+  color: #fff;
+
+  border: 1px solid #7a233b;
+
+  box-shadow: 0 6px 16px rgba(122, 35, 59, 0.18);
+}
+
+.buy-now-btn:hover {
+  background: #641c31;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 20px rgba(122, 35, 59, 0.25);
+}
+
 
 /* ==========================================
    MOBILE
@@ -748,4 +803,19 @@
     font-size: 12px;
     line-height: 1.2;
   }
+   .purchase-actions {
+    gap: 8px;
+
+    margin-top: 16px;
+  }
+
+  .add-to-cart-btn,
+  .buy-now-btn {
+    height: 46px;
+
+    font-size: 13px;
+
+    border-radius: 11px;
+  }
+
 }

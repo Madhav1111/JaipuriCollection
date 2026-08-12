@@ -1,0 +1,420 @@
+/* ==========================================
+   YOU MAY ALSO LIKE
+========================================== */
+
+.you-may-also-like {
+  padding: 28px 18px 40px;
+  background: #faf7f2;
+}
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.recommendation-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.recommendation-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recommendation-heading > div > span {
+  color: #b88943;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.recommendation-heading h2 {
+  margin: 0;
+
+  color: #4b1f2d;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  font-family: Georgia, serif;
+}
+
+.view-all-btn {
+  border: none;
+  background: transparent;
+
+  padding: 0;
+
+  color: #a8752d;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* ==========================================
+   PRODUCT GRID
+========================================== */
+
+.recommendation-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+/* ==========================================
+   PRODUCT CARD
+========================================== */
+
+.recommendation-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #fffdf9;
+
+  border: 1px solid #e6ddd2;
+
+  border-radius: 16px;
+
+  box-shadow: 0 6px 18px rgba(75, 31, 45, 0.06);
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.recommendation-image-wrap {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: #f2ebe2;
+}
+
+.recommendation-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+.recommendation-card:hover .recommendation-image {
+  transform: scale(1.04);
+}
+
+/* ==========================================
+   WISHLIST
+========================================== */
+
+.recommendation-wishlist {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 253, 249, 0.94);
+
+  color: #7a233b;
+
+  font-size: 21px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   DISCOUNT BADGE
+========================================== */
+
+.recommendation-discount {
+  position: absolute;
+
+  left: 8px;
+  bottom: 8px;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  background: #7a233b;
+
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================
+   PRODUCT INFO
+========================================== */
+
+.recommendation-info {
+  padding: 11px;
+}
+
+.recommendation-info h3 {
+  margin: 0;
+
+  color: #4b1f2d;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  min-height: 37px;
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   RATING
+========================================== */
+
+.recommendation-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 7px;
+}
+
+.stars {
+  color: #c99a3d;
+
+  font-size: 9px;
+
+  letter-spacing: -1px;
+}
+
+.rating-number {
+  color: #4b1f2d;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.review-count {
+  color: #9b9188;
+
+  font-size: 9px;
+}
+
+/* ==========================================
+   PRICE
+========================================== */
+
+.recommendation-price {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 9px;
+}
+
+.current-price {
+  color: #4b1f2d;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.original-price {
+  color: #9b9188;
+
+  font-size: 11px;
+
+  text-decoration: line-through;
+}
+
+/* ==========================================
+   ADD TO CART
+========================================== */
+
+.recommendation-cart-btn {
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 10px 8px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #7a233b;
+
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.recommendation-cart-btn:hover {
+  background: #5f172b;
+}
+
+.view-more-btn {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 13px 18px;
+
+  border: 1px solid #7a233b;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+  color: #7a233b;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.view-more-btn:hover {
+  background: #7a233b;
+
+  color: #fff;
+}
+
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 430px) {
+
+  .you-may-also-like {
+    padding: 20px 16px 32px;
+  }
+
+  .recommendation-heading {
+    margin-bottom: 14px;
+  }
+
+  .recommendation-heading > div > span {
+    font-size: 12px;
+  }
+
+  .recommendation-heading h2 {
+    font-size: 21px;
+  }
+
+  .view-all-btn {
+    font-size: 11px;
+  }
+
+  .recommendation-grid {
+    gap: 10px;
+  }
+
+  .recommendation-card {
+    border-radius: 12px;
+  }
+
+  .recommendation-wishlist {
+    width: 28px;
+    height: 28px;
+
+    font-size: 19px;
+  }
+
+  .recommendation-discount {
+    left: 6px;
+    bottom: 6px;
+
+    padding: 4px 6px;
+
+    font-size: 8px;
+  }
+
+  .recommendation-info {
+    padding: 9px;
+  }
+
+  .recommendation-info h3 {
+    font-size: 19px;
+
+    min-height: 34px;
+  }
+
+  .recommendation-rating {
+    margin-top: 5px;
+  }
+
+  .current-price {
+    font-size: 18px;
+  }
+
+  .original-price {
+    font-size: 12px;
+  }
+
+  .recommendation-cart-btn {
+    margin-top: 10px;
+
+    padding: 9px 6px;
+
+    font-size: 12px;
+  }
+   .view-more-btn {
+    margin-top: 16px;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+  }
+
+}

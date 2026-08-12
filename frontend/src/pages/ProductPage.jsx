@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import ProductGallery from "../components/ProductGallery/ProductGallery";
 import ProductInfo from "../components/ProductInfo/ProductInfo";
+import YouMayAlsoLike from "../components/YouMayAlsoLike/YouMayAlsoLike";
+import CustomerReviews from "../components/CustomerReviews/CustomerReviews";
 
 import "../styles/productpage.css";
 
@@ -16,22 +18,8 @@ function ProductPage() {
         <ProductGallery />
 
         <ProductInfo />
-
-        {/* Feature Cards */}
-
-        {/* Size Selector */}
-
-        {/* Quantity Selector */}
-
-        {/* Product Features */}
-
-        {/* What's Included */}
-
-        {/* Fabric Details */}
-
-        {/* Care Instructions */}
-
-        {/* Related Products */}
+        <YouMayAlsoLike />
+        <CustomerReviews />
       </main>
 
       <Footer />

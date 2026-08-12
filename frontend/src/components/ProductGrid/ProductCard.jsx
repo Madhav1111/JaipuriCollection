@@ -1,8 +1,42 @@
+import { useNavigate } from "react-router-dom";
 import "./ProductGrid.css";
 
 function ProductCard({ product }) {
+  const navigate = useNavigate();
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+
+    const existingCart =
+      JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = existingCart.find(
+      (item) => item.id === product.id
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      existingCart.push({
+        ...product,
+        quantity: 1,
+        selectedSize: "Double",
+      });
+    }
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(existingCart)
+    );
+
+    alert("Added to cart!");
+  };
+
   return (
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={() => navigate("/product")}
+    >
 
       {/* Image */}
       <div className="product-image-wrapper">
@@ -19,7 +53,10 @@ function ProductCard({ product }) {
         </span>
 
         {/* Wishlist */}
-        <button className="wishlist-btn">
+        <button
+          className="wishlist-btn"
+          onClick={(e) => e.stopPropagation()}
+        >
           ♡
         </button>
 
@@ -40,7 +77,10 @@ function ProductCard({ product }) {
             ₹{product.price}
           </div>
 
-          <button className="add-cart-btn">
+          <button
+            className="add-cart-btn"
+            onClick={handleAddToCart}
+          >
             +
           </button>
 
