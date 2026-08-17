@@ -15,10 +15,14 @@ function SignatureCollections() {
       {/* Cards Container */}
       <div className="cards-wrapper">
         <div className="collection-grid">
+
+          {/* Bedsheets */}
           <Link to="/collection/bedsheets" className="collection-link">
             <div className="collection-card">
-              <img src="/images/bedsheet.jpg" alt="Royal Floral Bedsheets" />
-
+              <img
+                src="/images/bedsheet.jpg"
+                alt="Royal Floral Bedsheets"
+              />
               <div className="card-overlay">
                 <h3>Royal Florals Bedsheets</h3>
                 <span>Explore Collection →</span>
@@ -27,34 +31,47 @@ function SignatureCollections() {
           </Link>
 
           {/* Suits */}
-          <div className="collection-card">
-            <img src="/images/suits.jpg" alt="Festive Grace Suits" />
-
-            <div className="card-overlay">
-              <h3>Festive Grace Suits</h3>
-              <span>Explore Collection →</span>
+          <Link to="/collection/suits" className="collection-link">
+            <div className="collection-card">
+              <img
+                src="/images/suits.jpg"
+                alt="Festive Grace Suits"
+              />
+              <div className="card-overlay">
+                <h3>Festive Grace Suits</h3>
+                <span>Explore Collection →</span>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Lehnghas */}
-          <div className="collection-card">
-            <img src="/images/saree.jpg" alt="Timeless Elegance Lehnghas" />
-
-            <div className="card-overlay">
-              <h3>Timeless Elegance Lehnghas</h3>
-              <span>Explore Collection →</span>
+          {/* Lehengas */}
+          <Link to="/collection/lehengas" className="collection-link">
+            <div className="collection-card">
+              <img
+                src="/images/saree.jpg"
+                alt="Timeless Elegance Lehengas"
+              />
+              <div className="card-overlay">
+                <h3>Timeless Elegance Lehengas</h3>
+                <span>Explore Collection →</span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Dohars */}
-          <div className="collection-card">
-            <img src="/images/dohar.jpg" alt="All Season Comfort Dohars" />
-
-            <div className="card-overlay">
-              <h3>All Season Comfort Dohars</h3>
-              <span>Explore Collection →</span>
+          <Link to="/collection/dohars" className="collection-link">
+            <div className="collection-card">
+              <img
+                src="/images/dohar.jpg"
+                alt="All Season Comfort Dohars"
+              />
+              <div className="card-overlay">
+                <h3>All Season Comfort Dohars</h3>
+                <span>Explore Collection →</span>
+              </div>
             </div>
-          </div>
+          </Link>
+
         </div>
       </div>
     </section>

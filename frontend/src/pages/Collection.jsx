@@ -1,19 +1,48 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import DiscoverCollections from "../components/DiscoverCollections/DiscoverCollections";
 
+import DiscoverCollections from "../components/DiscoverCollections/DiscoverCollections";
 import AnnouncementStrip from "../components/AnnouncementStrip/AnnouncementStrip";
 import Navbar from "../components/Navbar/Navbar";
 import AnnouncementBar from "../components/AnnouncementBar/AnnouncementBar";
 import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
-import "../styles/collection.css";
 import FilterBar from "../components/FilterBar/FilterBar";
 import AIRoomPreview from "../components/AIRoomPreview/AIRoomPreview";
 import Footer from "../components/Footer/Footer";
 
+import "../styles/collection.css";
+
 export default function Collection() {
   const { slug } = useParams();
+
+  const collectionData = {
+    bedsheets: {
+      title: "Royal Floral Bedsheets",
+      label: "JAIPURI COLLECTIONS",
+      badges: ["100% Cotton", "Handcrafted", "Premium Quality"],
+    },
+
+    suits: {
+      title: "Festive Grace Suits",
+      label: "JAIPURI COLLECTIONS",
+      badges: ["Elegant Designs", "Premium Fabric", "Festive Wear"],
+    },
+
+    lehengas: {
+      title: "Timeless Elegance Lehengas",
+      label: "JAIPURI COLLECTIONS",
+      badges: ["Luxury Collection", "Handcrafted", "Premium Quality"],
+    },
+
+    dohars: {
+      title: "All Season Comfort Dohars",
+      label: "JAIPURI COLLECTIONS",
+      badges: ["Soft Cotton", "Lightweight", "Premium Comfort"],
+    },
+  };
+
+  const currentCollection = collectionData[slug] || collectionData.bedsheets;
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
@@ -60,12 +89,13 @@ export default function Collection() {
       <AnnouncementStrip />
 
       <section className="collection-page">
-        {/* Hero */}
+        {/* HERO */}
+
         <div className="collection-hero">
           <img
             className="hero-media"
             src="/images/collection-poster.jpg"
-            alt="Jaipuri Collection"
+            alt={currentCollection.title}
             style={{
               opacity: isLoaded ? 0 : 1,
               position: "absolute",
@@ -102,24 +132,40 @@ export default function Collection() {
           <div className="overlay" />
 
           <div className="hero-content">
-            <p className="collection-label">JAIPURI COLLECTIONS</p>
+            <p className="collection-label">{currentCollection.label}</p>
 
-            <h1>Royal Floral Bedsheets</h1>
+            <h1>{currentCollection.title}</h1>
 
             <div className="collection-badges">
-              <span>100% Cotton</span>
-              <span>Handcrafted</span>
-              <span>Premium Quality</span>
+              {currentCollection.badges.map((badge) => (
+                <span key={badge}>{badge}</span>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Shop By Category */}
+        {/* SHOP BY CATEGORY */}
+
         <ShopByCategory />
+
+        {/* FILTER */}
+
         <FilterBar />
-        <ProductGrid />
+
+        {/* PRODUCTS */}
+
+        <ProductGrid category={slug} />
+
+        {/* MORE COLLECTIONS */}
+
         <DiscoverCollections />
-        <AIRoomPreview />
+
+        {/* AI PREVIEW */}
+
+        {slug === "bedsheets" && <AIRoomPreview />}
+
+        {/* FOOTER */}
+
         <Footer />
       </section>
     </>
