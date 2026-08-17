@@ -10,9 +10,9 @@ const collections = [
   },
   {
     id: 2,
-    title: "SAREES",
-    subtitle: "Timeless Jaipur Sarees in Pure Fabrics",
-    image: "/images/discover/sarees.jpg",
+    title: "Lehnghas",
+    subtitle: "Timeless Jaipur Lehnghas in Pure Fabrics",
+    image: "/images/discover/Lehnghas.jpg",
     icon: "🥻",
   },
   {

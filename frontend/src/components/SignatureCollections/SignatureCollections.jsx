@@ -36,12 +36,12 @@ function SignatureCollections() {
             </div>
           </div>
 
-          {/* Sarees */}
+          {/* Lehnghas */}
           <div className="collection-card">
-            <img src="/images/saree.jpg" alt="Timeless Elegance Sarees" />
+            <img src="/images/saree.jpg" alt="Timeless Elegance Lehnghas" />
 
             <div className="card-overlay">
-              <h3>Timeless Elegance Sarees</h3>
+              <h3>Timeless Elegance Lehnghas</h3>
               <span>Explore Collection →</span>
             </div>
           </div>

@@ -178,7 +178,7 @@
 
   color: #8b8178;
 
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* ==========================================
@@ -356,7 +356,7 @@
 .checkout-product-info > span {
   color: #b88943;
 
-  font-size: 9px;
+  font-size: 13px;
 
   font-weight: 700;
 
@@ -380,7 +380,7 @@
 
   color: #81756c;
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .checkout-product-info strong {
@@ -404,19 +404,19 @@
 
   color: #6a5b53;
 
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .checkout-summary-row strong {
   color: #4b1f2d;
 
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .checkout-summary-row .free {
   color: #5b8b65;
 
-  font-size: 12px;
+  font-size: 18px;
 }
 
 /* ==========================================
@@ -448,7 +448,7 @@
 
   font-family: Georgia, serif;
 
-  font-size: 18px;
+  font-size: 20px;
 
   font-weight: 700;
 }
@@ -458,7 +458,7 @@
 
   font-family: Georgia, serif;
 
-  font-size: 25px;
+  font-size: 26px;
 }
 
 /* ==========================================
@@ -520,13 +520,13 @@
   }
 
   .checkout-header p {
-    font-size: 10px;
+    font-size: 19px;
 
     letter-spacing: 2.5px;
   }
 
   .checkout-header h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .checkout-section {
@@ -542,18 +542,18 @@
   }
 
   .checkout-section-heading h2 {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .checkout-field label {
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .checkout-field input,
   .checkout-field textarea {
     padding: 11px 12px;
 
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .payment-option {
@@ -567,7 +567,7 @@
 
     height: 33px;
 
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .payment-option strong {
@@ -575,7 +575,7 @@
   }
 
   .payment-option p {
-    font-size: 9px;
+    font-size: 13px;
   }
 
   .checkout-summary {
@@ -585,7 +585,7 @@
   }
 
   .checkout-summary > h2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .checkout-product-image {
@@ -595,16 +595,16 @@
   }
 
   .checkout-product-info h3 {
-    font-size: 14px;
+    font-size: 19px;
   }
 
   .checkout-total strong {
-    font-size: 23px;
+    font-size: 25px;
   }
 
   .place-order-btn {
     padding: 14px;
 
-    font-size: 14px;
+    font-size: 16px;
   }
 }

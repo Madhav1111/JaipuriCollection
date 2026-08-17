@@ -185,7 +185,7 @@ function TrendingProducts() {
             <div className="product-des-info">
 
               <span className="product-category">
-                Designer Saree
+                Designer Lehnghas
               </span>
 
               <h3>
