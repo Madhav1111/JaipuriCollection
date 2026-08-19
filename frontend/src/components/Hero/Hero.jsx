@@ -48,26 +48,30 @@ function HeroBanner() {
           className="hero-image"
         />
 
-        <div className="slider-ui">
+        <div
+          className="slider-ui"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="slider-dots">
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`dot ${index === activeSlide ? "active" : ""}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveSlide(index);
-                }}
-              />
+                className="dot-hitbox"
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <span
+                  className={`dot ${
+                    index === activeSlide ? "active" : ""
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
           <button
             className="slider-toggle"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsPlaying((prev) => !prev);
-            }}
+            onClick={() => setIsPlaying((prev) => !prev)}
           >
             {isPlaying ? "⏸" : "▶️"}
           </button>
