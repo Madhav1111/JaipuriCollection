@@ -51,7 +51,7 @@ function TrendingProducts() {
             <div className="product-image-wrap">
 
               <img
-                src="/images/trending1.jpg"
+                src="/images/after.webp"
                 alt="Bedsheet"
                 className="product-image"
               />
@@ -113,7 +113,7 @@ function TrendingProducts() {
             <div className="product-image-wrap">
 
               <img
-                src="/images/trending2.jpg"
+                src="/images/after.webp"
                 alt="Suit"
                 className="product-image"
               />
@@ -175,7 +175,7 @@ function TrendingProducts() {
             <div className="product-image-wrap">
 
               <img
-                src="/images/trending3.jpg"
+                src="/images/after.webp"
                 alt="Saree"
                 className="product-image"
               />

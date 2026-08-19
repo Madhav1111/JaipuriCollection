@@ -8,7 +8,7 @@ function YouMayAlsoLike() {
     {
       id: 1,
       name: "Blue Floral Bedsheet Set",
-      image: "/images/trending1.jpg",
+      image: "/images/after.webp  ",
       rating: "4.8",
       reviews: "124",
       price: "₹1,999",
@@ -18,7 +18,7 @@ function YouMayAlsoLike() {
     {
       id: 2,
       name: "Royal Pink Bedsheet Set",
-      image: "/images/trending2.jpg",
+      image: "/images/after.webp  ",
       rating: "4.9",
       reviews: "86",
       price: "₹2,299",
@@ -28,7 +28,7 @@ function YouMayAlsoLike() {
     {
       id: 3,
       name: "Classic Jaipuri Floral Set",
-      image: "/images/trending3.jpg",
+      image: "/images/after.webp  ",
       rating: "4.7",
       reviews: "95",
       price: "₹1,799",
@@ -38,7 +38,7 @@ function YouMayAlsoLike() {
     {
       id: 4,
       name: "Royal Heritage Bedsheet",
-      image: "/images/bedsheet1.jpg",
+      image: "/images/after.webp  ",
       rating: "4.9",
       reviews: "156",
       price: "₹2,499",
@@ -48,7 +48,7 @@ function YouMayAlsoLike() {
     {
       id: 5,
       name: "Elegant Jaipur Garden Set",
-      image: "/images/trending4.jpg",
+      image: "/images/after.webp  ",
       rating: "4.8",
       reviews: "112",
       price: "₹2,199",
@@ -58,7 +58,7 @@ function YouMayAlsoLike() {
     {
       id: 6,
       name: "Traditional Block Print Set",
-      image: "/images/trending5.jpg",
+      image: "/images/after.webp  ",
       rating: "4.7",
       reviews: "98",
       price: "₹1,899",
@@ -68,7 +68,7 @@ function YouMayAlsoLike() {
     {
       id: 7,
       name: "Luxury Rose Bedsheet Set",
-      image: "/images/trending6.jpg",
+      image: "/images/after.webp  ",
       rating: "4.9",
       reviews: "174",
       price: "₹2,599",
@@ -78,7 +78,7 @@ function YouMayAlsoLike() {
     {
       id: 8,
       name: "Classic Royal Cotton Set",
-      image: "/images/trending7.jpg",
+      image: "/images/after.webp  ",
       rating: "4.8",
       reviews: "143",
       price: "₹2,099",
