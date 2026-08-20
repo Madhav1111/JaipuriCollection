@@ -1,6 +1,15 @@
 import "./TrendingProducts.css";
-
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/useCart";
 function TrendingProducts() {
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e, product) => {
+    e.stopPropagation();
+    addToCart(product, "Double");
+  };
+
   return (
     <section className="trending-section">
 
@@ -38,13 +47,19 @@ function TrendingProducts() {
               CARD 1
           =============================== */}
 
-          <article className="luxury-card">
+          <article
+            className="luxury-card"
+            onClick={() => navigate("/product")}
+          >
 
             <span className="product-badge">
               ✦ BEST SELLER
             </span>
 
-            <button className="wishlist-btn">
+            <button
+              className="wishlist-btn"
+              onClick={(e) => e.stopPropagation()}
+            >
               ♡
             </button>
 
@@ -86,7 +101,20 @@ function TrendingProducts() {
 
                 </div>
 
-                <button className="plus-btn">
+                <button
+                  className="plus-btn"
+                  onClick={(e) =>
+                    handleAddToCart(e, {
+                      id: 101,
+                      image: "/images/after.webp",
+                      badge: "BEST SELLER",
+                      title: "Heritage Bloom",
+                      fabric: "100% Cotton",
+                      threadCount: "300 TC",
+                      price: "2499",
+                    })
+                  }
+                >
                   +
                 </button>
 
@@ -100,13 +128,19 @@ function TrendingProducts() {
               CARD 2
           =============================== */}
 
-          <article className="luxury-card">
+          <article
+            className="luxury-card"
+            onClick={() => navigate("/product")}
+          >
 
             <span className="product-badge">
               ✦ LIMITED
             </span>
 
-            <button className="wishlist-btn">
+            <button
+              className="wishlist-btn"
+              onClick={(e) => e.stopPropagation()}
+            >
               ♡
             </button>
 
@@ -148,7 +182,20 @@ function TrendingProducts() {
 
                 </div>
 
-                <button className="plus-btn">
+                <button
+                  className="plus-btn"
+                  onClick={(e) =>
+                    handleAddToCart(e, {
+                      id: 102,
+                      image: "/images/after.webp",
+                      badge: "LIMITED",
+                      title: "Blush Garden",
+                      fabric: "100% Cotton",
+                      threadCount: "300 TC",
+                      price: "2999",
+                    })
+                  }
+                >
                   +
                 </button>
 
@@ -162,13 +209,19 @@ function TrendingProducts() {
               CARD 3
           =============================== */}
 
-          <article className="luxury-card">
+          <article
+            className="luxury-card"
+            onClick={() => navigate("/product")}
+          >
 
             <span className="product-badge">
               ✦ NEW
             </span>
 
-            <button className="wishlist-btn">
+            <button
+              className="wishlist-btn"
+              onClick={(e) => e.stopPropagation()}
+            >
               ♡
             </button>
 
@@ -176,7 +229,7 @@ function TrendingProducts() {
 
               <img
                 src="/images/after.webp"
-                alt="Saree"
+                alt="Lehenga"
                 className="product-image"
               />
 
@@ -185,7 +238,7 @@ function TrendingProducts() {
             <div className="product-des-info">
 
               <span className="product-category">
-                Designer Lehnghas
+                Designer Lehengas
               </span>
 
               <h3>
@@ -210,7 +263,20 @@ function TrendingProducts() {
 
                 </div>
 
-                <button className="plus-btn">
+                <button
+                  className="plus-btn"
+                  onClick={(e) =>
+                    handleAddToCart(e, {
+                      id: 103,
+                      image: "/images/after.webp",
+                      badge: "NEW",
+                      title: "Royal Raani",
+                      fabric: "Premium Fabric",
+                      threadCount: "Designer",
+                      price: "3499",
+                    })
+                  }
+                >
                   +
                 </button>
 
