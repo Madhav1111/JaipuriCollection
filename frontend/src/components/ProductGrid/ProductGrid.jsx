@@ -18,7 +18,7 @@ function ProductGrid({ category }) {
         title: "Royal Floral Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2499,
       },
       {
         id: 2,
@@ -27,7 +27,7 @@ function ProductGrid({ category }) {
         title: "Heritage Blue Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,599",
+        price: 2599,
       },
       {
         id: 3,
@@ -36,7 +36,7 @@ function ProductGrid({ category }) {
         title: "Vintage Lotus Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,399",
+        price: 2400,
       },
       {
         id: 4,
@@ -45,7 +45,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
       {
         id: 5,
@@ -54,7 +54,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
       {
         id: 6,
@@ -63,7 +63,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
       {
         id: 7,
@@ -81,7 +81,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
       {
         id: 9,
@@ -90,7 +90,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
       {
         id: 10,
@@ -99,7 +99,7 @@ function ProductGrid({ category }) {
         title: "Blush Bloom Bedsheet Set",
         fabric: "100% Cotton",
         threadCount: "300 TC",
-        price: "2,499",
+        price: 2500,
       },
     ],
 
@@ -111,7 +111,7 @@ function ProductGrid({ category }) {
         title: "Festive Grace Suit",
         fabric: "Cotton",
         threadCount: "Printed",
-        price: "1,999",
+        price: 2000,
       },
       {
         id: 6,
@@ -120,7 +120,7 @@ function ProductGrid({ category }) {
         title: "Royal Anarkali Suit",
         fabric: "Cotton",
         threadCount: "Hand Block",
-        price: "2,499",
+        price: 2500,
       },
     ],
 
@@ -132,7 +132,7 @@ function ProductGrid({ category }) {
         title: "Bridal Heritage Lehenga",
         fabric: "Silk Blend",
         threadCount: "Embroidery",
-        price: "7,999",
+        price: 5500,
       },
       {
         id: 8,
@@ -141,7 +141,7 @@ function ProductGrid({ category }) {
         title: "Royal Wedding Lehenga",
         fabric: "Silk",
         threadCount: "Premium",
-        price: "8,499",
+        price: 2500,
       },
     ],
 
@@ -153,7 +153,7 @@ function ProductGrid({ category }) {
         title: "Premium Cotton Dohar",
         fabric: "Muslin Cotton",
         threadCount: "3 Layer",
-        price: "1,799",
+        price: 2500,
       },
       {
         id: 10,
@@ -162,7 +162,7 @@ function ProductGrid({ category }) {
         title: "Floral Summer Dohar",
         fabric: "Cotton",
         threadCount: "Lightweight",
-        price: "1,999",
+        price: 2500,
       },
     ],
   };
@@ -194,66 +194,60 @@ function ProductGrid({ category }) {
   // RESET WHEN CATEGORY CHANGES
   // ===========================
 
- 
-useEffect(() => {
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  setCurrentPage(1);
-  setVisibleCount(2);
-}, [category]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentPage(1);
+    setVisibleCount(2);
+  }, [category]);
 
   // ===========================
   // SCROLL REVEAL
   // ===========================
 
- useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (
-        entry.isIntersecting &&
-        visibleCount < pageProducts.length
-      ) {
-        setVisibleCount((prev) =>
-          Math.min(prev + LOAD_BATCH, pageProducts.length)
-        );
-      }
-    },
-    {
-      threshold: 0.2,
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && visibleCount < pageProducts.length) {
+          setVisibleCount((prev) =>
+            Math.min(prev + LOAD_BATCH, pageProducts.length),
+          );
+        }
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    const target = loadMoreRef.current;
+
+    if (target) {
+      observer.observe(target);
     }
-  );
 
-  const target = loadMoreRef.current;
-
-  if (target) {
-    observer.observe(target);
-  }
-
-  return () => {
-    if (target) observer.unobserve(target);
-  };
-}, [visibleCount, pageProducts, LOAD_BATCH]);
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, [visibleCount, pageProducts, LOAD_BATCH]);
   // ===========================
   // PAGE CHANGE
   // ===========================
 
- const changePage = (page) => {
-  if (page < 1 || page > totalPages) return;
+  const changePage = (page) => {
+    if (page < 1 || page > totalPages) return;
 
-  setCurrentPage(page);
-  setVisibleCount(2);
+    setCurrentPage(page);
+    setVisibleCount(2);
 
-  setTimeout(() => {
-    const y =
-      gridRef.current.getBoundingClientRect().top +
-      window.pageYOffset -
-      250; // adjust this value if needed
+    setTimeout(() => {
+      const y =
+        gridRef.current.getBoundingClientRect().top + window.pageYOffset - 250; // adjust this value if needed
 
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
-  }, 100);
-};
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }, 100);
+  };
 
   // ===========================
   // JSX
@@ -269,12 +263,12 @@ useEffect(() => {
         ))}
       </div>
       <div
-  ref={loadMoreRef}
-  style={{
-    height: "20px",
-    width: "100%",
-  }}
-/>
+        ref={loadMoreRef}
+        style={{
+          height: "20px",
+          width: "100%",
+        }}
+      />
 
       {visibleCount === pageProducts.length && totalPages > 1 && (
         <div className="pagination">

@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { useCart } from "../context/useCart";
 import "../styles/checkout.css";
 
 function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("upi");
+
+  const { cart } = useCart();
+
+  const subtotal = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <main className="checkout-page">
@@ -186,36 +194,51 @@ function Checkout() {
 
         <h2>Your Order</h2>
 
-        <div className="checkout-product">
+        {cart.map((item) => (
 
-          <div className="checkout-product-image">
-            <img
-              src="/images/royal-floral.jpg"
-              alt="Royal Floral Bedsheet Set"
-            />
+          <div
+            className="checkout-product"
+            key={`${item.id}-${item.selectedSize}`}
+          >
+
+            <div className="checkout-product-image">
+              <img
+                src={item.image}
+                alt={item.title}
+              />
+            </div>
+
+            <div className="checkout-product-info">
+
+              <span>ROYAL COLLECTION</span>
+
+              <h3>{item.title}</h3>
+
+              <p>
+                {item.selectedSize} × {item.quantity}
+              </p>
+
+              <strong>
+                ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+              </strong>
+
+            </div>
+
           </div>
 
-          <div className="checkout-product-info">
-
-            <span>ROYAL COLLECTION</span>
-
-            <h3>Royal Floral Bedsheet Set</h3>
-
-            <p>Double × 1</p>
-
-            <strong>₹2,499</strong>
-
-          </div>
-
-        </div>
+        ))}
 
         <div className="checkout-summary-row">
           <span>Subtotal</span>
-          <strong>₹2,499</strong>
+
+          <strong>
+            ₹{subtotal.toLocaleString("en-IN")}
+          </strong>
         </div>
 
         <div className="checkout-summary-row">
           <span>Delivery</span>
+
           <strong className="free">
             FREE
           </strong>
@@ -223,9 +246,12 @@ function Checkout() {
 
         <div className="checkout-divider"></div>
 
-        <div className="checkout-total">
+        <div className="checkout-summary-row">
           <span>Total</span>
-          <strong>₹2,499</strong>
+
+          <strong>
+            ₹{subtotal.toLocaleString("en-IN")}
+          </strong>
         </div>
 
         <button className="place-order-btn">
