@@ -35,37 +35,37 @@ function ProductGallery() {
       <div className="thumbnail-row">
 
         <img
-          src="/images/products/royal-floral/thumb1.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail active"
         />
 
         <img
-          src="/images/products/royal-floral/thumb2.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail"
         />
 
         <img
-          src="/images/products/royal-floral/thumb3.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail"
         />
 
         <img
-          src="/images/products/royal-floral/thumb4.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail"
         />
 
         <img
-          src="/images/products/royal-floral/thumb5.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail"
         />
 
         <img
-          src="/images/products/royal-floral/thumb6.jpg"
+          src="/images/bedsheet.jpg"
           alt=""
           className="thumbnail"
         />

@@ -4,32 +4,32 @@ const categories = [
   {
     id: 1,
     name: "All Bedsheets",
-    image: "/images/categories/all-bedsheets.jpg",
+    image: "/images/bedsheet.jpg",
   },
   {
     id: 2,
     name: "Floral Prints",
-    image: "/images/categories/floral.jpg",
+    image: "/images/bedsheet.jpg",
   },
   {
     id: 3,
     name: "Jaipuri Prints",
-    image: "/images/categories/jaipuri.jpg",
+    image: "/images/bedsheet.jpg",
   },
   {
     id: 4,
     name: "Premium Cotton",
-    image: "/images/categories/premium.jpg",
+    image: "/images/bedsheet.jpg",
   },
   {
     id: 5,
     name: "King Size",
-    image: "/images/categories/king.jpg",
+    image: "/images/bedsheet.jpg",
   },
   {
     id: 6,
     name: "New Arrivals",
-    image: "/images/categories/new.jpg",
+    image: "/images/bedsheet.jpg",
   },
 ];
 
