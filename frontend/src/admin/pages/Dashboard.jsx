@@ -1,110 +1,121 @@
+import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 
-const Dashboard = () => {
+function Dashboard() {
   return (
     <div className="dashboard">
 
-      <aside className="sidebar">
+      <div className="dashboard-overlay">
 
-        <div className="logo">
-          <h2>Jaipuri</h2>
-          <span>Collections</span>
-        </div>
+        <div className="dashboard-header">
+          <div>
+            <h1>Jaipuri Collections</h1>
+            <p>Luxury Admin Dashboard</p>
+          </div>
 
-        <ul>
-          <li className="active">Dashboard</li>
-          <li>Products</li>
-          <li>Collections</li>
-          <li>Orders</li>
-          <li>Customers</li>
-          <li>Reviews</li>
-          <li>Settings</li>
-        </ul>
-
-      </aside>
-
-      <main className="content">
-
-        <div className="topbar">
-          <h1>Dashboard</h1>
-
-          <button className="logout">
+          <button className="logout-btn">
             Logout
           </button>
         </div>
 
-        <div className="cards">
+        <div className="welcome-card">
+          <h2>Welcome Back, Admin 👋</h2>
+          <p>
+            Manage your luxury collections, featured products,
+            categories and website from one elegant dashboard.
+          </p>
+        </div>
 
-          <div className="card">
+        <div className="stats-grid">
+
+          <div className="stat-card">
             <h3>Total Products</h3>
-            <h2>128</h2>
+            <h1>0</h1>
           </div>
 
-          <div className="card">
-            <h3>Total Orders</h3>
-            <h2>46</h2>
+          <div className="stat-card">
+            <h3>Categories</h3>
+            <h1>5</h1>
           </div>
 
-          <div className="card">
-            <h3>Revenue</h3>
-            <h2>₹2,45,000</h2>
+          <div className="stat-card">
+            <h3>Trending Items</h3>
+            <h1>0</h1>
           </div>
 
-          <div className="card">
+          <div className="stat-card">
+            <h3>Website Status</h3>
+            <h1>Live</h1>
+          </div>
+
+        </div>
+
+        <h2 className="section-title">
+          Manage Collections
+        </h2>
+
+        <div className="module-grid">
+
+          <Link to="/admin/products" className="module-card">
+            <div className="icon">🛏️</div>
+            <h3>Products</h3>
+            <p>
+              Add, edit and remove bedsheets,
+              comforters, dohars and more.
+            </p>
+          </Link>
+
+          <Link to="/admin/categories" className="module-card">
+            <div className="icon">🪷</div>
+            <h3>Categories</h3>
+            <p>
+              Create categories like Bedsheets,
+              Lehengas, Sarees etc.
+            </p>
+          </Link>
+
+          <Link to="/admin/trending" className="module-card">
+            <div className="icon">🔥</div>
+            <h3>Trending</h3>
+            <p>
+              Select products that appear
+              on the homepage.
+            </p>
+          </Link>
+
+          <Link to="/admin/orders" className="module-card">
+            <div className="icon">📦</div>
+            <h3>Orders</h3>
+            <p>
+              View customer orders and
+              manage deliveries.
+            </p>
+          </Link>
+
+          <Link to="/admin/users" className="module-card">
+            <div className="icon">👑</div>
             <h3>Customers</h3>
-            <h2>319</h2>
-          </div>
+            <p>
+              Manage registered customers
+              and their information.
+            </p>
+          </Link>
+
+          <Link to="/admin/settings" className="module-card">
+            <div className="icon">⚙️</div>
+            <h3>Settings</h3>
+            <p>
+              Website configuration and
+              admin preferences.
+            </p>
+          </Link>
 
         </div>
 
-        <div className="recent-orders">
-
-          <h2>Recent Orders</h2>
-
-          <table>
-
-            <thead>
-              <tr>
-                <th>Order</th>
-                <th>Customer</th>
-                <th>Total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>#1001</td>
-                <td>Madhav</td>
-                <td>₹4,250</td>
-                <td><span className="status delivered">Delivered</span></td>
-              </tr>
-
-              <tr>
-                <td>#1002</td>
-                <td>Riya</td>
-                <td>₹2,800</td>
-                <td><span className="status pending">Pending</span></td>
-              </tr>
-
-              <tr>
-                <td>#1003</td>
-                <td>Neha</td>
-                <td>₹6,100</td>
-                <td><span className="status shipped">Shipped</span></td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </main>
+      </div>
 
     </div>
   );
-};
+}
 
 export default Dashboard;

@@ -8,7 +8,7 @@ import Checkout from "./pages/Checkout";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
-
+import Products from "./admin/pages/Products";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );
