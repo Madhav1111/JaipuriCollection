@@ -11,28 +11,31 @@ const EditProduct = () => {
 
   const [product, setProduct] = useState(null);
 
-  // Fetch single product
-  const fetchProduct = async () => {
-    try {
-      const { data } = await axios.get(
-        `http://localhost:9000/api/products/${id}`,
-      );
-
-      setProduct(data.product);
-    } catch (error) {
-      console.log(error);
-      alert("Unable to load product.");
-    }
-  };
-
+  // Load product when page opens
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    fetchProduct();
-  }, []);
+    const loadProduct = async () => {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:9000/api/products/${id}`
+        );
+
+        setProduct(data.product);
+      } catch (error) {
+        console.log(error);
+        alert("Unable to load product.");
+      }
+    };
+
+    loadProduct();
+  }, [id]);
+
   // Update product
   const handleUpdate = async (formData) => {
     try {
-      await axios.put(`http://localhost:9000/api/products/${id}`, formData);
+      await axios.put(
+        `http://localhost:9000/api/products/${id}`,
+        formData
+      );
 
       alert("Product Updated Successfully!");
       navigate("/admin/products");
@@ -45,7 +48,9 @@ const EditProduct = () => {
   if (!product) {
     return (
       <div className="add-product-page">
-        <h2 style={{ color: "white", textAlign: "center" }}>Loading...</h2>
+        <h2 style={{ color: "white", textAlign: "center" }}>
+          Loading...
+        </h2>
       </div>
     );
   }
