@@ -1,26 +1,59 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/products.css";
+import { useNavigate } from "react-router-dom";
+const Products = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  // Fetch products from backend
+  const fetchProducts = async () => {
+    setLoading(true);
 
-function Products() {
-  const products = [
-    {
-      id: 1,
-      name: "Royal Floral Bedsheet",
-      category: "Bedsheets",
-      price: 2499,
-      image: "https://via.placeholder.com/300x250",
-      trending: true,
-      featured: true,
-    },
-    {
-      id: 2,
-      name: "Heritage Blue",
-      category: "Bedsheets",
-      price: 1999,
-      image: "https://via.placeholder.com/300x250",
-      trending: false,
-      featured: true,
-    },
-  ];
+    try {
+      const response = await axios.get("http://localhost:9000/api/products");
+
+      setProducts(response.data.products || []);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?",
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://localhost:9000/api/products/${id}`);
+
+      alert("Product deleted successfully!");
+
+      fetchProducts();
+    } catch (error) {
+      console.log(error);
+      alert("Unable to delete product.");
+    }
+  };
+
+  // Run once when page loads
+  useEffect(() => {
+    const loadProducts = async () => {
+      await fetchProducts();
+    };
+
+    loadProducts();
+  }, []);
+
+  // Search filter
+  const filteredProducts = products.filter((product) =>
+    product.name?.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <div className="products-page">
@@ -30,48 +63,80 @@ function Products() {
           <p>Manage your Jaipuri Collections catalogue</p>
         </div>
 
-        <button className="add-btn">+ Add Product</button>
+        <button
+          className="add-btn"
+          onClick={() => navigate("/admin/products/add")}
+        >
+          + Add Product
+        </button>
       </div>
-      <div className="products-topbar">
-        <input
-          type="text"
-          placeholder="🔍 Search products..."
-          className="search-box"
-        />
-      </div>
-      <div className="products-grid">
-        {products.map((product) => (
-          <div className="product-card" key={product.id}>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-            />
 
-            <div className="product-content">
-              <h2>{product.name}</h2>
+      <input
+        type="text"
+        className="search-box"
+        placeholder="Search products..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-              <p>{product.category}</p>
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div className="products-grid">
+          {filteredProducts.length === 0 ? (
+            <h3>No products found.</h3>
+          ) : (
+            filteredProducts.map((product) => (
+              <div className="product-card" key={product._id}>
+                <img
+                  src={
+                    product.images && product.images.length > 0
+                      ? product.images[0]
+                      : "https://via.placeholder.com/300x300?text=No+Image"
+                  }
+                  alt={product.name}
+                />
 
-              <h3>₹ {product.price}</h3>
+                <h3>{product.name}</h3>
 
-              <div className="badge-container">
-                {product.trending && <span className="badge">🔥 Trending</span>}
+                <p className="category">{product.category}</p>
 
-                {product.featured && <span className="badge">⭐ Featured</span>}
+                <h2>₹{product.price}</h2>
+
+                <div className="badges">
+                  {product.trending && (
+                    <span className="badge trending">🔥 Trending</span>
+                  )}
+
+                  {product.featured && (
+                    <span className="badge featured">⭐ Featured</span>
+                  )}
+                </div>
+
+                <div className="buttons">
+                  <button
+                    className="edit-btn"
+                    onClick={() =>
+                      navigate(`/admin/products/edit/${product._id}`)
+                    }
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(product._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-
-              <div className="product-actions">
-                <button className="edit-btn">Edit</button>
-
-                <button className="delete-btn">Delete</button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Products;

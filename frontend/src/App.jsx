@@ -9,6 +9,11 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
 import Products from "./admin/pages/Products";
+import AddProduct from "./admin/pages/AddProduct";
+import EditProduct from "./admin/pages/EditProduct";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +27,8 @@ function App() {
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/products" element={<Products />} />
+        <Route path="/admin/products/add" element={<AddProduct />} />
+        <Route path="/admin/products/edit/:id" element={<EditProduct />} />
       </Routes>
     </BrowserRouter>
   );
