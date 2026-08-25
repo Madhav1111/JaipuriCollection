@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }) => {
+const ProductForm = ({
+  onSubmit,
+  initialData = {},
+  buttonText = "Save Product",
+}) => {
   const [formData, setFormData] = useState({
     name: initialData.name || "",
     category: initialData.category || "",
@@ -11,8 +15,8 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
     trending: initialData.trending || false,
     bestSeller: initialData.bestSeller || false,
     newArrival: initialData.newArrival || false,
+    images: [],
   });
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -24,7 +28,7 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(onSubmit);
     if (onSubmit) {
       onSubmit(formData);
     }
@@ -32,7 +36,6 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
-
       <div className="form-group">
         <label>Product Name</label>
         <input
@@ -45,7 +48,6 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
       </div>
 
       <div className="form-row">
-
         <div className="form-group">
           <label>Category</label>
           <select
@@ -81,7 +83,6 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
             onChange={handleChange}
           />
         </div>
-
       </div>
 
       <div className="form-group">
@@ -96,11 +97,19 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
 
       <div className="form-group">
         <label>Product Images</label>
-        <input type="file" multiple />
+        <input
+          type="file"
+          multiple
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              images: [...e.target.files],
+            })
+          }
+        />
       </div>
 
       <div className="checkbox-grid">
-
         <label>
           <input
             type="checkbox"
@@ -140,13 +149,11 @@ const ProductForm = ({ onSubmit, initialData = {}, buttonText = "Save Product" }
           />
           New Arrival
         </label>
-
       </div>
 
       <button className="save-btn" type="submit">
         {buttonText}
       </button>
-
     </form>
   );
 };

@@ -41,15 +41,27 @@ const getProduct = async (req, res) => {
 };
 
 // CREATE product
+// CREATE product
 const createProduct = async (req, res) => {
   try {
-    const product = await Product.create(req.body);
+
+    const imagePaths = req.files.map(
+      (file) => `/uploads/${file.filename}`
+    );
+
+    const product = await Product.create({
+      ...req.body,
+      images: imagePaths,
+    });
 
     res.status(201).json({
       success: true,
       product,
     });
+
   } catch (error) {
+    console.error(error);
+
     res.status(500).json({
       success: false,
       message: error.message,

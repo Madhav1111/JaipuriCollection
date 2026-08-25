@@ -8,26 +8,42 @@ function ProductCard({ product }) {
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    console.log(product);
     addToCart(product, "Double");
-
     alert("Added to cart!");
   };
 
+  // Badge
+  let badge = "";
+
+  if (product.bestSeller) {
+    badge = "BEST SELLER";
+  } else if (product.newArrival) {
+    badge = "NEW ARRIVAL";
+  } else if (product.featured) {
+    badge = "FEATURED";
+  } else if (product.trending) {
+    badge = "TRENDING";
+  }
+
   return (
-    <div className="product-card" onClick={() => navigate("/product")}>
+    <div
+      className="product-card"
+      onClick={() => navigate(`/product/${product._id}`)}
+    >
       {/* Image */}
       <div className="product-image-wrapper">
         <img
-          src={product.image}
-          alt={product.title}
+          src={
+            product.images?.length > 0
+              ? `http://localhost:9000${product.images[0]}`
+              : "/images/placeholder.jpg"
+          }
+          alt={product.name}
           className="product-image"
         />
 
-        {/* Badge */}
-        <span className="product-badge">{product.badge}</span>
+        {badge && <span className="product-badge">{badge}</span>}
 
-        {/* Wishlist */}
         <button className="wishlist-btn" onClick={(e) => e.stopPropagation()}>
           ♡
         </button>
@@ -35,15 +51,16 @@ function ProductCard({ product }) {
 
       {/* Details */}
       <div className="product-info">
-        <h3>{product.title}</h3>
+        <h3>{product.name}</h3>
 
         <p className="product-meta">
-          {product.fabric} • {product.threadCount}
+          {product.fabric || "Premium Quality"}
+          {product.threadCount && ` • ${product.threadCount}`}
         </p>
 
         <div className="product-bottom">
           <div className="product-price">
-            ₹{product.price.toLocaleString("en-IN")}
+            ₹{Number(product.price).toLocaleString("en-IN")}
           </div>
 
           <button className="add-cart-btn" onClick={handleAddToCart}>

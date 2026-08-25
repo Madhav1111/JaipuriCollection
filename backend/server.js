@@ -4,12 +4,14 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 const productRoutes = require("./routes/productRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const path = require("path");
 
 dotenv.config();
 
 connectDB();
 
 const app = express();
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors());
 
 app.use(express.json());

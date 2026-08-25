@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const upload = require("../middleware/upload"); // 👈 Add this
+
 const {
   getProducts,
   getProduct,
@@ -16,7 +18,11 @@ router.get("/", getProducts);
 router.get("/:id", getProduct);
 
 // CREATE product
-router.post("/", createProduct);
+router.post(
+  "/",
+  upload.array("images", 6), // 👈 Accept up to 6 images
+  createProduct
+);
 
 // UPDATE product
 router.put("/:id", updateProduct);

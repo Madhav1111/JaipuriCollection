@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
+import axios from "axios";
 
 function ProductGrid({ category }) {
   const loadMoreRef = useRef(null);
@@ -9,166 +10,12 @@ function ProductGrid({ category }) {
 
   // ===========================
   // PRODUCTS
-  const products = {
-    bedsheets: [
-      {
-        id: 1,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Royal Floral Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2499,
-      },
-      {
-        id: 2,
-        image: "/images/after.webp",
-        badge: "NEW ARRIVAL",
-        title: "Heritage Blue Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2599,
-      },
-      {
-        id: 3,
-        image: "/images/after.webp",
-        badge: "LIMITED",
-        title: "Vintage Lotus Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2400,
-      },
-      {
-        id: 4,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-      {
-        id: 5,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-      {
-        id: 6,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-      {
-        id: 7,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: "2,499",
-      },
-      {
-        id: 8,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-      {
-        id: 9,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-      {
-        id: 10,
-        image: "/images/after.webp",
-        badge: "BEST SELLER",
-        title: "Blush Bloom Bedsheet Set",
-        fabric: "100% Cotton",
-        threadCount: "300 TC",
-        price: 2500,
-      },
-    ],
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    suits: [
-      {
-        id: 5,
-        image: "/images/products/suit1.jpg",
-        badge: "NEW",
-        title: "Festive Grace Suit",
-        fabric: "Cotton",
-        threadCount: "Printed",
-        price: 2000,
-      },
-      {
-        id: 6,
-        image: "/images/products/suit2.jpg",
-        badge: "PREMIUM",
-        title: "Royal Anarkali Suit",
-        fabric: "Cotton",
-        threadCount: "Hand Block",
-        price: 2500,
-      },
-    ],
-
-    lehengas: [
-      {
-        id: 7,
-        image: "/images/products/lehenga1.jpg",
-        badge: "LUXURY",
-        title: "Bridal Heritage Lehenga",
-        fabric: "Silk Blend",
-        threadCount: "Embroidery",
-        price: 5500,
-      },
-      {
-        id: 8,
-        image: "/images/products/lehenga2.jpg",
-        badge: "BEST SELLER",
-        title: "Royal Wedding Lehenga",
-        fabric: "Silk",
-        threadCount: "Premium",
-        price: 2500,
-      },
-    ],
-
-    dohars: [
-      {
-        id: 9,
-        image: "/images/products/dohar1.jpg",
-        badge: "SOFT",
-        title: "Premium Cotton Dohar",
-        fabric: "Muslin Cotton",
-        threadCount: "3 Layer",
-        price: 2500,
-      },
-      {
-        id: 10,
-        image: "/images/products/dohar2.jpg",
-        badge: "NEW",
-        title: "Floral Summer Dohar",
-        fabric: "Cotton",
-        threadCount: "Lightweight",
-        price: 2500,
-      },
-    ],
-  };
-
-  const displayProducts = products[category] || products.bedsheets;
-
+  const displayProducts = products.filter(
+    (product) => product.category?.toLowerCase() === category?.toLowerCase(),
+  );
   // ===========================
   // STATE
   // ===========================
@@ -177,6 +24,22 @@ function ProductGrid({ category }) {
   const [visibleCount, setVisibleCount] = useState(2);
 
   const gridRef = useRef(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:9000/api/products");
+
+        setProducts(data.products);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   // ===========================
   // CURRENT PAGE PRODUCTS
@@ -249,6 +112,9 @@ function ProductGrid({ category }) {
     }, 100);
   };
 
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
   // ===========================
   // JSX
   // ===========================
@@ -257,7 +123,7 @@ function ProductGrid({ category }) {
     <section className="product-grid-section" ref={gridRef}>
       <div className="product-grid">
         {pageProducts.slice(0, visibleCount).map((product) => (
-          <div key={product.id} className="product-card-wrapper">
+          <div key={product._id} className="product-card-wrapper">
             <ProductCard product={product} />
           </div>
         ))}

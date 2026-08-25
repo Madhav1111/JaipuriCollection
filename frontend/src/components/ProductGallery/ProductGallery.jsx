@@ -1,77 +1,63 @@
+import { useState } from "react";
 import "./ProductGallery.css";
 
-function ProductGallery() {
+function ProductGallery({ product }) {
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  // Badge
+  let badge = "";
+
+  if (product.bestSeller) {
+    badge = "👑 BEST SELLER";
+  } else if (product.newArrival) {
+    badge = "✨ NEW ARRIVAL";
+  } else if (product.featured) {
+    badge = "⭐ FEATURED";
+  } else if (product.trending) {
+    badge = "🔥 TRENDING";
+  }
+
   return (
     <section className="product-gallery">
-
       {/* Main Product Image */}
 
       <div className="gallery-main">
-
         <img
-          src="images/bedsheet.jpg"
-          alt="Royal Floral Bedsheet"
+          src={`http://localhost:9000${product.images[selectedImage]}`}
+          alt={product.name}
           className="main-image"
         />
 
-        <div className="product-badge">
-          👑 BEST SELLER
-        </div>
+        {badge && (
+          <div className="product-badge">
+            {badge}
+          </div>
+        )}
 
         <button className="wishlist-btn">
           ♡
         </button>
 
-        
-
         <div className="image-count">
-          1 / 6
+          {selectedImage + 1} / {product.images.length}
         </div>
-
       </div>
 
       {/* Thumbnail Images */}
 
       <div className="thumbnail-row">
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail active"
-        />
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail"
-        />
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail"
-        />
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail"
-        />
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail"
-        />
-
-        <img
-          src="/images/bedsheet.jpg"
-          alt=""
-          className="thumbnail"
-        />
-
+        {product.images.map((image, index) => (
+          <img
+            key={index}
+            src={`http://localhost:9000${image}`}
+            alt={product.name}
+            className={`thumbnail ${
+              selectedImage === index ? "active" : ""
+            }`}
+            onClick={() => setSelectedImage(index)}
+          />
+        ))}
       </div>
-
     </section>
   );
 }
