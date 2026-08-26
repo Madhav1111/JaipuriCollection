@@ -1,9 +1,32 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./TrendingProducts.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
+
 function TrendingProducts() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchTrendingProducts = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:9000/api/products"
+        );
+
+        setProducts(
+          data.products.filter((product) => product.trending)
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchTrendingProducts();
+  }, []);
 
   const handleAddToCart = (e, product) => {
     e.stopPropagation();
@@ -43,248 +66,77 @@ function TrendingProducts() {
 
         <div className="trending-carousel">
 
-          {/* ===============================
-              CARD 1
-          =============================== */}
-
-          <article
-            className="luxury-card"
-            onClick={() => navigate("/product")}
-          >
-
-            <span className="product-badge">
-              ✦ BEST SELLER
-            </span>
-
-            <button
-              className="wishlist-btn"
-              onClick={(e) => e.stopPropagation()}
+          {products.map((product) => (
+            <article
+              className="luxury-card"
+              key={product._id}
+              onClick={() => navigate(`/product/${product._id}`)}
             >
-              ♡
-            </button>
 
-            <div className="product-image-wrap">
-
-              <img
-                src="/images/after.webp"
-                alt="Bedsheet"
-                className="product-image"
-              />
-
-            </div>
-
-            <div className="product-des-info">
-
-              <span className="product-category">
-                Premium Bedsheet
+              <span className="product-badge">
+                ✦ {product.bestSeller ? "BEST SELLER" : "TRENDING"}
               </span>
 
-              <h3>
-                Heritage Bloom
-              </h3>
+              <button
+                className="wishlist-btn"
+                onClick={(e) => e.stopPropagation()}
+              >
+                ♡
+              </button>
 
-              <div className="rating">
-                ★★★★★ <span>4.9</span>
+              <div className="product-image-wrap">
+
+                <img
+                  src={
+                    product.images?.length
+                      ? `http://localhost:9000${product.images[0]}`
+                      : "/images/after.webp"
+                  }
+                  alt={product.name}
+                  className="product-image"
+                />
+
               </div>
 
-              <div className="product-bottom">
+              <div className="product-des-info">
 
-                <div>
+                <span className="product-category">
+                  {product.category}
+                </span>
 
-                  <p className="price">
-                    ₹2,499
-                  </p>
+                <h3>{product.name}</h3>
 
-                  <small>
-                    Handcrafted in Jaipur
-                  </small>
+                <div className="rating">
+                  ★★★★★ <span>{product.rating || 5}</span>
+                </div>
+
+                <div className="product-bottom">
+
+                  <div>
+
+                    <p className="price">
+                      ₹{Number(product.price).toLocaleString("en-IN")}
+                    </p>
+
+                    <small>
+                      {product.fabric || "Handcrafted in Jaipur"}
+                    </small>
+
+                  </div>
+
+                  <button
+                    className="plus-btn"
+                    onClick={(e) => handleAddToCart(e, product)}
+                  >
+                    +
+                  </button>
 
                 </div>
 
-                <button
-                  className="plus-btn"
-                  onClick={(e) =>
-                    handleAddToCart(e, {
-                      id: 101,
-                      image: "/images/after.webp",
-                      badge: "BEST SELLER",
-                      title: "Heritage Bloom",
-                      fabric: "100% Cotton",
-                      threadCount: "300 TC",
-                      price: "2499",
-                    })
-                  }
-                >
-                  +
-                </button>
-
               </div>
 
-            </div>
-
-          </article>
-
-          {/* ===============================
-              CARD 2
-          =============================== */}
-
-          <article
-            className="luxury-card"
-            onClick={() => navigate("/product")}
-          >
-
-            <span className="product-badge">
-              ✦ LIMITED
-            </span>
-
-            <button
-              className="wishlist-btn"
-              onClick={(e) => e.stopPropagation()}
-            >
-              ♡
-            </button>
-
-            <div className="product-image-wrap">
-
-              <img
-                src="/images/after.webp"
-                alt="Suit"
-                className="product-image"
-              />
-
-            </div>
-
-            <div className="product-des-info">
-
-              <span className="product-category">
-                Premium Suit
-              </span>
-
-              <h3>
-                Blush Garden
-              </h3>
-
-              <div className="rating">
-                ★★★★★ <span>4.8</span>
-              </div>
-
-              <div className="product-bottom">
-
-                <div>
-
-                  <p className="price">
-                    ₹2,999
-                  </p>
-
-                  <small>
-                    Soft Cotton Fabric
-                  </small>
-
-                </div>
-
-                <button
-                  className="plus-btn"
-                  onClick={(e) =>
-                    handleAddToCart(e, {
-                      id: 102,
-                      image: "/images/after.webp",
-                      badge: "LIMITED",
-                      title: "Blush Garden",
-                      fabric: "100% Cotton",
-                      threadCount: "300 TC",
-                      price: "2999",
-                    })
-                  }
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
-
-          {/* ===============================
-              CARD 3
-          =============================== */}
-
-          <article
-            className="luxury-card"
-            onClick={() => navigate("/product")}
-          >
-
-            <span className="product-badge">
-              ✦ NEW
-            </span>
-
-            <button
-              className="wishlist-btn"
-              onClick={(e) => e.stopPropagation()}
-            >
-              ♡
-            </button>
-
-            <div className="product-image-wrap">
-
-              <img
-                src="/images/after.webp"
-                alt="Lehenga"
-                className="product-image"
-              />
-
-            </div>
-
-            <div className="product-des-info">
-
-              <span className="product-category">
-                Designer Lehengas
-              </span>
-
-              <h3>
-                Royal Raani
-              </h3>
-
-              <div className="rating">
-                ★★★★★ <span>5.0</span>
-              </div>
-
-              <div className="product-bottom">
-
-                <div>
-
-                  <p className="price">
-                    ₹3,499
-                  </p>
-
-                  <small>
-                    Limited Collection
-                  </small>
-
-                </div>
-
-                <button
-                  className="plus-btn"
-                  onClick={(e) =>
-                    handleAddToCart(e, {
-                      id: 103,
-                      image: "/images/after.webp",
-                      badge: "NEW",
-                      title: "Royal Raani",
-                      fabric: "Premium Fabric",
-                      threadCount: "Designer",
-                      price: "3499",
-                    })
-                  }
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
+            </article>
+          ))}
 
         </div>
 

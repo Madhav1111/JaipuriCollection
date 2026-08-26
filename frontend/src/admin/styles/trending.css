@@ -1,0 +1,167 @@
+/* ===========================
+   ADMIN TRENDING PAGE
+=========================== */
+
+.admin-trending-page {
+  min-height: 100vh;
+  padding: 45px;
+  background: linear-gradient(135deg, #07101d, #0d1b2f, #132742);
+  color: #fff;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.admin-trending-header {
+  margin-bottom: 40px;
+}
+
+.admin-trending-header h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #f7d27b;
+  margin-bottom: 8px;
+}
+
+.admin-trending-header p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.admin-trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.admin-trending-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: 0.35s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.admin-trending-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.admin-trending-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.admin-card-content {
+  padding: 22px;
+}
+
+.admin-card-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: white;
+  line-height: 1.4;
+}
+
+.admin-price {
+  font-size: 26px;
+  color: #f7d27b;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.admin-toggle-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.admin-toggle-btn:hover {
+  transform: scale(1.03);
+}
+
+.admin-toggle-btn.active {
+  background: linear-gradient(135deg, #14c56f, #0ea85b);
+  color: white;
+  box-shadow: 0 10px 25px rgba(20, 197, 111, 0.35);
+}
+
+.admin-toggle-btn:not(.active):hover {
+  background: rgba(247, 210, 123, 0.15);
+  color: #f7d27b;
+}
+
+/* ===========================
+   EMPTY
+=========================== */
+
+.admin-empty-products {
+  text-align: center;
+  padding: 100px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+  .admin-trending-page {
+    padding: 20px;
+  }
+
+  .admin-trending-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-trending-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .admin-trending-card img {
+    height: 240px;
+  }
+
+  .admin-card-content {
+    padding: 18px;
+  }
+
+  .admin-price {
+    font-size: 22px;
+  }
+}

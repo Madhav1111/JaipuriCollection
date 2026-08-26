@@ -44,10 +44,7 @@ const getProduct = async (req, res) => {
 // CREATE product
 const createProduct = async (req, res) => {
   try {
-
-    const imagePaths = req.files.map(
-      (file) => `/uploads/${file.filename}`
-    );
+    const imagePaths = req.files.map((file) => `/uploads/${file.filename}`);
 
     const product = await Product.create({
       ...req.body,
@@ -58,7 +55,6 @@ const createProduct = async (req, res) => {
       success: true,
       product,
     });
-
   } catch (error) {
     console.error(error);
 
@@ -72,9 +68,14 @@ const createProduct = async (req, res) => {
 // UPDATE Product
 const updateProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
 
     if (!product) {
       return res.status(404).json({

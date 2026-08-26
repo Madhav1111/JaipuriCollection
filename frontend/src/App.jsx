@@ -11,8 +11,7 @@ import Dashboard from "./admin/pages/Dashboard";
 import Products from "./admin/pages/Products";
 import AddProduct from "./admin/pages/AddProduct";
 import EditProduct from "./admin/pages/EditProduct";
-
-
+import Trending from "./admin/pages/Trending";
 
 function App() {
   return (
@@ -29,6 +28,7 @@ function App() {
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/products/add" element={<AddProduct />} />
         <Route path="/admin/products/edit/:id" element={<EditProduct />} />
+        <Route path="/admin/trending" element={<Trending />} />
       </Routes>
     </BrowserRouter>
   );
