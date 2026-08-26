@@ -16,6 +16,7 @@ function ProductPage() {
   const { id } = useParams();
 
   const [product, setProduct] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -26,12 +27,17 @@ function ProductPage() {
 
         setProduct(data.product);
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setError("Product not found.");
       }
     };
 
     fetchProduct();
   }, [id]);
+
+  if (error) {
+    return <h2 style={{ textAlign: "center" }}>{error}</h2>;
+  }
 
   if (!product) {
     return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
@@ -47,7 +53,7 @@ function ProductPage() {
 
         <ProductInfo product={product} />
 
-        <YouMayAlsoLike />
+        <YouMayAlsoLike product={product} />
 
         <CustomerReviews />
       </main>

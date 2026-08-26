@@ -23,37 +23,34 @@ function ProductGallery({ product }) {
 
       <div className="gallery-main">
         <img
-          src={`http://localhost:9000${product.images[selectedImage]}`}
+          src={
+            product.images?.length
+              ? `http://localhost:9000${product.images[selectedImage]}`
+              : "/images/placeholder.jpg"
+          }
           alt={product.name}
           className="main-image"
         />
 
-        {badge && (
-          <div className="product-badge">
-            {badge}
+        {badge && <div className="product-badge">{badge}</div>}
+
+        <button className="wishlist-btn">♡</button>
+        {product.images?.length > 0 && (
+          <div className="image-count">
+            {selectedImage + 1} / {product.images.length}
           </div>
         )}
-
-        <button className="wishlist-btn">
-          ♡
-        </button>
-
-        <div className="image-count">
-          {selectedImage + 1} / {product.images.length}
-        </div>
       </div>
 
       {/* Thumbnail Images */}
 
       <div className="thumbnail-row">
-        {product.images.map((image, index) => (
+        {product.images?.map((image, index) => (
           <img
             key={index}
             src={`http://localhost:9000${image}`}
             alt={product.name}
-            className={`thumbnail ${
-              selectedImage === index ? "active" : ""
-            }`}
+            className={`thumbnail ${selectedImage === index ? "active" : ""}`}
             onClick={() => setSelectedImage(index)}
           />
         ))}

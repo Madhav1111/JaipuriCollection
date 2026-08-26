@@ -9,7 +9,7 @@ function Cart() {
 
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
-    0,
+    0
   );
 
   return (
@@ -34,31 +34,50 @@ function Cart() {
 
             <p>Discover something beautiful from our Jaipuri collection.</p>
 
-            <button className="checkout-btn" onClick={() => navigate("/")}>
+            <button
+              className="checkout-btn"
+              onClick={() => navigate("/")}
+            >
               Continue Shopping
             </button>
           </div>
         ) : (
           cart.map((item) => (
-            <div className="cart-item" key={`${item.id}-${item.selectedSize}`}>
+            <div
+              className="cart-item"
+              key={`${item._id}-${item.selectedSize}`}
+            >
               <div className="cart-item-image">
-                <img src={item.image} alt={item.title} />
+                <img
+                  src={
+                    item.images?.length
+                      ? `http://localhost:9000${item.images[0]}`
+                      : "/images/placeholder.jpg"
+                  }
+                  alt={item.name}
+                />
               </div>
 
               <div className="cart-item-details">
-                <span className="cart-collection">ROYAL COLLECTION</span>
+                <span className="cart-collection">
+                  {item.collection || "JAIPURI COLLECTION"}
+                </span>
 
-                <h2>{item.title}</h2>
+                <h2>{item.name}</h2>
 
                 <p className="cart-size">
-                  Size: <strong>{item.selectedSize || "Double"}</strong>
+                  Size: <strong>{item.selectedSize || "Standard"}</strong>
                 </p>
 
                 <div className="cart-price">
-                  <strong>₹{item.price.toLocaleString("en-IN")}</strong>
+                  <strong>
+                    ₹{Number(item.price).toLocaleString("en-IN")}
+                  </strong>
 
-                  {item.oldPrice && (
-                    <span>₹{item.oldPrice.toLocaleString("en-IN")}</span>
+                  {item.originalPrice && (
+                    <span>
+                      ₹{Number(item.originalPrice).toLocaleString("en-IN")}
+                    </span>
                   )}
                 </div>
 
@@ -66,20 +85,28 @@ function Cart() {
 
                 <div className="cart-bottom">
                   <div className="cart-quantity">
-                    <button onClick={() => updateQuantity(item.id, -1)}>
+                    <button
+                      onClick={() =>
+                        updateQuantity(item._id, -1)
+                      }
+                    >
                       −
                     </button>
 
                     <span>{item.quantity}</span>
 
-                    <button onClick={() => updateQuantity(item.id, 1)}>
+                    <button
+                      onClick={() =>
+                        updateQuantity(item._id, 1)
+                      }
+                    >
                       +
                     </button>
                   </div>
 
                   <button
                     className="remove-cart-item"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removeItem(item._id)}
                   >
                     Remove
                   </button>
@@ -101,7 +128,9 @@ function Cart() {
           <div className="summary-row">
             <span>Subtotal</span>
 
-            <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
+            <strong>
+              ₹{subtotal.toLocaleString("en-IN")}
+            </strong>
           </div>
 
           <div className="summary-row">
@@ -115,7 +144,9 @@ function Cart() {
           <div className="summary-total">
             <span>Total</span>
 
-            <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
+            <strong>
+              ₹{subtotal.toLocaleString("en-IN")}
+            </strong>
           </div>
 
           <button
@@ -125,7 +156,9 @@ function Cart() {
             Proceed to Checkout →
           </button>
 
-          <p className="secure-checkout">🔒 Secure & Safe Checkout</p>
+          <p className="secure-checkout">
+            🔒 Secure & Safe Checkout
+          </p>
         </section>
       )}
     </main>

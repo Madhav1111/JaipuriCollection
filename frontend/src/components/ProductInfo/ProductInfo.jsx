@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductInfo.css";
+import { useCart } from "../../context/useCart";
 
 function ProductInfo({ product }) {
   const navigate = useNavigate();
 
   const [selectedSize, setSelectedSize] = useState("Double");
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const sizes =
     product.size && product.size.length > 0 ? product.size : ["Standard"];
@@ -15,40 +17,10 @@ function ProductInfo({ product }) {
      ADD TO CART
   ================================= */
 
-  const handleAddToCart = () => {
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const existingItem = existingCart.find(
-      (item) => item._id === product._id && item.selectedSize === selectedSize,
-    );
-
-    let updatedCart;
-
-    if (existingItem) {
-      updatedCart = existingCart.map((item) =>
-        item.id === product.id && item.selectedSize === selectedSize
-          ? {
-              ...item,
-              quantity: item.quantity + quantity,
-            }
-          : item,
-      );
-    } else {
-      updatedCart = [
-        ...existingCart,
-        {
-          ...product,
-          selectedSize,
-          quantity,
-        },
-      ];
-    }
-
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    navigate("/cart");
-  };
-
+const handleAddToCart = () => {
+  addToCart(product, selectedSize, quantity);
+  navigate("/cart");
+};
   /* ================================
      BUY NOW
   ================================= */
