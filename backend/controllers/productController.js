@@ -41,14 +41,13 @@ const getProduct = async (req, res) => {
 };
 
 // CREATE product
-// CREATE product
 const createProduct = async (req, res) => {
   try {
-    const imagePaths = req.files.map((file) => `/uploads/${file.filename}`);
+    const imageUrls = req.files.map((file) => file.path);
 
     const product = await Product.create({
       ...req.body,
-      images: imagePaths,
+      images: imageUrls,
     });
 
     res.status(201).json({
