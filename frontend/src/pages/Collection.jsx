@@ -8,7 +8,7 @@ import AnnouncementBar from "../components/AnnouncementBar/AnnouncementBar";
 import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
 import FilterBar from "../components/FilterBar/FilterBar";
-import AIRoomPreview from "../components/AIRoomPreview/AIRoomPreview";
+import AiRoomPreview from "../components/AiRoomPreview/AiRoomPreview";
 import Footer from "../components/Footer/Footer";
 
 import "../styles/collection.css";
@@ -162,7 +162,7 @@ export default function Collection() {
 
         {/* AI PREVIEW */}
 
-        {slug === "bedsheets" && <AIRoomPreview />}
+        {slug === "bedsheets" && <AiRoomPreview />}
 
         {/* FOOTER */}
 

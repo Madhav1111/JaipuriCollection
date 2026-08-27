@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "./AiRoomPreview.css";
 
-function AIRoomPreview() {
+function AiRoomPreview() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
 
@@ -167,4 +167,4 @@ function AIRoomPreview() {
   );
 }
 
-export default AIRoomPreview;
+export default AiRoomPreview;
