@@ -1,122 +1,133 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
-{
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
 
     slug: {
-        type: String,
-        unique: true,
+      type: String,
+      unique: true,
     },
 
     category: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
     collection: {
-        type: String,
+      type: String,
     },
 
     fabric: {
-        type: String,
+      type: String,
     },
 
-    size: [{
+    size: [
+      {
         type: String,
-    }],
+      },
+    ],
 
     color: {
-        type: String,
+      type: String,
     },
 
     sku: {
-        type: String,
-        unique: true,
+      type: String,
+      unique: true,
+      sparse: true,
     },
 
     description: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
-    features: [{
+    features: [
+      {
         type: String,
-    }],
+      },
+    ],
 
-    careInstructions: [{
+    careInstructions: [
+      {
         type: String,
-    }],
+      },
+    ],
 
     price: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
 
     originalPrice: {
-        type: Number,
+      type: Number,
     },
 
     discount: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
 
     stock: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
 
-    images: [{
+    images: [
+      {
         type: String,
-    }],
+      },
+    ],
 
     trending: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
 
     featured: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
 
     bestSeller: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
 
     newArrival: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
 
     active: {
-        type: Boolean,
-        default: true,
+      type: Boolean,
+      default: true,
     },
 
     rating: {
-        type: Number,
-        default: 5,
+      type: Number,
+      default: 5,
     },
 
     reviews: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
 
-    tags: [{
+    tags: [
+      {
         type: String,
-    }]
-
-},
-{
+      },
+    ],
+  },
+  {
     timestamps: true,
-});
+  },
+);
 
 module.exports = mongoose.model("Product", productSchema);
