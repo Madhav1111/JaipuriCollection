@@ -91,7 +91,7 @@ setProducts(data.products || []);
                 <img
                   src={
                     product.images && product.images.length > 0
-                      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
+                      ? product.images[0]
                       : "https://via.placeholder.com/300x300?text=No+Image"
                   }
                   alt={product.name}

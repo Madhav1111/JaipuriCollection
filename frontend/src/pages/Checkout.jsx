@@ -9,7 +9,7 @@ function Checkout() {
 
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
 
   return (
@@ -36,10 +36,7 @@ function Checkout() {
         <div className="checkout-field">
           <label>Mobile Number</label>
 
-          <input
-            type="tel"
-            placeholder="Enter your mobile number"
-          />
+          <input type="tel" placeholder="Enter your mobile number" />
         </div>
 
         <p className="checkout-note">
@@ -60,48 +57,33 @@ function Checkout() {
         <div className="checkout-field">
           <label>Full Name</label>
 
-          <input
-            type="text"
-            placeholder="Enter your full name"
-          />
+          <input type="text" placeholder="Enter your full name" />
         </div>
 
         <div className="checkout-field">
           <label>Address</label>
 
-          <textarea
-            placeholder="House / Flat No., Street, Area"
-            rows="3"
-          />
+          <textarea placeholder="House / Flat No., Street, Area" rows="3" />
         </div>
 
         <div className="checkout-two-column">
           <div className="checkout-field">
             <label>City</label>
 
-            <input
-              type="text"
-              placeholder="City"
-            />
+            <input type="text" placeholder="City" />
           </div>
 
           <div className="checkout-field">
             <label>PIN Code</label>
 
-            <input
-              type="text"
-              placeholder="PIN Code"
-            />
+            <input type="text" placeholder="PIN Code" />
           </div>
         </div>
 
         <div className="checkout-field">
           <label>State</label>
 
-          <input
-            type="text"
-            placeholder="State"
-          />
+          <input type="text" placeholder="State" />
         </div>
       </section>
 
@@ -189,11 +171,11 @@ function Checkout() {
           >
             <div className="checkout-product-image">
               <img
-              src={
-  item.images?.length > 0
-    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${item.images[0]}`
-    : "/images/placeholder.jpg"
-}
+                src={
+                  item.images?.length > 0
+                    ? item.images[0]
+                    : "/images/placeholder.jpg"
+                }
                 alt={item.name}
               />
             </div>
@@ -217,17 +199,13 @@ function Checkout() {
         <div className="checkout-summary-row">
           <span>Subtotal</span>
 
-          <strong>
-            ₹{subtotal.toLocaleString("en-IN")}
-          </strong>
+          <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
         </div>
 
         <div className="checkout-summary-row">
           <span>Delivery</span>
 
-          <strong className="free">
-            FREE
-          </strong>
+          <strong className="free">FREE</strong>
         </div>
 
         <div className="checkout-divider"></div>
@@ -235,18 +213,12 @@ function Checkout() {
         <div className="checkout-summary-row">
           <span>Total</span>
 
-          <strong>
-            ₹{subtotal.toLocaleString("en-IN")}
-          </strong>
+          <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
         </div>
 
-        <button className="place-order-btn">
-          Place Order →
-        </button>
+        <button className="place-order-btn">Place Order →</button>
 
-        <p className="checkout-secure">
-          🔒 Your payment information is secure
-        </p>
+        <p className="checkout-secure">🔒 Your payment information is secure</p>
       </section>
     </main>
   );

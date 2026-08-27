@@ -87,7 +87,7 @@ function TrendingProducts() {
                 <img
                   src={
                     product.images?.length
-                      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
+                      ? product.images[0]
                       : "/images/after.webp"
                   }
                   alt={product.name}

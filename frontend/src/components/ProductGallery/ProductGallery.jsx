@@ -25,7 +25,7 @@ function ProductGallery({ product }) {
         <img
           src={
   product.images?.length
-    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[selectedImage]}`
+    ? product.images[0]
     : "/images/placeholder.jpg"
 }
           alt={product.name}
@@ -44,17 +44,17 @@ function ProductGallery({ product }) {
 
       {/* Thumbnail Images */}
 
-      <div className="thumbnail-row">
-        {product.images?.map((image, index) => (
-          <img
-            key={index}
-            src={`${import.meta.env.VITE_API_URL.replace("/api", "")}${image}`}
-            alt={product.name}
-            className={`thumbnail ${selectedImage === index ? "active" : ""}`}
-            onClick={() => setSelectedImage(index)}
-          />
-        ))}
-      </div>
+    <div className="thumbnail-row">
+  {product.images?.map((image, index) => (
+    <img
+      key={index}
+      src={image}
+      alt={product.name}
+      className={`thumbnail ${selectedImage === index ? "active" : ""}`}
+      onClick={() => setSelectedImage(index)}
+    />
+  ))}
+</div>
     </section>
   );
 }

@@ -9,7 +9,7 @@ function Cart() {
 
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
 
   return (
@@ -34,26 +34,20 @@ function Cart() {
 
             <p>Discover something beautiful from our Jaipuri collection.</p>
 
-            <button
-              className="checkout-btn"
-              onClick={() => navigate("/")}
-            >
+            <button className="checkout-btn" onClick={() => navigate("/")}>
               Continue Shopping
             </button>
           </div>
         ) : (
           cart.map((item) => (
-            <div
-              className="cart-item"
-              key={`${item._id}-${item.selectedSize}`}
-            >
+            <div className="cart-item" key={`${item._id}-${item.selectedSize}`}>
               <div className="cart-item-image">
                 <img
-                src={
-  item.images?.length
-    ?`${import.meta.env.VITE_API_URL.replace("/api", "")}${item.images[0]}`
-    : "/images/placeholder.jpg"
-}
+                  src={
+                    item.images?.length
+                      ? item.images[0]
+                      : "/images/placeholder.jpg"
+                  }
                   alt={item.name}
                 />
               </div>
@@ -70,9 +64,7 @@ function Cart() {
                 </p>
 
                 <div className="cart-price">
-                  <strong>
-                    ₹{Number(item.price).toLocaleString("en-IN")}
-                  </strong>
+                  <strong>₹{Number(item.price).toLocaleString("en-IN")}</strong>
 
                   {item.originalPrice && (
                     <span>
@@ -85,21 +77,13 @@ function Cart() {
 
                 <div className="cart-bottom">
                   <div className="cart-quantity">
-                    <button
-                      onClick={() =>
-                        updateQuantity(item._id, -1)
-                      }
-                    >
+                    <button onClick={() => updateQuantity(item._id, -1)}>
                       −
                     </button>
 
                     <span>{item.quantity}</span>
 
-                    <button
-                      onClick={() =>
-                        updateQuantity(item._id, 1)
-                      }
-                    >
+                    <button onClick={() => updateQuantity(item._id, 1)}>
                       +
                     </button>
                   </div>
@@ -128,9 +112,7 @@ function Cart() {
           <div className="summary-row">
             <span>Subtotal</span>
 
-            <strong>
-              ₹{subtotal.toLocaleString("en-IN")}
-            </strong>
+            <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
           </div>
 
           <div className="summary-row">
@@ -144,9 +126,7 @@ function Cart() {
           <div className="summary-total">
             <span>Total</span>
 
-            <strong>
-              ₹{subtotal.toLocaleString("en-IN")}
-            </strong>
+            <strong>₹{subtotal.toLocaleString("en-IN")}</strong>
           </div>
 
           <button
@@ -156,9 +136,7 @@ function Cart() {
             Proceed to Checkout →
           </button>
 
-          <p className="secure-checkout">
-            🔒 Secure & Safe Checkout
-          </p>
+          <p className="secure-checkout">🔒 Secure & Safe Checkout</p>
         </section>
       )}
     </main>

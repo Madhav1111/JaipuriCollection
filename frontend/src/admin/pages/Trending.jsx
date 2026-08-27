@@ -24,9 +24,9 @@ function Trending() {
 
   const toggleTrending = async (product) => {
     try {
-     await API.put(`/products/${product._id}`, {
-  trending: !product.trending,
-});
+      await API.put(`/products/${product._id}`, {
+        trending: !product.trending,
+      });
 
       setProducts((prevProducts) =>
         prevProducts.map((item) =>
@@ -35,8 +35,8 @@ function Trending() {
                 ...item,
                 trending: !item.trending,
               }
-            : item
-        )
+            : item,
+        ),
       );
     } catch (error) {
       console.log(error);
@@ -58,30 +58,24 @@ function Trending() {
         <h1>🔥 Trending Products</h1>
 
         <p>
-          Select which products should appear on the homepage
-          Trending section.
+          Select which products should appear on the homepage Trending section.
         </p>
       </div>
 
       {products.length === 0 ? (
-        <div className="admin-empty-products">
-          No products found.
-        </div>
+        <div className="admin-empty-products">No products found.</div>
       ) : (
         <div className="admin-trending-grid">
           {products.map((product) => (
-            <div
-              className="admin-trending-card"
-              key={product._id}
-            >
-            <img
-  src={
-    product.images?.length > 0
-      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
-      : "/images/placeholder.jpg"
-  }
-  alt={product.name}
-/>
+            <div className="admin-trending-card" key={product._id}>
+              <img
+                src={
+                  product.images?.length > 0
+                    ? product.images[0]
+                    : "/images/placeholder.jpg"
+                }
+                alt={product.name}
+              />
 
               <div className="admin-card-content">
                 <h3>{product.name}</h3>
@@ -98,9 +92,7 @@ function Trending() {
                   }
                   onClick={() => toggleTrending(product)}
                 >
-                  {product.trending
-                    ? "🔥 Trending"
-                    : "Add to Trending"}
+                  {product.trending ? "🔥 Trending" : "Add to Trending"}
                 </button>
               </div>
             </div>
