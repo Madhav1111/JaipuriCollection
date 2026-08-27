@@ -49,11 +49,11 @@ function Cart() {
             >
               <div className="cart-item-image">
                 <img
-                  src={
-                    item.images?.length
-                      ? `http://localhost:9000${item.images[0]}`
-                      : "/images/placeholder.jpg"
-                  }
+                src={
+  item.images?.length
+    ?`${import.meta.env.VITE_API_URL.replace("/api", "")}${item.images[0]}`
+    : "/images/placeholder.jpg"
+}
                   alt={item.name}
                 />
               </div>

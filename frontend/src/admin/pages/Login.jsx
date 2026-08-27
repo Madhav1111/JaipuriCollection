@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api/api";
 import "../styles/login.css";
 
 const Login = () => {
@@ -16,14 +16,10 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.post(
-        "http://localhost:9000/api/admin/login",
-        {
-          email,
-          password,
-        }
-      );
-
+      const { data } = await API.post("/admin/login", {
+        email,
+        password,
+      });
       localStorage.setItem("adminToken", data.token);
 
       alert("Login Successful!");

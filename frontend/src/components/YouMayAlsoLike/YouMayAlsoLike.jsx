@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
-import axios from "axios";
+import API from "../../api/api";
 import "./YouMayAlsoLike.css";
 
 function YouMayAlsoLike({ product }) {
@@ -14,11 +14,9 @@ function YouMayAlsoLike({ product }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:9000/api/products"
-        );
+       const { data } = await API.get("/products");
 
-        setProducts(data.products);
+setProducts(data.products);
       } catch (error) {
         console.error(error);
       }
@@ -58,15 +56,15 @@ function YouMayAlsoLike({ product }) {
               onClick={() => navigate(`/product/${item._id}`)}
             >
               <div className="recommendation-image-wrap">
-                <img
-                  src={
-                    item.images?.length > 0
-                      ? `http://localhost:9000${item.images[0]}`
-                      : "/images/placeholder.jpg"
-                  }
-                  alt={item.name}
-                  className="recommendation-image"
-                />
+              <img
+  src={
+    item.images?.length > 0
+      ?`${import.meta.env.VITE_API_URL.replace("/api", "")}${item.images[0]}`
+      : "/images/placeholder.jpg"
+  }
+  alt={item.name}
+  className="recommendation-image"
+/>
 
                 <button
                   className="recommendation-wishlist"

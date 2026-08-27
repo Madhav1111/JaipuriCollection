@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api/api";
 
 import ProductForm from "../components/ProductForm";
 import "../styles/addProduct.css";
@@ -15,9 +15,7 @@ const EditProduct = () => {
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        const { data } = await axios.get(
-          `http://localhost:9000/api/products/${id}`
-        );
+        const { data } = await API.get(`/products/${id}`);
 
         setProduct(data.product);
       } catch (error) {
@@ -32,10 +30,7 @@ const EditProduct = () => {
   // Update product
   const handleUpdate = async (formData) => {
     try {
-      await axios.put(
-        `http://localhost:9000/api/products/${id}`,
-        formData
-      );
+      await API.put(`/products/${id}`, formData);
 
       alert("Product Updated Successfully!");
       navigate("/admin/products");
@@ -48,9 +43,7 @@ const EditProduct = () => {
   if (!product) {
     return (
       <div className="add-product-page">
-        <h2 style={{ color: "white", textAlign: "center" }}>
-          Loading...
-        </h2>
+        <h2 style={{ color: "white", textAlign: "center" }}>Loading...</h2>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import API from "../api/api";
 
 import AnnouncementBar from "../components/AnnouncementBar/AnnouncementBar";
 import Navbar from "../components/Navbar/Navbar";
@@ -21,9 +21,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(
-          `http://localhost:9000/api/products/${id}`
-        );
+        const { data } = await API.get(`/products/${id}`)
 
         setProduct(data.product);
       } catch (error) {

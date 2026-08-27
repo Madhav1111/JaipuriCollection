@@ -189,11 +189,11 @@ function Checkout() {
           >
             <div className="checkout-product-image">
               <img
-                src={
-                  item.images?.length > 0
-                    ? `http://localhost:9000${item.images[0]}`
-                    : "/images/placeholder.jpg"
-                }
+              src={
+  item.images?.length > 0
+    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${item.images[0]}`
+    : "/images/placeholder.jpg"
+}
                 alt={item.name}
               />
             </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../../api/api";
 import "./TrendingProducts.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
@@ -13,9 +13,7 @@ function TrendingProducts() {
   useEffect(() => {
     const fetchTrendingProducts = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:9000/api/products"
-        );
+       const { data } = await API.get("/products");
 
         setProducts(
           data.products.filter((product) => product.trending)
@@ -89,7 +87,7 @@ function TrendingProducts() {
                 <img
                   src={
                     product.images?.length
-                      ? `http://localhost:9000${product.images[0]}`
+                      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
                       : "/images/after.webp"
                   }
                   alt={product.name}

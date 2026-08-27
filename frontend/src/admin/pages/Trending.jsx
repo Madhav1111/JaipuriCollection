@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../../api/api";
 import "../styles/trending.css";
 
 function Trending() {
@@ -9,9 +9,7 @@ function Trending() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:9000/api/products"
-        );
+        const { data } = await API.get("/products");
 
         setProducts(data.products);
       } catch (error) {
@@ -26,12 +24,9 @@ function Trending() {
 
   const toggleTrending = async (product) => {
     try {
-      await axios.put(
-        `http://localhost:9000/api/products/${product._id}`,
-        {
-          trending: !product.trending,
-        }
-      );
+     await API.put(`/products/${product._id}`, {
+  trending: !product.trending,
+});
 
       setProducts((prevProducts) =>
         prevProducts.map((item) =>
@@ -79,14 +74,14 @@ function Trending() {
               className="admin-trending-card"
               key={product._id}
             >
-              <img
-                src={
-                  product.images?.length > 0
-                    ? `http://localhost:9000${product.images[0]}`
-                    : "/images/placeholder.jpg"
-                }
-                alt={product.name}
-              />
+            <img
+  src={
+    product.images?.length > 0
+      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
+      : "/images/placeholder.jpg"
+  }
+  alt={product.name}
+/>
 
               <div className="admin-card-content">
                 <h3>{product.name}</h3>

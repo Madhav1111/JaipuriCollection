@@ -24,10 +24,10 @@ function ProductGallery({ product }) {
       <div className="gallery-main">
         <img
           src={
-            product.images?.length
-              ? `http://localhost:9000${product.images[selectedImage]}`
-              : "/images/placeholder.jpg"
-          }
+  product.images?.length
+    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[selectedImage]}`
+    : "/images/placeholder.jpg"
+}
           alt={product.name}
           className="main-image"
         />
@@ -48,7 +48,7 @@ function ProductGallery({ product }) {
         {product.images?.map((image, index) => (
           <img
             key={index}
-            src={`http://localhost:9000${image}`}
+            src={`${import.meta.env.VITE_API_URL.replace("/api", "")}${image}`}
             alt={product.name}
             className={`thumbnail ${selectedImage === index ? "active" : ""}`}
             onClick={() => setSelectedImage(index)}

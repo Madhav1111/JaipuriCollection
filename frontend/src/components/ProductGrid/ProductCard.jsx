@@ -35,7 +35,7 @@ function ProductCard({ product }) {
         <img
           src={
             product.images?.length > 0
-              ? `http://localhost:9000${product.images[0]}`
+              ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
               : "/images/placeholder.jpg"
           }
           alt={product.name}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../../api/api";
 import "../styles/products.css";
 import { useNavigate } from "react-router-dom";
 const Products = () => {
@@ -12,9 +12,9 @@ const Products = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:9000/api/products");
+      const { data } = await API.get("/products");
 
-      setProducts(response.data.products || []);
+setProducts(data.products || []);
     } catch (error) {
       console.error(error);
     } finally {
@@ -30,7 +30,7 @@ const Products = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:9000/api/products/${id}`);
+      await API.delete(`/products/${id}`);
 
       alert("Product deleted successfully!");
 
@@ -91,7 +91,7 @@ const Products = () => {
                 <img
                   src={
                     product.images && product.images.length > 0
-                      ? product.images[0]
+                      ? `${import.meta.env.VITE_API_URL.replace("/api", "")}${product.images[0]}`
                       : "https://via.placeholder.com/300x300?text=No+Image"
                   }
                   alt={product.name}

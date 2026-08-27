@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../../api/api";
 import ProductForm from "../components/ProductForm";
 import "../styles/addProduct.css";
 
@@ -22,15 +22,11 @@ const AddProduct = () => {
       formData.append("images", image);
     });
 
-    await axios.post(
-      "http://localhost:9000/api/products",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+   await API.post("/products", formData, {
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
 
     alert("Product Added Successfully!");
   } catch (error) {

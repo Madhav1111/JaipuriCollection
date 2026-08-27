@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
-import axios from "axios";
+import API from "../../api/api";
 
 function ProductGrid({ category }) {
   const loadMoreRef = useRef(null);
@@ -28,7 +28,9 @@ function ProductGrid({ category }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:9000/api/products");
+        const { data } = await API.get("/products");
+
+        setProducts(data.products);
 
         setProducts(data.products);
       } catch (error) {
