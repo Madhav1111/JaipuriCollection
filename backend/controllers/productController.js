@@ -45,8 +45,16 @@ const createProduct = async (req, res) => {
   try {
     const imageUrls = req.files.map((file) => file.path);
 
+    // Generate slug from product name
+    const slug = req.body.name
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "");
+
     const product = await Product.create({
       ...req.body,
+      slug,
       images: imageUrls,
     });
 
@@ -63,7 +71,6 @@ const createProduct = async (req, res) => {
     });
   }
 };
-
 // UPDATE Product
 const updateProduct = async (req, res) => {
   try {
