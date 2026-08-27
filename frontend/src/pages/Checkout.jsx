@@ -14,7 +14,6 @@ function Checkout() {
 
   return (
     <main className="checkout-page">
-
       {/* ==================================
           HEADER
       ================================== */}
@@ -29,7 +28,6 @@ function Checkout() {
       ================================== */}
 
       <section className="checkout-section">
-
         <div className="checkout-section-heading">
           <span>01</span>
           <h2>Contact Information</h2>
@@ -47,7 +45,6 @@ function Checkout() {
         <p className="checkout-note">
           We'll use this number for order updates.
         </p>
-
       </section>
 
       {/* ==================================
@@ -55,7 +52,6 @@ function Checkout() {
       ================================== */}
 
       <section className="checkout-section">
-
         <div className="checkout-section-heading">
           <span>02</span>
           <h2>Delivery Address</h2>
@@ -80,7 +76,6 @@ function Checkout() {
         </div>
 
         <div className="checkout-two-column">
-
           <div className="checkout-field">
             <label>City</label>
 
@@ -98,7 +93,6 @@ function Checkout() {
               placeholder="PIN Code"
             />
           </div>
-
         </div>
 
         <div className="checkout-field">
@@ -109,7 +103,6 @@ function Checkout() {
             placeholder="State"
           />
         </div>
-
       </section>
 
       {/* ==================================
@@ -117,14 +110,12 @@ function Checkout() {
       ================================== */}
 
       <section className="checkout-section">
-
         <div className="checkout-section-heading">
           <span>03</span>
           <h2>Payment Method</h2>
         </div>
 
         <div className="payment-options">
-
           <button
             type="button"
             className={`payment-option ${
@@ -181,9 +172,7 @@ function Checkout() {
               {paymentMethod === "cod" ? "●" : "○"}
             </span>
           </button>
-
         </div>
-
       </section>
 
       {/* ==================================
@@ -191,28 +180,28 @@ function Checkout() {
       ================================== */}
 
       <section className="checkout-summary">
-
         <h2>Your Order</h2>
 
         {cart.map((item) => (
-
           <div
             className="checkout-product"
-            key={`${item.id}-${item.selectedSize}`}
+            key={`${item._id}-${item.selectedSize}`}
           >
-
             <div className="checkout-product-image">
               <img
-                src={item.image}
-                alt={item.title}
+                src={
+                  item.images?.length > 0
+                    ? `http://localhost:9000${item.images[0]}`
+                    : "/images/placeholder.jpg"
+                }
+                alt={item.name}
               />
             </div>
 
             <div className="checkout-product-info">
+              <span>{item.collection || "JAIPURI COLLECTION"}</span>
 
-              <span>ROYAL COLLECTION</span>
-
-              <h3>{item.title}</h3>
+              <h3>{item.name}</h3>
 
               <p>
                 {item.selectedSize} × {item.quantity}
@@ -221,11 +210,8 @@ function Checkout() {
               <strong>
                 ₹{(item.price * item.quantity).toLocaleString("en-IN")}
               </strong>
-
             </div>
-
           </div>
-
         ))}
 
         <div className="checkout-summary-row">
@@ -261,9 +247,7 @@ function Checkout() {
         <p className="checkout-secure">
           🔒 Your payment information is secure
         </p>
-
       </section>
-
     </main>
   );
 }

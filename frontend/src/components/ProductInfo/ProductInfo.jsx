@@ -8,7 +8,7 @@ function ProductInfo({ product }) {
 
   const [selectedSize, setSelectedSize] = useState("Double");
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { addToCart, clearCart } = useCart();
 
   const sizes =
     product.size && product.size.length > 0 ? product.size : ["Standard"];
@@ -17,23 +17,17 @@ function ProductInfo({ product }) {
      ADD TO CART
   ================================= */
 
-const handleAddToCart = () => {
-  addToCart(product, selectedSize, quantity);
-  navigate("/cart");
-};
+  const handleAddToCart = () => {
+    addToCart(product, selectedSize, quantity);
+    navigate("/cart");
+  };
   /* ================================
      BUY NOW
   ================================= */
 
   const handleBuyNow = () => {
-    const buyNowItem = {
-      ...product,
-      selectedSize,
-      quantity,
-    };
-
-    localStorage.setItem("buyNowItem", JSON.stringify(buyNowItem));
-
+    clearCart(); // Remove existing cart items
+    addToCart(product, selectedSize, quantity); // Add only this product
     navigate("/checkout");
   };
 
