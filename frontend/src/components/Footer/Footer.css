@@ -2,278 +2,253 @@
    FOOTER
 ========================================== */
 
-.footer{
-    margin-top:20px;
-
-    padding:20px 18px 18px;
-
-    background:#faf7f2;
-
-    border-top:1px solid #eadfce;
+.footer {
+  margin-top: 20px;
+  padding: 20px 18px 0;
+  background: #faf7f2;
+  border-top: 1px solid #eadfce;
 }
 
 /* ==========================================
    SECTIONS
 ========================================== */
 
-.footer-section{
-    margin-bottom:18px;
+.footer-section {
+  margin-bottom: 18px;
 }
 
-.footer-section h4{
-
-    margin:0 0 16px;
-
-    text-align:center;
-
-    color:#c69a45;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:3px;
+.footer-section h4 {
+  margin: 0 0 16px;
+  text-align: center;
+  color: #c69a45;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
 /* ==========================================
    CONTACT
 ========================================== */
 
-.footer-contact{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:10px;
-
-    flex-wrap:wrap;
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.contact-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    color:#5b5049;
-
-    font-size:14px;
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5b5049;
+  font-size: 14px;
 }
 
-.contact-item svg{
-
-    color:#7a233b;
-
-    font-size:15px;
+.contact-item svg {
+  color: #7a233b;
+  font-size: 15px;
 }
 
 /* ==========================================
    SOCIAL
 ========================================== */
 
-.social-links{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
 }
 
-.social-links a{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-
-    text-decoration:none;
-
-    color:#4d1d28;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    transition:.3s;
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: #4d1d28;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.social-links a:hover{
-
-    color:#b8863b;
+.social-links a:hover {
+  color: #b8863b;
 }
 
-.social-links svg{
-
-    font-size:18px;
+.social-links svg {
+  font-size: 18px;
 }
 
 /* ==========================================
    CUSTOMER CARE
 ========================================== */
 
-.footer-links{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.footer-links a{
-
-    text-decoration:none;
-
-    color:#5f5750;
-
-    font-size:14px;
-
-    text-align:center;
-
-    transition:.3s;
+.footer-links a {
+  text-decoration: none;
+  color: #5f5750;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.3s;
 }
 
-.footer-links a:hover{
-
-    color:#7a233b;
+.footer-links a:hover {
+  color: #7a233b;
 }
 
 /* ==========================================
    WHATSAPP
 ========================================== */
 
-.whatsapp-button{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    text-decoration:none;
-
-    margin:10px 0 34px;
-
-    padding:15px;
-
-    border-radius:16px;
-
-    background:#7a233b;
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    transition:.3s;
+.whatsapp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin: 10px 0 28px;
+  padding: 15px;
+  border-radius: 16px;
+  background: #7a233b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 0.3s;
 }
 
-.whatsapp-button:hover{
-
-    background:#922c48;
+.whatsapp-button:hover {
+  background: #922c48;
 }
 
-.whatsapp-button svg{
-
-    font-size:22px;
+.whatsapp-button svg {
+  font-size: 22px;
 }
 
 /* ==========================================
-   BOTTOM
+   FOOTER ARTWORK
 ========================================== */
 
-.footer-bottom{
-
-    text-align:center;
-
-    padding-top:12px;
-
-    border-top:1px solid #eadfce;
+.footer-art {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
 }
 
-.footer-logo h2{
-
-    margin:0;
-
-    color:#5a1f33;
-
-    font-size:32px;
-
-    font-family:Georgia,serif;
-
-    letter-spacing:2px;
+.footer-art img {
+  width: 100%;
+  display: block;
 }
 
-.footer-logo span{
+/* ==========================================
+   CONTENT OVER ARTWORK
+========================================== */
 
-    display:block;
-
-    margin-top:2px;
-
-    color:#c69a45;
-
-    letter-spacing:6px;
-
-    font-size:11px;
-
-    font-weight:700;
+.footer-art-content {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  text-align: center;
+  z-index: 2;
 }
 
-.footer-tagline{
-
-    margin:12px auto 8px;
-
-    max-width:260px;
-
-    color:#6d625b;
-
-    font-size:14px;
-
-    line-height:1.7;
+.footer-logo h2 {
+  margin: 0;
+  color: #5b1f35;
+  font-size: 34px;
+  font-family: Georgia, serif;
+  letter-spacing: 2px;
 }
 
-.copyright{
+.footer-logo span {
+  display: block;
+  margin-top: 2px;
+  color: #d3a64e;
+  letter-spacing: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
 
-    margin:0;
+.footer-tagline {
+  margin: 14px auto 10px;
+  max-width: 270px;
+  color: #5f5550;
+  font-size: 14px;
+  line-height: 1.7;
+}
 
-    color:#9a9088;
-
-    font-size:12px;
+.copyright {
+  margin: 0;
+  color: #736962;
+  font-size: 12px;
 }
 
 /* ==========================================
    MOBILE
 ========================================== */
 
-@media(max-width:430px){
+@media (max-width: 430px) {
+  .footer {
+    padding: 30px 16px 0;
+  }
 
-    .footer{
-        padding:30px 16px 24px;
-    }
+  .footer-contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
-    .footer-contact{
-        flex-direction:column;
-        align-items:center;
-        gap:12px;
-    }
+  .social-links {
+    gap: 16px;
+  }
 
-    .social-links{
-        gap:16px;
-    }
+  .footer-art {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Reduce until you like it */
+    overflow: hidden;
+    margin-top: 10px;
+  }
 
-    .footer-logo h2{
-        font-size:28px;
-    }
+  .footer-art img {
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    line-height:0;
+    object-fit: cover;
+    object-position: center -80px; /* Crops mainly from the sky */
+  }
 
-    .footer-tagline{
-        font-size:13px;
-    }
+  .footer-art-content {
+    top: 5%;
+    width: 90%;
+  }
+
+  .footer-logo h2 {
+    font-size: 30px;
+  }
+
+  .footer-logo span {
+    font-size: 10px;
+    letter-spacing: 5px;
+  }
+
+  .footer-tagline {
+    margin: 10px auto 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 240px;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
 }

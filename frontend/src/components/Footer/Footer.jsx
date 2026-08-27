@@ -87,25 +87,34 @@ function Footer() {
         Chat on WhatsApp
       </a>
 
-      {/* Bottom */}
+      {/* Artwork */}
 
-      <div className="footer-bottom">
+      <div className="footer-art">
 
-        <div className="footer-logo">
+        <img
+          src="/images/jaipurheritage.webp"
+          alt="Jaipur Artwork"
+        />
 
-          <h2>JAIPURI</h2>
+        <div className="footer-art-content">
 
-          <span>COLLECTIONS</span>
+          <div className="footer-logo">
+
+            <h2>JAIPURI</h2>
+
+            <span>COLLECTIONS</span>
+
+          </div>
+
+          <p className="footer-tagline">
+            Inspired by Jaipur's timeless craftsmanship.
+          </p>
+
+          <p className="copyright">
+            ©️ 2026 Jaipuri Collections. All Rights Reserved.
+          </p>
 
         </div>
-
-        <p className="footer-tagline">
-          Inspired by Jaipur's timeless craftsmanship.
-        </p>
-
-        <p className="copyright">
-          ©️ 2026 Jaipuri Collections. All Rights Reserved.
-        </p>
 
       </div>
 
