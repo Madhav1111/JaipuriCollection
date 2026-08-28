@@ -15,7 +15,7 @@ const ProductForm = ({
     trending: initialData.trending || false,
     bestSeller: initialData.bestSeller || false,
     newArrival: initialData.newArrival || false,
-    images: [],
+    images: initialData.images || [],
   });
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,12 +28,29 @@ const ProductForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(onSubmit);
-    if (onSubmit) {
-      onSubmit(formData);
-    }
-  };
 
+    const data = new FormData();
+
+    data.append("name", formData.name);
+    data.append("category", formData.category);
+    data.append("price", formData.price);
+    data.append("stock", formData.stock);
+    data.append("description", formData.description);
+
+    data.append("featured", formData.featured);
+    data.append("trending", formData.trending);
+    data.append("bestSeller", formData.bestSeller);
+    data.append("newArrival", formData.newArrival);
+
+    // Upload only newly selected files
+    for (const image of formData.images) {
+      if (image instanceof File) {
+        data.append("images", image);
+      }
+    }
+
+    onSubmit(data);
+  };
   return (
     <form className="product-form" onSubmit={handleSubmit}>
       <div className="form-group">
@@ -97,6 +114,7 @@ const ProductForm = ({
 
       <div className="form-group">
         <label>Product Images</label>
+
         <input
           type="file"
           multiple
@@ -107,6 +125,16 @@ const ProductForm = ({
             })
           }
         />
+
+        {formData.images.length > 0 &&
+          typeof formData.images[0] === "string" && (
+            <img
+              src={formData.images[0]}
+              alt="Product"
+              width="120"
+              style={{ marginTop: "10px", borderRadius: "8px" }}
+            />
+          )}
       </div>
 
       <div className="checkbox-grid">

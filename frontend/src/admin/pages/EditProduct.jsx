@@ -28,17 +28,23 @@ const EditProduct = () => {
   }, [id]);
 
   // Update product
-  const handleUpdate = async (formData) => {
-    try {
-      await API.put(`/products/${id}`, formData);
+ const handleUpdate = async (formData) => {
+  try {
+    console.log("Sending:", formData);
 
-      alert("Product Updated Successfully!");
-      navigate("/admin/products");
-    } catch (error) {
-      console.log(error);
-      alert("Unable to update product.");
-    }
-  };
+    const response = await API.put(`/products/${id}`, formData);
+
+    console.log("Response:", response.data);
+
+    alert("Product Updated Successfully!");
+    navigate("/admin/products");
+  } catch (error) {
+    console.log("ERROR:", error);
+    console.log("SERVER:", error.response?.data);
+
+    alert("Unable to update product.");
+  }
+};
 
   if (!product) {
     return (

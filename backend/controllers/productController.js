@@ -74,34 +74,40 @@ const createProduct = async (req, res) => {
 // UPDATE Product
 const updateProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      {
-        new: true,
-        runValidators: true,
-      },
-    );
+    console.log("========== UPDATE ==========");
+    console.log("BODY:", req.body);
+    console.log("FILES:", req.files);
+    console.log("ID:", req.params.id);
 
-    if (!product) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found",
-      });
+    const updateData = {
+      ...req.body,
+    };
+
+    if (req.files && req.files.length > 0) {
+      updateData.images = req.files.map((file) => file.path);
     }
 
-    res.status(200).json({
+    console.log("UPDATE DATA:", updateData);
+
+    const product = await Product.findByIdAndUpdate(req.params.id, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    console.log("UPDATED PRODUCT:", product);
+
+    res.json({
       success: true,
       product,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
-
 // DELETE Product
 const deleteProduct = async (req, res) => {
   try {

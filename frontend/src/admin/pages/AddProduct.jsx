@@ -3,37 +3,20 @@ import ProductForm from "../components/ProductForm";
 import "../styles/addProduct.css";
 
 const AddProduct = () => {
- const handleAddProduct = async (data) => {
-  try {
-    const formData = new FormData();
+  const handleAddProduct = async (formData) => {
+    try {
+      await API.post("/products", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    formData.append("name", data.name);
-    formData.append("category", data.category);
-    formData.append("price", data.price);
-    formData.append("stock", data.stock);
-    formData.append("description", data.description);
-
-    formData.append("featured", data.featured);
-    formData.append("trending", data.trending);
-    formData.append("bestSeller", data.bestSeller);
-    formData.append("newArrival", data.newArrival);
-
-    data.images.forEach((image) => {
-      formData.append("images", image);
-    });
-
-   await API.post("/products", formData, {
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
-
-    alert("Product Added Successfully!");
-  } catch (error) {
-    console.error(error);
-    alert("Error adding product.");
-  }
-};
+      alert("Product Added Successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Error adding product.");
+    }
+  };
 
   return (
     <div className="add-product-page">

@@ -21,11 +21,11 @@ router.get("/:id", getProduct);
 router.post(
   "/",
   upload.array("images", 6), // 👈 Accept up to 6 images
-  createProduct
+  createProduct,
 );
 
 // UPDATE product
-router.put("/:id", updateProduct);
+router.put("/:id", upload.array("images", 6), updateProduct);
 
 // DELETE product
 router.delete("/:id", deleteProduct);
