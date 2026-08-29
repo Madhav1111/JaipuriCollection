@@ -5,6 +5,8 @@ const ProductForm = ({
   initialData = {},
   buttonText = "Save Product",
 }) => {
+  const categories = ["Bedsheets", "Dohars", "Suits", "Lehengas"];
+
   const [formData, setFormData] = useState({
     name: initialData.name || "",
     category: initialData.category || "",
@@ -17,6 +19,7 @@ const ProductForm = ({
     newArrival: initialData.newArrival || false,
     images: initialData.images || [],
   });
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -73,11 +76,12 @@ const ProductForm = ({
             onChange={handleChange}
           >
             <option value="">Select Category</option>
-            <option>Bedsheets</option>
-            <option>Quilts</option>
-            <option>Cushion Covers</option>
-            <option>Blankets</option>
-            <option>Curtains</option>
+
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
           </select>
         </div>
 
