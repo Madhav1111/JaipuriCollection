@@ -60,7 +60,10 @@ function ProductCard({ product }) {
 
         <div className="product-bottom">
           <div className="product-price">
-            ₹{Number(product.price).toLocaleString("en-IN")}
+            <span className="currency">₹</span>
+            <span className="amount">
+              {Number(product.price).toLocaleString("en-IN")}
+            </span>
           </div>
 
           <button className="add-cart-btn" onClick={handleAddToCart}>
