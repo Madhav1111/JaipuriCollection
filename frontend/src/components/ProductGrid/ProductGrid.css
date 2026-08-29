@@ -405,7 +405,7 @@
 
 @media (max-width: 480px) {
   .product-grid-section {
-    padding: 0 14px 24px;
+    padding: 0 14px 9px;
   }
 
   .product-grid {
@@ -429,15 +429,15 @@
 
     padding: 7px 16px;
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.6px;
   }
 
   /* Wishlist */
   .wishlist-btn {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
     top: 12px;
     right: 12px;
