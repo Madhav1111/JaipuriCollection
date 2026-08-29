@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
 import API from "../../api/api";
 
-function ProductGrid({ category }) {
+function ProductGrid({ category, sortOption, setProductCount }) {
   const loadMoreRef = useRef(null);
   const PRODUCTS_PER_PAGE = 8;
   const LOAD_BATCH = 2;
@@ -13,12 +13,35 @@ function ProductGrid({ category }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const displayProducts = products.filter(
-    (product) => product.category?.toLowerCase() === category?.toLowerCase(),
-  );
-  // ===========================
-  // STATE
-  // ===========================
+  const displayProducts = useMemo(() => {
+    const filtered = products.filter(
+      (product) => product.category?.toLowerCase() === category?.toLowerCase(),
+    );
+
+    switch (sortOption) {
+      case "low-high":
+        return [...filtered].sort((a, b) => a.price - b.price);
+
+      case "high-low":
+        return [...filtered].sort((a, b) => b.price - a.price);
+
+      case "az":
+        return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+
+      case "za":
+        return [...filtered].sort((a, b) => b.name.localeCompare(a.name));
+
+      case "newest":
+        return [...filtered].reverse();
+
+      default:
+        return filtered;
+    }
+  }, [products, category, sortOption]);
+
+  useEffect(() => {
+    setProductCount(displayProducts.length);
+  }, [displayProducts, setProductCount]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleCount, setVisibleCount] = useState(2);

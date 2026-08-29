@@ -41,7 +41,7 @@ function ShopByCategory() {
         <h2>SHOP BY CATEGORY</h2>
 
         <button className="view-all-btn">
-          View All →
+        Swipe →
         </button>
       </div>
 

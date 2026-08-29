@@ -114,7 +114,7 @@ function AiRoomPreview() {
         >
           <div className="preview-tag left-tag">Your Room</div>
 
-          <div className="preview-tag right-tag">AI Preview</div>
+          <div className="preview-tag right-tag">Our Product</div>
 
           {/* BEFORE IMAGE */}
 

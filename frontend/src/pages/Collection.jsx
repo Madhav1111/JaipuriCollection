@@ -15,6 +15,7 @@ import "../styles/collection.css";
 
 export default function Collection() {
   const { slug } = useParams();
+  const [sortOption, setSortOption] = useState("default");
 
   const collectionData = {
     bedsheets: {
@@ -46,6 +47,7 @@ export default function Collection() {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
+  const [productCount, setProductCount] = useState(0);
 
   const videoRef = useRef(null);
 
@@ -150,11 +152,17 @@ export default function Collection() {
 
         {/* FILTER */}
 
-        <FilterBar />
+        <FilterBar
+          productCount={productCount}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+        />
 
-        {/* PRODUCTS */}
-
-        <ProductGrid category={slug} />
+        <ProductGrid
+          category={slug}
+          sortOption={sortOption}
+          setProductCount={setProductCount}
+        />
 
         {/* MORE COLLECTIONS */}
 

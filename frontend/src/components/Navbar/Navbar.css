@@ -81,11 +81,11 @@
   justify-content: center;
 }
 .logo {
-  height: 135px;
+  height: 138.5px;
   width: auto;
   object-fit: contain;
 
-  transform: translateX(18px) translateY(5px);
+  transform: translateX(-2px) translateY(6px);
 }
 
 /* ===============================
