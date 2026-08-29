@@ -5,7 +5,7 @@ const collections = [
     id: 1,
     title: "SUITS",
     subtitle: "Elegant Cotton Suits for Every Occasion",
-    image: "/images/discover/suits.jpg",
+    image: "/images/saree.jpg",
     icon: "👗",
   },
   {
@@ -34,47 +34,32 @@ const collections = [
 function DiscoverCollections() {
   return (
     <section className="discover-section">
-
       {/* Heading */}
-
       <div className="discover-heading">
-
         <div className="discover-title">
-
           <span>✦</span>
-
           <h2>DISCOVER MORE COLLECTIONS</h2>
-
           <span>✦</span>
-
         </div>
 
         <p>
           Explore our handcrafted Jaipuri essentials beyond bedsheets.
         </p>
-
       </div>
 
       {/* Cards */}
-
       <div className="discover-slider">
-
         {collections.map((item) => (
-
           <div className="discover-card" key={item.id}>
-
             <div className="discover-image-wrapper">
-
               <img
                 src={item.image}
                 alt={item.title}
                 className="discover-image"
               />
-
             </div>
 
             <div className="discover-content">
-
               <div className="discover-icon">
                 {item.icon}
               </div>
@@ -86,15 +71,10 @@ function DiscoverCollections() {
               <button>
                 EXPLORE →
               </button>
-
             </div>
-
           </div>
-
         ))}
-
       </div>
-
     </section>
   );
 }

@@ -2,92 +2,87 @@
    DISCOVER SECTION
 ========================== */
 
-.discover-section{
-    margin-top:30px;
-    padding:32px 16px 12px;
-    background:#fbf8f4;
-    border-top:1px solid #e9ddd2;
+.discover-section {
+  margin-top: 30px;
+  padding: 32px 16px 12px;
+  background: #fbf8f4;
+  border-top: 1px solid #e9ddd2;
 }
 
 /* ==========================
    HEADING
 ========================== */
 
-.discover-heading{
-    text-align:center;
-    margin-bottom:26px;
+.discover-heading {
+  text-align: center;
+  margin-bottom: 26px;
 }
 
-.discover-title{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:10px;
+.discover-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
-.discover-title span{
-    color:#c89b3c;
-    font-size:14px;
+.discover-title span {
+  color: #c89b3c;
+  font-size: 14px;
 }
 
-.discover-title h2{
-    margin:0;
+.discover-title h2 {
+  margin: 0;
 
-    font-family:Georgia, serif;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:1.5px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 
-    color:#4d1d28;
-    text-transform:uppercase;
+  color: #4d1d28;
+  text-transform: uppercase;
 }
 
-.discover-heading p{
-    margin:0 auto;
+.discover-heading p {
+  margin: 0 auto;
 
-    max-width:270px;
+  max-width: 270px;
 
-    font-size:14px;
-    line-height:1.6;
+  font-size: 14px;
+  line-height: 1.6;
 
-    color:#6f6159;
+  color: #6f6159;
 }
 
 /* ==========================
    MOBILE
 ========================== */
 
-@media(max-width:480px){
+@media (max-width: 480px) {
+  .discover-section {
+    margin-top: 34px;
 
-.discover-section{
-    margin-top:34px;
+    padding: 32px 16px 10px;
 
-    padding:32px 16px 10px;
+    background: linear-gradient(to bottom, #faf6f1 0%, #fffdfb 100%);
 
-    background:linear-gradient(
-        to bottom,
-        #faf6f1 0%,
-        #fffdfb 100%
-    );
+    border-top: 1px solid #eadfce;
+  }
 
-    border-top:1px solid #eadfce;
-}
+  .discover-title {
+    gap: 10px;
+  }
 
-.discover-title{
-    gap:10px;
-}
+  .discover-title h2 {
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
 
-.discover-title h2{
-    font-size:19px;
-    letter-spacing:1px;
-}
+  .discover-title span {
+    font-size: 15px;
+  }
 
-.discover-title span{
-    font-size:15px;
-}
-
-.discover-heading p {
+  .discover-heading p {
     margin: 12px auto 0;
 
     max-width: 300px;
@@ -100,166 +95,172 @@
 
     color: #75655d;
 
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
 
     font-family: "Montserrat", sans-serif;
-}
-
+  }
 }
 /* ==========================
    DISCOVER SLIDER
 ========================== */
 
-.discover-slider{
-    display:flex;
-    gap:16px;
+.discover-slider {
+  display: flex;
+  gap: 16px;
 
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 
-    padding:8px 0 18px;
+  padding: 8px 0 18px;
 
-    scrollbar-width:none;
+  scrollbar-width: none;
 }
 
-.discover-slider::-webkit-scrollbar{
-    display:none;
+.discover-slider::-webkit-scrollbar {
+  display: none;
 }
-
 
 /* ==========================
    CARD
 ========================== */
 
-.discover-card{
+.discover-card {
+  flex: 0 0 58%;
 
-    flex:0 0 58%;
+  scroll-snap-align: start;
 
-    scroll-snap-align:start;
+  background: #fff;
 
-    background:#fff;
+  border-radius: 22px;
 
-    border-radius:22px;
+  overflow: hidden;
 
-    overflow:hidden;
+  border: 1px solid #e8ddd0;
 
-    border:1px solid #e8ddd0;
+  box-shadow: 0 8px 25px rgba(60, 20, 20, 0.06);
 
-    box-shadow:
-        0 8px 25px rgba(60,20,20,.06);
-
-    transition:.35s ease;
+  transition: 0.35s ease;
 }
 
-.discover-card:hover{
+.discover-card:hover {
+  transform: translateY(-6px);
 
-    transform:translateY(-6px);
-
-    box-shadow:
-        0 18px 40px rgba(60,20,20,.10);
+  box-shadow: 0 18px 40px rgba(60, 20, 20, 0.1);
 }
-
 
 /* ==========================
    IMAGE
 ========================== */
 
-.discover-image-wrapper{
+.discover-image-wrapper {
+  height: 215px;
 
-    height:215px;
+  overflow: hidden;
 
-    overflow:hidden;
-
-    position:relative;
+  position: relative;
 }
 
-.discover-image{
+.discover-image {
+  width: 100%;
+  height: 100%;
 
-    width:100%;
-    height:100%;
+  object-fit: cover;
 
-    object-fit:cover;
+  display: block;
 
-    display:block;
-
-    transition:.5s;
+  transition: 0.5s;
 }
 
-.discover-card:hover .discover-image{
-
-    transform:scale(1.06);
+.discover-card:hover .discover-image {
+  transform: scale(1.06);
 }
-
 
 /* ==========================
    CONTENT
 ========================== */
+.discover-content {
+  position: relative;
+  text-align: center;
+  padding: 34px 16px 18px;
 
-.discover-content{
-
-    position:relative;
-
-    text-align:center;
-
-    padding:34px 16px 18px;
-
-    background:white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+.discover-card:nth-child(1) .discover-content {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
+    url("/images/saree.jpg") center/cover no-repeat;
+}
+
+.discover-card:nth-child(2) .discover-content {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
+    url("/images/discover/Lehnghas.jpg") center/cover no-repeat;
+}
+
+.discover-card:nth-child(3) .discover-content {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
+    url("/images/discover/dohars.jpg") center/cover no-repeat;
+}
+
+.discover-card:nth-child(4) .discover-content {
+  background:
+   linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
+    url("/images/discover/quilts.jpg") center/cover no-repeat;
+}
 
 /* ==========================
    ICON
 ========================== */
 
-.discover-icon{
+.discover-icon {
+  position: absolute;
 
-    position:absolute;
+  top: -28px;
 
-    top:-28px;
+  left: 50%;
 
-    left:50%;
+  transform: translateX(-50%);
 
-    transform:translateX(-50%);
+  width: 56px;
+  height: 56px;
 
-    width:56px;
-    height:56px;
+  border-radius: 50%;
 
-    border-radius:50%;
+  background: #5b0f22;
 
-    background:#5b0f22;
+  border: 3px solid #d4a63b;
 
-    border:3px solid #d4a63b;
+  color: white;
 
-    color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  font-size: 24px;
 
-    font-size:24px;
-
-    box-shadow:
-        0 6px 18px rgba(0,0,0,.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
-
 
 /* ==========================
    TITLE
 ========================== */
 
-.discover-content h3{
+.discover-content h3 {
+  margin: 4px 0 8px;
 
-    margin:4px 0 8px;
+  font-size: 22px;
 
-    font-size:22px;
+  font-family: Georgia, serif;
 
-    font-family:Georgia,serif;
+  letter-spacing: 1px;
 
-    letter-spacing:1px;
-
-    color:#4b1d28;
+  font-weight:900;
+  color: #4b1d28;
 }
-
 
 /* ==========================
    DESCRIPTION
@@ -275,103 +276,94 @@
 
     line-height:1.55;
 
-    color:#6f645d;
-}
+    color:#3b1d26;
 
+    font-weight:900;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.75);
+
+}
 
 /* ==========================
    BUTTON
 ========================== */
 
-.discover-content button{
+.discover-content button {
+  width: 88%;
 
-    width:88%;
+  height: 44px;
 
-    height:44px;
+  border: none;
 
-    border:none;
+  border-radius: 10px;
 
-    border-radius:10px;
+  background: #5b0f22;
 
-    background:#5b0f22;
+  color: white;
 
-    color:white;
+  font-size: 14px;
 
-    font-size:14px;
+  font-weight: 700;
 
-    font-weight:700;
+  letter-spacing: 0.5px;
 
-    letter-spacing:.5px;
+  cursor: pointer;
 
-    cursor:pointer;
-
-    transition:.3s;
+  transition: 0.3s;
 }
 
-.discover-content button:hover{
-
-    background:#75223a;
+.discover-content button:hover {
+  background: #75223a;
 }
-
 
 /* ==========================
    MOBILE
 ========================== */
 
-@media(max-width:480px){
+@media (max-width: 480px) {
+  .discover-slider {
+    gap: 14px;
 
-.discover-slider{
+    padding-bottom: 12px;
+  }
 
-    gap:14px;
+  .discover-card {
+    flex: 0 0 58%;
+  }
 
-    padding-bottom:12px;
-}
+  .discover-image-wrapper {
+    height: 210px;
+  }
 
-.discover-card{
+  .discover-content {
+    padding: 40px 14px 16px;
+  }
 
-    flex:0 0 58%;
-}
+  .discover-icon {
+    width: 50px;
+    height: 50px;
 
-.discover-image-wrapper{
+    top: -25px;
 
-    height:210px;
-}
+    font-size: 21px;
+  }
 
-.discover-content{
-    
+  .discover-content h3 {
+    font-size: 19px;
+  }
 
-    padding:40px 14px 16px;
-}
+  .discover-content p {
+    font-size: 12px;
 
-.discover-icon{
+    line-height: 1.45;
+  }
 
-    width:50px;
-    height:50px;
+  .discover-content button {
+    width: 88%;
 
-    top:-25px;
+    height: 40px;
 
-    font-size:21px;
-}
-
-.discover-content h3{
-
-    font-size:19px;
-}
-
-.discover-content p{
-
-    font-size:12px;
-
-    line-height:1.45;
-}
-
-.discover-content button{
-
-    width:88%;
-
-    height:40px;
-
-    font-size:13px;
-}
-
+    font-size: 13px;
+  }
 }
