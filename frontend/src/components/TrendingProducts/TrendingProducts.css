@@ -1,731 +1,550 @@
-/* ===================================
-   TRENDING SECTION
-=================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
 
-.trending-section{
+.trending-luxury{
     width:100%;
-    padding:70px 22px 80px;
-
-    background:
-        radial-gradient(circle at top,#fffaf1 0%,#fcf8f2 45%,#f7f1e8 100%);
-
-    position:relative;
-
+    padding:10px 18px 60px;
+    background:#faf6ef;
     overflow:hidden;
 }
 
-/* Jaipur Pattern */
-
-.trending-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:url("/images/jaipur-pattern.png") center/500px;
-
-    opacity:.025;
-
-    pointer-events:none;
-
-}
-
-/* ===================================
-   HEADING
-=================================== */
-
-.trending-heading{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
+.luxury-heading{
     text-align:center;
-
-    margin-bottom:55px;
-
-    position:relative;
-
-    z-index:2;
-
+    margin-bottom:30px;
 }
 
-.heading-crown{
+.luxury-icon{
+      width:38px;
+    height:38px;
+    margin:0 auto 10px;
+    font-size:16px;
 
-    font-size:34px;
-
-    margin-bottom:12px;
-
-}
-
-.trending-heading h2{
-
-    font-size:2.4rem;
-
-    color:#6f102d;
-
-    letter-spacing:4px;
-
-    font-weight:700;
-
-    margin-bottom:10px;
-
-    text-transform:uppercase;
-
-}
-
-.trending-heading p{
-
-    color:#9c8569;
-
-    font-size:.95rem;
-
-    letter-spacing:1.5px;
-
-    margin-bottom:18px;
-
-}
-
-.heading-line{
-
-    width:140px;
-
-    height:2px;
-
-    background:linear-gradient(
-        to right,
-        transparent,
-        #d6ab4d,
-        transparent
-    );
-
-    margin:10px 0;
-
-}
-
-/* ===================================
-   CAROUSEL
-=================================== */
-
-.carousel-wrapper{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-.trending-carousel{
-
-    display:flex;
-
-    gap:28px;
-
-    overflow-x:auto;
-
-    scroll-behavior:smooth;
-
-    padding:8px;
-
-    scrollbar-width:none;
-
-}
-
-.trending-carousel::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-/* ===================================
-   ARROWS
-=================================== */
-
-.carousel-arrow{
-
-    width:60px;
-    height:60px;
-
-    border:none;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.85);
-
-    backdrop-filter:blur(18px);
-
-    color:#7a1535;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    flex-shrink:0;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.12);
-
-    transition:.35s;
-
-    z-index:5;
-
-}
-
-.carousel-arrow:hover{
-
-    background:#7a1535;
-
-    color:white;
-
-    transform:scale(1.08);
-
-    box-shadow:
-        0 18px 40px rgba(122,21,53,.35);
-
-}
-
-.left-arrow{
-
-    margin-right:20px;
-
-}
-
-.right-arrow{
-
-    margin-left:20px;
-
-}
-/* ===================================
-   LUXURY PRODUCT CARD
-=================================== */
-
-.luxury-card{
-
-    min-width:295px;
-
     background:linear-gradient(
-        180deg,
-        #ffffff,
-        #fffdf9
+        145deg,
+        #fff4c8 0%,
+        #f4d56d 25%,
+        #d4af37 55%,
+        #a77b06 100%
     );
 
-    border-radius:30px;
+    color:#fff;
 
-    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    position:relative;
-
-    overflow:hidden;
-
-    border:1px solid rgba(212,175,55,.12);
+    font-size:24px;
 
     box-shadow:
-        0 20px 45px rgba(0,0,0,.08),
-        0 2px 8px rgba(0,0,0,.03);
-
-    transition:.45s ease;
-
-    flex-shrink:0;
-
+        0 8px 25px rgba(212,175,55,.45),
+        inset 0 2px 4px rgba(255,255,255,.6);
 }
 
-/* Luxury Hover */
+.luxury-heading h2{
+    display:inline-block;
 
-.luxury-card:hover{
+    margin:0 auto 12px;
 
-    transform:
-        translateY(-10px);
-
-    border-color:rgba(212,175,55,.35);
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.12),
-        0 0 35px rgba(212,175,55,.15);
-
-}
-
-/* ===================================
-   PREMIUM BADGE
-=================================== */
-
-.product-badge{
-
-    position:absolute;
-
-    top:18px;
-    left:18px;
-
-    padding:8px 15px;
+    padding:8px 18px;
 
     border-radius:999px;
 
     background:linear-gradient(
-        90deg,
-        #c9922d,
-        #f3dc93
+        135deg,
+        #8b6a18,
+        #d4af37,
+        #f5df84,
+        #c89b2a
     );
 
-    color:#5c2d00;
+    color:#fffdf8;
 
-    font-size:.66rem;
+    font-size:22px;
+
+    font-weight:800;
 
     letter-spacing:1px;
 
-    font-weight:700;
-
-    z-index:10;
+    text-transform:uppercase;
 
     box-shadow:
-        0 8px 18px rgba(212,175,55,.35);
-
+        0 8px 22px rgba(212,175,55,.35),
+        inset 0 1px 1px rgba(255,255,255,.45);
 }
 
-/* ===================================
-   WISHLIST
-=================================== */
+.luxury-heading p{
+    display:inline-block;
+    margin-top:16px;
+    padding:8px 18px;
 
-.wishlist-btn{
+    background:linear-gradient(
+        180deg,
+        #fdf8ef,
+        #f4ebd6
+    );
 
-    position:absolute;
+    border:1px solid rgba(201,167,91,.25);
+    border-radius:999px;
 
-    top:18px;
-    right:18px;
+    color:#7a5a28;
 
-    width:42px;
-    height:42px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.88);
-
-    backdrop-filter:blur(18px);
-
-    color:#8b1538;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    transition:.35s;
+    font-size:12px;
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
 
     box-shadow:
-        0 10px 20px rgba(0,0,0,.12);
-
-    z-index:20;
-
+        0 4px 12px rgba(201,167,91,.08);
 }
 
-.wishlist-btn:hover{
+/* ===========================
+CARD
+=========================== */
 
-    background:#8b1538;
-
-    color:white;
-
-    transform:scale(1.08);
-
-}
-
-/* ===================================
-   IMAGE
-=================================== */
-
-.product-image-wrap{
-    width:100%;
-    height:270px;
-    overflow:hidden;
-    border-radius:24px;
+.luxury-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
     position:relative;
 }
 
-.product-image{
+.luxury-card{
     width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    object-position:center;
-    user-select:none;
-    -webkit-user-drag:none;
-    pointer-events:none;
+    max-width:390px;
+
+    background:linear-gradient(
+        180deg,
+        #fffdf9 0%,
+        #fdf8ef 45%,
+        #f8f0df 100%
+    );
+
+    border:1px solid rgba(212,175,55,.28);
+
+    border-radius:32px;
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.08),
+        0 0 0 1px rgba(255,255,255,.7) inset,
+        0 8px 25px rgba(212,175,55,.12);
+
+    transition:.35s;
 }
 
-.luxury-card:hover .product-image{
+.luxury-card:active{
+    transform:scale(.98);
+}
 
-    transform:scale(1.06);
+/* ===========================
+TOP
+=========================== */
+
+.luxury-model{
+    position:relative;
+    height:420px;
+
+    background:
+        radial-gradient(circle at top,#fffefb 0%,transparent 45%),
+        linear-gradient(
+            180deg,
+            #fff8f2,
+            #f8eddc
+        );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* model */
+
+.luxury-model canvas{
+
+    width:100%!important;
+
+    height:100%!important;
 
 }
 
-/* ===================================
-   PRODUCT INFO
-=================================== */
+/* badge */
 
-.product-des-info{
+.best-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
 
-    margin-top:22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 14px;
+
+    background: linear-gradient(
+        135deg,
+        #6d0f2e 0%,
+        #8a1f45 50%,
+        #5d0d28 100%
+    );
+
+    
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 5;
+    transition: all .3s ease;
+    color:#f4df9b;
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.2),
+        0 0 10px rgba(244,223,155,.35);
 
 }
 
-.product-category{
 
-    display:inline-block;
 
-    color:#a58a62;
-
-    font-size:.74rem;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-bottom:8px;
-
+.best-badge:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.2);
+}
+.best-badge svg,
+.best-badge i,
+.best-badge .icon {
+    width: 10px;
+    height: 10px;
+    color: #f6d77a;
+    flex-shrink: 0;
 }
 
-.product-des-info h3{
+.best-badge span {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 
-    color:#2f1a1f;
+.product-category {
+  display: inline-block;
 
-    font-size:1.3rem;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 
-    font-weight:700;
+  color: #c59a4d;
 
-    margin-bottom:12px;
+  margin-bottom: 8px;
+}
 
-    line-height:1.25;
+.product-details h3 {
+  margin: 0 0 12px;
 
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.05;
+
+  color: #3d261d;
+
+  letter-spacing: 0.2px;
+  max-width: 90%;
 }
 
 .rating{
 
-    color:#d2a742;
+color:#d6a84b;
 
-    font-size:.88rem;
+font-size:12px;
 
-    margin-bottom:18px;
+margin-bottom:22px;
 
 }
 
 .rating span{
+    color: #7b746d;
+    font-size: 0.80rem;
+    font-weight: 500;
+    letter-spacing: 0;
 
-    color:#6d6d6d;
-
-    margin-left:6px;
-
-}/* ===================================
-   PRODUCT BOTTOM
-=================================== */
-
-.product-bottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    margin-top:8px;
-
+    font-family: "Poppins", sans-serif;
 }
+
+
+
+
+
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.action-buttons{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+
 
 .price{
-
-    margin:0;
-
-    font-size:1.55rem;
-
-    font-weight:700;
-
-    color:#7b1535;
-
-    letter-spacing:.5px;
+     color: black !important ;/* Luxury gold */
 
 }
 
-.product-bottom small{
 
-    display:block;
 
-    margin-top:5px;
 
-    color:#9c8569;
 
-    font-size:.78rem;
 
-    letter-spacing:.5px;
 
-}
+/* ===========================
+ARROWS
+=========================== */
 
-/* ===================================
-   PLUS BUTTON
-=================================== */
+.slider-arrow{
 
-.plus-btn{
+width:52px;
+height:52px;
 
-    width:52px;
-    height:52px;
+border:none;
 
-    border:none;
+border-radius:50%;
 
-    border-radius:50%;
+background:white;
 
-    cursor:pointer;
+font-size:22px;
 
-    background:linear-gradient(
-        135deg,
-        #c99537,
-        #f6de97
-    );
+cursor:pointer;
 
-    color:#4d1a08;
+box-shadow:
+0 12px 25px rgba(0,0,0,.08);
 
-    font-size:30px;
-
-    font-weight:300;
-
-    box-shadow:
-        0 12px 28px rgba(212,175,55,.35);
-
-    transition:.35s;
+transition:.3s;
 
 }
 
-.plus-btn:hover{
+.slider-arrow:hover{
 
-    transform:
-        rotate(90deg)
-        scale(1.08);
-
-    box-shadow:
-        0 18px 38px rgba(212,175,55,.45);
+background:#6b1630;
+color:white;
 
 }
 
-/* ===================================
-   LUXURY HOVER GLOW
-=================================== */
-
-.luxury-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-120%;
-
-    left:-50%;
-
-    width:70%;
-
-    height:260%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.45),
-        transparent
-    );
-
-    transform:rotate(22deg);
-
-    transition:.8s;
-
-    pointer-events:none;
-
-}
-
-.luxury-card:hover::before{
-
-    left:140%;
-
-}
-
-/* ===================================
-   MOBILE
-=================================== */
+/* ===========================
+MOBILE
+=========================== */
 
 @media(max-width:768px){
 
-.trending-section{
-
-    padding:20px 14px 45px;
-
+.slider-arrow{
+display:none;
 }
-
-/* Heading */
-
-.trending-heading{
-
-    margin-bottom:24px;
-
-}
-
-.heading-crown{
-
-    font-size:18px;
-
-    margin-bottom:4px;
-
-}
-
-.trending-heading h2{
-
-    font-size:1.35rem;
-
-    letter-spacing:2px;
-
-    margin-bottom:4px;
-
-}
-
-.trending-heading p{
-
-    font-size:.72rem;
-
-    margin-bottom:10px;
-
-}
-
-.heading-line{
-
-    width:70px;
-
-}
-
-/* Arrows */
-
-.carousel-arrow{
-
-    display:none;
-
-}
-
-/* Slider */
-
-.trending-carousel{
-
-    gap:14px;
-
-    padding:4px;
-
-    scroll-snap-type:x mandatory;
-
-}
-
-/* Cards */
 
 .luxury-card{
 
-    min-width:220px;
+max-width:100%;
 
-    padding:14px;
-
-    border-radius:22px;
-
-    scroll-snap-align:start;
+border-radius:28px;
 
 }
 
-/* Image */
+.luxury-model{
 
-.product-image-wrap{
-    height:250px;
-    width: 250px;
-    margin-top:38px;
-    border-radius:18px;
-    overflow:hidden;
-}
-
-/* Badge */
-
-.product-badge{
-
-    top:14px;
-    left:14px;
-
-    font-size:.55rem;
-
-    padding:6px 10px;
+height:390px;
 
 }
 
-/* Heart */
+.product-details{
 
-.wishlist-btn{
-
-    top:14px;
-    right:14px;
-
-    width:34px;
-    height:34px;
-
-    font-size:16px;
+padding:22px;
 
 }
 
-/* Text */
+.product-details h3{
 
-.product-des-info{
-
-    margin-top:16px;
+font-size:22px;
 
 }
-
-.product-category{
-
-    font-size:.62rem;
-
-    letter-spacing:1px;
-
-}
-
-.product-des-info h3{
-
-    font-size:1rem;
-
-    margin-bottom:8px;
-
-}
-
-.rating{
-
-    font-size:.72rem;
-
-    margin-bottom:12px;
-
-}
-
-/* Price */
 
 .price{
 
-    font-size:1.1rem;
+font-size:28px;
 
 }
 
-.product-bottom small{
 
-    font-size:.65rem;
+
+.action-buttons{
+
+width:100%;
+
+margin-top:18px;
 
 }
 
-/* Plus */
+}
 
-.plus-btn{
+/* ===========================
+DESKTOP
+=========================== */
 
-    width:40px;
+@media(min-width:769px){
+
+.trending-luxury{
+
+padding:80px 40px;
+
+}
+
+.luxury-card{
+
+max-width:460px;
+
+}
+
+.luxury-model{
+
+height:520px;
+
+}
+
+}
+
+/* ===========================
+SMOOTH
+=========================== */
+
+*{
+-webkit-tap-highlight-color:transparent;
+}
+
+button{
+font-family:inherit;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+canvas{
+outline:none;
+}
+
+.trending-luxury{
+
+user-select:none;
+
+}
+
+.luxury-card{
+
+animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+.price-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:18px;
+}
+
+.card-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.discover-btn{
     height:40px;
+    padding:0 32px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#6b1630;
+    color:#fff;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.discover-btn:hover{
+    background:#571126;
+    transform:translateY(-2px);
+}
+
+.addcart-btn{
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:#efe7de;
 
     font-size:22px;
-
+    cursor:pointer;
+    transition:.3s;
 }
 
+.addcart-btn:hover{
+    background:#6b1630;
+    color:#fff;
+}
+
+
+
+.product-details{
+    padding:22px;
+    background:linear-gradient(
+        180deg,
+        #fffdf9 0%,
+        #fbf5e9 100%
+    );
+
+    border-top:1px solid rgba(212,175,55,.18);
 }

@@ -1,149 +1,122 @@
 import { useEffect, useState } from "react";
-import API from "../../api/api";
-import "./TrendingProducts.css";
 import { useNavigate } from "react-router-dom";
+import API from "../../api/api";
 import { useCart } from "../../context/useCart";
+import ModelViewer from "../ModelViewer/ModelViewer";
+import "./TrendingProducts.css";
 
 function TrendingProducts() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
   const [products, setProducts] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchTrendingProducts = async () => {
       try {
-       const { data } = await API.get("/products");
+        const { data } = await API.get("/products");
 
-        setProducts(
-          data.products.filter((product) => product.trending)
-        );
-      } catch (error) {
-        console.log(error);
+        const trending = data.products.filter((product) => product.trending);
+
+        setProducts(trending);
+      } catch (err) {
+        console.log(err);
       }
     };
 
     fetchTrendingProducts();
   }, []);
 
+  const nextSlide = () => {
+    if (!products.length) return;
+
+    setCurrentIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    if (!products.length) return;
+
+    setCurrentIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
+  };
+
   const handleAddToCart = (e, product) => {
     e.stopPropagation();
     addToCart(product, "Double");
   };
 
+  if (!products.length) return null;
+
+  const product = products[currentIndex];
+
   return (
-    <section className="trending-section">
+    <section className="trending-luxury">
+      <div className="luxury-heading">
+        <div className="luxury-icon">✦</div>
 
-      {/* ===============================
-          HEADING
-      =============================== */}
+        <h2> LUXURIOUS EDITION</h2>
 
-      <div className="trending-heading">
-
-        <div className="heading-line"></div>
-
-        <div className="heading-crown">👑</div>
-
-        <h2>TRENDING THIS WEEK</h2>
-
-        <p>Curated Luxury • Crafted in Jaipur</p>
-
-        <div className="heading-line"></div>
-
+        <p>Our Finest Expression of Luxury</p>
       </div>
 
-      {/* ===============================
-          CAROUSEL
-      =============================== */}
-
-      <div className="carousel-wrapper">
-
-        <button className="carousel-arrow left-arrow">
+      <div className="luxury-wrapper">
+        <button className="slider-arrow left" onClick={prevSlide}>
           ❮
         </button>
 
-        <div className="trending-carousel">
+        <div
+          className="luxury-card"
+          
+        >
+          <span className="best-badge">✦ LIMITED </span>
 
-          {products.map((product) => (
-            <article
-              className="luxury-card"
-              key={product._id}
-              onClick={() => navigate(`/product/${product._id}`)}
-            >
+          <div className="luxury-model">
+            <ModelViewer />
+          </div>
 
-              <span className="product-badge">
-                ✦ {product.bestSeller ? "BEST SELLER" : "TRENDING"}
+          <div className="product-details">
+            <p className="product-category">
+              {product.category || "SIGNATURE COLLECTION"}
+            </p>
+
+            <h3>{product.name}</h3>
+            <div className="rating">
+              ★★★★★ 
+              <span>
+                {product.rating || 5}  ({product.reviewCount || 32})
               </span>
+            </div>
+          <div className="price-row">
+  <h2 className="price">
+    ₹{Number(product.price).toLocaleString("en-IN")}
+  </h2>
 
-              <button
-                className="wishlist-btn"
-                onClick={(e) => e.stopPropagation()}
-              >
-                ♡
-              </button>
+  <div className="card-actions">
+    <button
+      className="discover-btn"
+      onClick={(e) => {
+        e.stopPropagation();
+        navigate(`/product/${product._id}`);
+      }}
+    >
+      EXPLORE →
+    </button>
 
-              <div className="product-image-wrap">
-
-                <img
-                  src={
-                    product.images?.length
-                      ? product.images[0]
-                      : "/images/after.webp"
-                  }
-                  alt={product.name}
-                  className="product-image"
-                />
-
-              </div>
-
-              <div className="product-des-info">
-
-                <span className="product-category">
-                  {product.category}
-                </span>
-
-                <h3>{product.name}</h3>
-
-                <div className="rating">
-                  ★★★★★ <span>{product.rating || 5}</span>
-                </div>
-
-                <div className="product-bottom">
-
-                  <div>
-
-                    <p className="price">
-                      ₹{Number(product.price).toLocaleString("en-IN")}
-                    </p>
-
-                    <small>
-                      {product.fabric || "Handcrafted in Jaipur"}
-                    </small>
-
-                  </div>
-
-                  <button
-                    className="plus-btn"
-                    onClick={(e) => handleAddToCart(e, product)}
-                  >
-                    +
-                  </button>
-
-                </div>
-
-              </div>
-
-            </article>
-          ))}
-
+    <button
+      className="addcart-btn"
+      onClick={(e) => handleAddToCart(e, product)}
+    >
+      🛍
+    </button>
+  </div>
+</div>
+          </div>
         </div>
 
-        <button className="carousel-arrow right-arrow">
+        <button className="slider-arrow right" onClick={nextSlide}>
           ❯
         </button>
-
       </div>
-
     </section>
   );
 }
