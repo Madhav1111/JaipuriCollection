@@ -6,12 +6,17 @@ import { useCart } from "../../context/useCart";
 function ProductInfo({ product }) {
   const navigate = useNavigate();
 
-  const [selectedSize, setSelectedSize] = useState("Double");
+  const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const { addToCart, clearCart } = useCart();
 
   const sizes =
     product.size && product.size.length > 0 ? product.size : ["Standard"];
+
+  const productDetails =
+    product.productDetails && product.productDetails.length > 0
+      ? product.productDetails
+      : [];
 
   /* ================================
      ADD TO CART
@@ -66,7 +71,7 @@ function ProductInfo({ product }) {
 
       <div className="size-selector">
         <div className="size-heading">
-          <h3>Select Size</h3>
+          <h3> Size</h3>
 
           <span>{selectedSize}</span>
         </div>
@@ -120,137 +125,83 @@ function ProductInfo({ product }) {
           WHAT'S INCLUDED
       ================================= */}
 
-      <div className="whats-included">
-        <h3>What's Included</h3>
+      {productDetails[0] && (
+        <div className="whats-included">
+          <h3>{productDetails[0].title}</h3>
 
-        <div className="included-list">
-          <div className="included-item">
-            <span className="included-icon">▱</span>
+          <div className="included-list">
+            {productDetails[0].items?.map((item, index) => {
+              const icons = ["▱", "▭", "⌑", "▣", "✦", "◆"];
 
-            <div>
-              <strong>1 Bedsheet</strong>
-              <p>Premium Jaipuri print</p>
-            </div>
-          </div>
+              return (
+                <div className="included-item" key={index}>
+                  <span className="included-icon">{icons[index] || "▣"}</span>
 
-          <div className="included-item">
-            <span className="included-icon">▭</span>
+                  <div>
+                    <strong>{item.title}</strong>
 
-            <div>
-              <strong>2 Pillow Covers</strong>
-
-              <p>Matching elegant design</p>
-            </div>
-          </div>
-
-          <div className="included-item">
-            <span className="included-icon">⌑</span>
-
-            <div>
-              <strong>1 Storage Bag</strong>
-
-              <p>Premium reusable bag</p>
-            </div>
+                    <p>{item.value}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
+      )}
 
       {/* ================================
           FABRIC & DETAILS
       ================================= */}
 
-      <div className="fabric-details">
-        <h3>Fabric & Details</h3>
+      {productDetails[1] && (
+        <div className="fabric-details">
+          <h3>{productDetails[1].title}</h3>
+          <div className="fabric-grid">
+            {productDetails[1].items?.map((item, index) => {
+              const icons = ["✿", "♨", "✾", "▧", "✦", "◆"];
 
-        <div className="fabric-grid">
-          <div className="fabric-item">
-            <span className="fabric-icon">✿</span>
+              return (
+                <div className="fabric-item" key={index}>
+                  <span className="fabric-icon">{icons[index] || "✿"}</span>
 
-            <div>
-              <strong>Material</strong>
-              <p>{product.fabric || "Premium Quality"}</p>
-            </div>
-          </div>
-
-          <div className="fabric-item">
-            <span className="fabric-icon">♨</span>
-
-            <div>
-              <strong>Thread Count</strong>
-
-              <p>300 TC</p>
-            </div>
-          </div>
-
-          <div className="fabric-item">
-            <span className="fabric-icon">✾</span>
-
-            <div>
-              <strong>Print</strong>
-              <p>{product.collection || "Jaipuri Collection"}</p>
-            </div>
-          </div>
-
-          <div className="fabric-item">
-            <span className="fabric-icon">▧</span>
-
-            <div>
-              <strong>GSM</strong>
-              <p>120 GSM</p>
-            </div>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <p>{item.value}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
+      )}
 
       {/* ================================
           CARE INSTRUCTIONS
       ================================= */}
 
-      <div className="care-instructions">
-        <h3>Care Instructions</h3>
+      {productDetails[2] && (
+        <div className="care-instructions">
+          <h3>{productDetails[2].title}</h3>
 
-        <div className="care-list">
-          <div className="care-item">
-            <span className="care-icon">▣</span>
+          <div className="care-list">
+            {productDetails[2].items?.map((item, index) => {
+              const icons = ["▣", "⚔", "▣", "✿", "✦", "◆"];
 
-            <div>
-              <strong>Machine Wash</strong>
+              return (
+                <div className="care-item" key={index}>
+                  <span className="care-icon">{icons[index] || "▣"}</span>
 
-              <p>Cold Water</p>
-            </div>
-          </div>
+                  <div>
+                    <strong>{item.title}</strong>
 
-          <div className="care-item">
-            <span className="care-icon">⚔</span>
-
-            <div>
-              <strong>Do Not Bleach</strong>
-
-              <p>.</p>
-            </div>
-          </div>
-
-          <div className="care-item">
-            <span className="care-icon">▣</span>
-
-            <div>
-              <strong>Tumble Dry</strong>
-
-              <p>Low</p>
-            </div>
-          </div>
-
-          <div className="care-item">
-            <span className="care-icon">✿</span>
-
-            <div>
-              <strong>Wash Dark Colours</strong>
-
-              <p>Separately</p>
-            </div>
+                    <p>{item.value}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
