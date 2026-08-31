@@ -12,6 +12,8 @@ import Products from "./admin/pages/Products";
 import AddProduct from "./admin/pages/AddProduct";
 import EditProduct from "./admin/pages/EditProduct";
 import Trending from "./admin/pages/Trending";
+import ProductDetails from "./admin/pages/ProductDetails";
+import EditProductDetails from "./admin/pages/EditProductDetails";
 
 function App() {
   return (
@@ -29,6 +31,11 @@ function App() {
         <Route path="/admin/products/add" element={<AddProduct />} />
         <Route path="/admin/products/edit/:id" element={<EditProduct />} />
         <Route path="/admin/trending" element={<Trending />} />
+        <Route path="/admin/product-details" element={<ProductDetails />} />
+        <Route
+          path="/admin/product-details/:id"
+          element={<EditProductDetails />}
+        />
       </Routes>
     </BrowserRouter>
   );

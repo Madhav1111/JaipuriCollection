@@ -22,36 +22,10 @@ const productSchema = new mongoose.Schema(
       type: String,
     },
 
-    fabric: {
-      type: String,
-    },
-
-    size: [
-      {
-        type: String,
-      },
-    ],
-
-    color: {
-      type: String,
-    },
-
     description: {
       type: String,
       required: true,
     },
-
-    features: [
-      {
-        type: String,
-      },
-    ],
-
-    careInstructions: [
-      {
-        type: String,
-      },
-    ],
 
     price: {
       type: Number,
@@ -112,10 +86,31 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-
-    tags: [
+    productDetails: [
       {
-        type: String,
+        title: {
+          type: String,
+          required: true,
+        },
+
+        items: [
+          {
+            title: {
+              type: String,
+              required: true,
+            },
+
+            value: {
+              type: String,
+              default: "",
+            },
+
+            icon: {
+              type: String,
+              default: "",
+            },
+          },
+        ],
       },
     ],
   },
