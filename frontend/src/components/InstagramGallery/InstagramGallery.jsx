@@ -86,16 +86,7 @@ function InstagramGallery() {
 
       {/* Slider Dots */}
 
-      <div className="slider-dots">
-        <span className="active"></span>
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-      </div>
-
+   
       {/* Instagram Card */}
     </section>
   );
