@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./FilterBar.css";
 
-function FilterBar({ productCount, sortOption, setSortOption, onFilterClick }) {
+function FilterBar({ productCount, sortOption, setSortOption }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -37,21 +37,24 @@ function FilterBar({ productCount, sortOption, setSortOption, onFilterClick }) {
     <section className="filter-section">
       <div className="filter-bar">
         {/* Filter */}
-        <button className="filter-btn" onClick={onFilterClick}>
-          <span className="filter-icon">⚙</span>
+        <div className="filter-label">
+          <span className="filter-icon">⚙️</span>
           Filter
-        </button>
+        </div>
 
         {/* Product Count */}
-        <div className="product-count">{productCount} Products</div>
+        <div className="product-count">
+          <span className="count-number">{productCount}</span>
+          <span className="count-text">Designs</span>
+        </div>
 
         {/* Sort */}
         <div className="sort-dropdown" ref={dropdownRef}>
-          <button
-            type="button"
-            className="sort-trigger"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+         <button
+  type="button"
+  className={`sort-trigger ${isOpen ? "active" : ""}`}
+  onClick={() => setIsOpen(!isOpen)}
+>
             <span>{selectedOption}</span>
 
             <svg
