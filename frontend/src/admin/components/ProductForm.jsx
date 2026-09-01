@@ -6,10 +6,27 @@ const ProductForm = ({
   buttonText = "Save Product",
 }) => {
   const categories = ["Bedsheets", "Dohars", "Suits", "Lehengas"];
+  const subcategories = {
+    Bedsheets: [
+      "All Bedsheets",
+      "Floral Prints",
+      "Jaipuri Prints",
+      "Premium Cotton",
+      "King Size",
+      "Queen Size",
+    ],
+
+    Dohars: ["Single Bed", "Double Bed", "Kids", "Summer", "Winter"],
+
+    Suits: ["Cotton", "Festive", "Printed", "Office Wear", "Unstitched"],
+
+    Lehengas: ["Bridal", "Party Wear", "Designer", "Silk", "Velvet"],
+  };
 
   const [formData, setFormData] = useState({
     name: initialData.name || "",
     category: initialData.category || "",
+    subcategory: initialData.subcategory || "",
     price: initialData.price || "",
     stock: initialData.stock || "",
     description: initialData.description || "",
@@ -22,6 +39,16 @@ const ProductForm = ({
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    if (name === "category") {
+      setFormData({
+        ...formData,
+        category: value,
+        subcategory: "",
+      });
+
+      return;
+    }
 
     setFormData({
       ...formData,
@@ -36,6 +63,7 @@ const ProductForm = ({
 
     data.append("name", formData.name);
     data.append("category", formData.category);
+    data.append("subcategory", formData.subcategory);
     data.append("price", formData.price);
     data.append("stock", formData.stock);
     data.append("description", formData.description);
@@ -82,6 +110,25 @@ const ProductForm = ({
                 {category}
               </option>
             ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Subcategory</label>
+
+          <select
+            name="subcategory"
+            value={formData.subcategory}
+            onChange={handleChange}
+            disabled={!formData.category}
+          >
+            <option value="">Select Subcategory</option>
+
+            {formData.category &&
+              subcategories[formData.category].map((subcategory) => (
+                <option key={subcategory} value={subcategory}>
+                  {subcategory}
+                </option>
+              ))}
           </select>
         </div>
 
