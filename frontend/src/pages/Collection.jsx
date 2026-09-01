@@ -10,12 +10,14 @@ import ProductGrid from "../components/ProductGrid/ProductGrid";
 import FilterBar from "../components/FilterBar/FilterBar";
 import AiRoomPreview from "../components/AiRoomPreview/AiRoomPreview";
 import Footer from "../components/Footer/Footer";
+import subcategories from "../constants/subcategories";
 
 import "../styles/collection.css";
 
 export default function Collection() {
   const { slug } = useParams();
   const [sortOption, setSortOption] = useState("default");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const collectionData = {
     bedsheets: {
@@ -44,6 +46,16 @@ export default function Collection() {
   };
 
   const currentCollection = collectionData[slug] || collectionData.bedsheets;
+  const categoryKey =
+    slug === "bedsheets"
+      ? "Bedsheets"
+      : slug === "dohars"
+        ? "Dohars"
+        : slug === "suits"
+          ? "Suits"
+          : "Lehengas";
+
+  const currentCategories = subcategories[categoryKey] || [];
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
@@ -59,6 +71,7 @@ export default function Collection() {
 
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setShowPlayButton(false);
+    setSelectedCategory("");
   }, [slug]);
 
   const handleVideoLoad = async () => {
@@ -148,7 +161,11 @@ export default function Collection() {
 
         {/* SHOP BY CATEGORY */}
 
-        <ShopByCategory />
+        <ShopByCategory
+          categories={currentCategories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
 
         {/* FILTER */}
 
@@ -160,6 +177,7 @@ export default function Collection() {
 
         <ProductGrid
           category={slug}
+          selectedCategory={selectedCategory}
           sortOption={sortOption}
           setProductCount={setProductCount}
         />

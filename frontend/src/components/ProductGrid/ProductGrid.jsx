@@ -3,7 +3,12 @@ import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
 import API from "../../api/api";
 
-function ProductGrid({ category, sortOption, setProductCount }) {
+function ProductGrid({
+  category,
+  selectedCategory,
+  sortOption,
+  setProductCount,
+}) {
   const loadMoreRef = useRef(null);
   const PRODUCTS_PER_PAGE = 8;
   const LOAD_BATCH = 2;
@@ -14,9 +19,17 @@ function ProductGrid({ category, sortOption, setProductCount }) {
   const [loading, setLoading] = useState(true);
 
   const displayProducts = useMemo(() => {
-    const filtered = products.filter(
-      (product) => product.category?.toLowerCase() === category?.toLowerCase(),
-    );
+    const filtered = products.filter((product) => {
+      const matchesCategory =
+        product.category?.toLowerCase() === category?.toLowerCase();
+
+      const matchesSubcategory =
+        !selectedCategory ||
+        selectedCategory.startsWith("All") ||
+        product.subcategory === selectedCategory;
+
+      return matchesCategory && matchesSubcategory;
+    });
 
     switch (sortOption) {
       case "low-high":
@@ -37,7 +50,7 @@ function ProductGrid({ category, sortOption, setProductCount }) {
       default:
         return filtered;
     }
-  }, [products, category, sortOption]);
+  }, [products, category, selectedCategory, sortOption]);
 
   useEffect(() => {
     setProductCount(displayProducts.length);
@@ -52,8 +65,6 @@ function ProductGrid({ category, sortOption, setProductCount }) {
     const fetchProducts = async () => {
       try {
         const { data } = await API.get("/products");
-
-        setProducts(data.products);
 
         setProducts(data.products);
       } catch (error) {
@@ -86,7 +97,7 @@ function ProductGrid({ category, sortOption, setProductCount }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentPage(1);
     setVisibleCount(2);
-  }, [category]);
+  }, [category, selectedCategory]);
 
   // ===========================
   // SCROLL REVEAL

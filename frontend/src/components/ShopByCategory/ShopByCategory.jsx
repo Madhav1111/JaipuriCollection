@@ -1,39 +1,10 @@
 import "./ShopByCategory.css";
 
-const categories = [
-  {
-    id: 1,
-    name: "All Bedsheets",
-    image: "/images/bedsheet.jpg",
-  },
-  {
-    id: 2,
-    name: "Floral Prints",
-    image: "/images/bedsheet.jpg",
-  },
-  {
-    id: 3,
-    name: "Jaipuri Prints",
-    image: "/images/bedsheet.jpg",
-  },
-  {
-    id: 4,
-    name: "Premium Cotton",
-    image: "/images/bedsheet.jpg",
-  },
-  {
-    id: 5,
-    name: "King Size",
-    image: "/images/bedsheet.jpg",
-  },
-  {
-    id: 6,
-    name: "New Arrivals",
-    image: "/images/bedsheet.jpg",
-  },
-];
-
-function ShopByCategory() {
+function ShopByCategory({
+  categories,
+  selectedCategory,
+  setSelectedCategory,
+}) {
   return (
     <section className="shop-category-section">
       {/* Header */}
@@ -41,18 +12,19 @@ function ShopByCategory() {
         <h2>SHOP BY CATEGORY</h2>
 
         <button className="view-all-btn">
-        Swipe →
+          Swipe →
         </button>
       </div>
 
       {/* Categories */}
       <div className="category-scroll">
-        {categories.map((category, index) => (
+        {categories.map((category) => (
           <button
             key={category.id}
             className={`category-item ${
-              index === 0 ? "active" : ""
+              selectedCategory === category.name ? "active" : ""
             }`}
+            onClick={() => setSelectedCategory(category.name)}
           >
             <div className="category-image">
               <img
