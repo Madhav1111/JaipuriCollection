@@ -166,7 +166,7 @@ export default function Collection() {
 
         {/* MORE COLLECTIONS */}
 
-        <DiscoverCollections />
+        <DiscoverCollections currentCategory={slug} />
 
         {/* AI PREVIEW */}
 

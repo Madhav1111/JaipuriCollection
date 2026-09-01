@@ -1,37 +1,48 @@
 import "./DiscoverCollections.css";
+import { useNavigate } from "react-router-dom";
 
 const collections = [
   {
     id: 1,
     title: "SUITS",
     subtitle: "Elegant Cotton Suits for Every Occasion",
-    image: "/images/saree.jpg",
+    image: "/images/discoversuit.webp",
     icon: "👗",
+    slug: "suits",
   },
   {
     id: 2,
-    title: "Lehnghas",
-    subtitle: "Timeless Jaipur Lehnghas in Pure Fabrics",
-    image: "/images/discover/Lehnghas.jpg",
-    icon: "🥻",
+    title: "DOHARS",
+    subtitle: "All Season Comfort in Soft Dohars",
+    image: "/images/dohar.jpg",
+    icon: "🛏️",
+    slug: "dohars",
   },
   {
     id: 3,
-    title: "DOHARS",
-    subtitle: "All Season Comfort in Soft Dohars",
-    image: "/images/discover/dohars.jpg",
-    icon: "🛏️",
+    title: "LEHENGAS",
+    subtitle: "Timeless Jaipur Lehengas in Pure Fabrics",
+    image: "/images/saree.jpg",
+    icon: "🥻",
+    slug: "lehengas",
   },
   {
     id: 4,
-    title: "QUILTS",
-    subtitle: "Luxury Winter Quilts for Extra Warmth",
-    image: "/images/discover/quilts.jpg",
+    title: "BEDSHEETS",
+    subtitle: "Luxury Bedsheets for Extra Comfort",
+    image: "/images/bedsheetoutlet.webp",
     icon: "❄️",
+    slug: "bedsheets",
   },
 ];
 
-function DiscoverCollections() {
+function DiscoverCollections({ currentCategory }) {
+  const navigate = useNavigate();
+
+  const filteredCollections = collections.filter(
+    (item) => item.slug !== currentCategory
+  );
+
   return (
     <section className="discover-section">
       {/* Heading */}
@@ -42,15 +53,18 @@ function DiscoverCollections() {
           <span>✦</span>
         </div>
 
-        <p>
-          Explore our handcrafted Jaipuri essentials beyond bedsheets.
-        </p>
+        <p>Explore our handcrafted Jaipuri essentials beyond this collection.</p>
       </div>
 
       {/* Cards */}
       <div className="discover-slider">
-        {collections.map((item) => (
-          <div className="discover-card" key={item.id}>
+        {filteredCollections.map((item) => (
+          <div
+            className="discover-card"
+            key={item.id}
+            onClick={() => navigate(`/collection/${item.slug}`)}
+            style={{ cursor: "pointer" }}
+          >
             <div className="discover-image-wrapper">
               <img
                 src={item.image}
@@ -60,15 +74,18 @@ function DiscoverCollections() {
             </div>
 
             <div className="discover-content">
-              <div className="discover-icon">
-                {item.icon}
-              </div>
+              <div className="discover-icon">{item.icon}</div>
 
               <h3>{item.title}</h3>
 
               <p>{item.subtitle}</p>
 
-              <button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(`/collection/${item.slug}`);
+                }}
+              >
                 EXPLORE →
               </button>
             </div>

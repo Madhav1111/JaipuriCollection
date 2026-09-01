@@ -191,25 +191,25 @@
 .discover-card:nth-child(1) .discover-content {
   background:
     linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
-    url("/images/saree.jpg") center/cover no-repeat;
+    url("/images/discoversuit.webp") center/cover no-repeat;
 }
 
 .discover-card:nth-child(2) .discover-content {
   background:
     linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
-    url("/images/discover/Lehnghas.jpg") center/cover no-repeat;
+    url("/images/dohar.jpg") center/cover no-repeat;
 }
 
 .discover-card:nth-child(3) .discover-content {
   background:
     linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
-    url("/images/discover/dohars.jpg") center/cover no-repeat;
+    url("/images/saree.jpg") center/cover no-repeat;
 }
 
 .discover-card:nth-child(4) .discover-content {
   background:
    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)),
-    url("/images/discover/quilts.jpg") center/cover no-repeat;
+    url("/images/bedsheetoutlet.webp") center/cover no-repeat;
 }
 
 /* ==========================
