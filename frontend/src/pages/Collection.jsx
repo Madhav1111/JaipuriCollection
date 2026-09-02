@@ -48,7 +48,7 @@ export default function Collection() {
       title: "All Season Comfort Dohars",
       label: "JAIPURI COLLECTIONS",
       badges: ["Soft Cotton", "Lightweight", "Premium Comfort"],
-      video: "/videos/dohar.mp4",
+      video: "/videos/bedsheet.mp4",
       poster: "/images/bedsheet.jpg",
     },
   };
