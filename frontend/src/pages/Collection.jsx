@@ -21,9 +21,11 @@ export default function Collection() {
 
   const collectionData = {
     bedsheets: {
-      title: "Royal Floral Bedsheets",
+      title: "Royal Jaipuri Bedsheets",
       label: "JAIPURI COLLECTIONS",
       badges: ["100% Cotton", "Handcrafted", "Premium Quality"],
+      video: "/videos/bedsheet.mp4",
+      poster: "/images/bedsheet.jpg",
     },
 
     suits: {
@@ -109,7 +111,7 @@ export default function Collection() {
         <div className="collection-hero">
           <img
             className="hero-media"
-            src="/images/collection-poster.jpg"
+            src={currentCollection.poster}
             alt={currentCollection.title}
             style={{
               opacity: isLoaded ? 0 : 1,
@@ -121,7 +123,7 @@ export default function Collection() {
           <video
             ref={videoRef}
             className="hero-media"
-            src="/videos/collection-hero.mp4"
+            src={currentCollection.video}
             autoPlay
             muted
             loop
