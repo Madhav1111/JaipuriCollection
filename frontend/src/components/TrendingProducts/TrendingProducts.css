@@ -114,6 +114,8 @@ CARD
 }
 
 .luxury-card{
+     
+
     width:100%;
     max-width:390px;
 
@@ -547,4 +549,59 @@ transform:none;
     );
 
     border-top:1px solid rgba(212,175,55,.18);
+}
+/* ===========================
+360 VIEW
+=========================== */
+
+
+
+.view360-icon img{
+    width:33px;
+    height:33px;
+}
+
+.view360-badge h4{
+    margin:3px 0 0;
+
+    color:#c79c3a;
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.view360-line{
+    width:60px;
+    height:1px;
+
+    background:#d9bc70;
+
+    margin:8px 0;
+}
+
+.view360-badge p{
+    margin:0;
+
+    color:#8c7342;
+
+    font-size:6.8px;
+    font-weight:600;
+
+    letter-spacing:2px;
+    text-align:center;
+}
+.view360-badge{
+    position:absolute;
+    top:11px;
+    right:5px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    z-index:5;
+
+    pointer-events:none;
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../../api/api";
 import { useCart } from "../../context/useCart";
 import ModelViewer from "../ModelViewer/ModelViewer";
+import view360Icon from "../../assets/icons/view360.svg";
 import "./TrendingProducts.css";
 
 function TrendingProducts() {
@@ -64,15 +65,23 @@ function TrendingProducts() {
           ❮
         </button>
 
-        <div
-          className="luxury-card"
-          
-        >
-          <span className="best-badge">✦ LIMITED </span>
+      <div className="luxury-card">
+  <span className="best-badge">✦ LIMITED</span>
 
-          <div className="luxury-model">
-            <ModelViewer />
-          </div>
+  <div className="luxury-model">
+    <div className="view360-badge">
+      <div className="view360-icon">
+        <img src={view360Icon} alt="360 View" />
+      </div>
+
+      <h4>360° VIEW</h4>
+      <div className="view360-line" />
+      <p>EXPLORE EVERY DETAIL</p>
+    </div>
+
+    <ModelViewer />
+  </div>
+
 
           <div className="product-details">
             <p className="product-category">
