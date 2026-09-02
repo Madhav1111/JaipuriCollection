@@ -37,17 +37,22 @@
 .menu-btn {
   position: absolute;
   left: 22px;
-  top: 30%;
-
+  top: 52%;
   transform: translateY(-50%);
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
   background: none;
   border: none;
-
   cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.menu-btn:hover {
+  transform: translateY(-50%) scale(1.08);
 }
 .menu-icon {
   color: #d4af37;
@@ -68,9 +73,6 @@
   font-weight: 500;
 }
 
-.menu-btn:hover {
-  transform: scale(1.08);
-}
 
 /* ===============================
    LOGO
