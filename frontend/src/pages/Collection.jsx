@@ -32,18 +32,24 @@ export default function Collection() {
       title: "Festive Grace Suits",
       label: "JAIPURI COLLECTIONS",
       badges: ["Elegant Designs", "Premium Fabric", "Festive Wear"],
+      video: "/videos/suit.mp4",
+      poster: "/images/saree.jpg",
     },
 
     lehengas: {
       title: "Timeless Elegance Lehengas",
       label: "JAIPURI COLLECTIONS",
       badges: ["Luxury Collection", "Handcrafted", "Premium Quality"],
+      video: "/videos/lehnghas.mp4",
+      poster: "/images/bedsheet.jpg",
     },
 
     dohars: {
       title: "All Season Comfort Dohars",
       label: "JAIPURI COLLECTIONS",
       badges: ["Soft Cotton", "Lightweight", "Premium Comfort"],
+      video: "/videos/dohar.mp4",
+      poster: "/images/bedsheet.jpg",
     },
   };
 
