@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
+
+import SideMenu from "./SideMenu";
+
 import "./Navbar.css";
 
 function Navbar() {
@@ -58,56 +61,10 @@ function Navbar() {
 
       {/* SIDE MENU */}
 
-      <div className={`side-menu ${open ? "open" : ""}`}>
-        <button
-          className="close-btn"
-          onClick={() => setOpen(false)}
-        >
-          ✕
-        </button>
-
-        <nav className="menu-links">
-          <a
-            href="#"
-            className="menu-card"
-            onClick={() => setOpen(false)}
-          >
-            🛍️ Lehengas
-          </a>
-
-          <a
-            href="#"
-            className="menu-card"
-            onClick={() => setOpen(false)}
-          >
-            👗 Suits
-          </a>
-
-          <a
-            href="#"
-            className="menu-card"
-            onClick={() => setOpen(false)}
-          >
-            🛏️ Bedsheets
-          </a>
-
-          <a
-            href="#"
-            className="menu-card"
-            onClick={() => setOpen(false)}
-          >
-            ✨ New Arrivals
-          </a>
-
-          <a
-            href="#"
-            className="menu-card"
-            onClick={() => setOpen(false)}
-          >
-            📞 Contact Us
-          </a>
-        </nav>
-      </div>
+      <SideMenu
+        open={open}
+        setOpen={setOpen}
+      />
 
       {/* BACKDROP */}
 
