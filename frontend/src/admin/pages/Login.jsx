@@ -55,8 +55,19 @@ const Login = () => {
             required
           />
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Logging In..." : "Login"}
+          <button
+            type="submit"
+            className={loading ? "login-btn loading" : "login-btn"}
+            disabled={loading}
+          >
+            {loading ? (
+              <>
+                <span className="btn-spinner"></span>
+                Logging In...
+              </>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
       </div>

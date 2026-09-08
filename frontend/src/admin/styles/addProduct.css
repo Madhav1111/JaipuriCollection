@@ -172,3 +172,74 @@ input[type=file] {
   }
 
 }
+/* ===========================
+   Loading Screen
+=========================== */
+
+.add-product-loading{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  background:#faf7f2;
+}
+
+.add-product-spinner{
+  width:56px;
+  height:56px;
+  border:4px solid #eadfcf;
+  border-top:4px solid #7b1f1f;
+  border-radius:50%;
+  animation:addProductSpin .8s linear infinite;
+}
+
+.add-product-loading h2{
+  margin:0;
+  font-size:24px;
+  font-weight:700;
+  color:#7b1f1f;
+}
+
+.add-product-loading p{
+  margin:0;
+  font-size:15px;
+  color:#7b6b5d;
+}
+
+@keyframes addProductSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+/* ===========================
+   Save Button Loading
+=========================== */
+
+.save-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.save-btn.loading{
+  opacity:.9;
+  cursor:not-allowed;
+}
+
+.save-btn-spinner{
+  width:18px;
+  height:18px;
+  border:2px solid rgba(255,255,255,.35);
+  border-top:2px solid #fff;
+  border-radius:50%;
+  animation:saveBtnSpin .8s linear infinite;
+}
+
+@keyframes saveBtnSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}

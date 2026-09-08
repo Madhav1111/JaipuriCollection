@@ -165,3 +165,44 @@
     font-size: 22px;
   }
 }
+/* ===========================
+   Loading Screen
+=========================== */
+
+.admin-trending-loading{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  background:#faf7f2;
+}
+
+.admin-trending-spinner{
+  width:56px;
+  height:56px;
+  border:4px solid #eadfcf;
+  border-top:4px solid #7b1f1f;
+  border-radius:50%;
+  animation:trendingSpin .8s linear infinite;
+}
+
+.admin-trending-loading h2{
+  margin:0;
+  font-size:24px;
+  font-weight:700;
+  color:#7b1f1f;
+}
+
+.admin-trending-loading p{
+  margin:0;
+  font-size:15px;
+  color:#7b6b5d;
+}
+
+@keyframes trendingSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}

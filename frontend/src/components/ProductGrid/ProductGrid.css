@@ -524,3 +524,43 @@
   letter-spacing: -0.4px;
 }
 }
+/* ===========================
+   Product Grid Loading
+=========================== */
+
+.product-grid-loading{
+  min-height:45vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+}
+
+.product-grid-spinner{
+  width:56px;
+  height:56px;
+  border:4px solid #eadfcf;
+  border-top:4px solid #6d0019;
+  border-radius:50%;
+  animation:gridSpin .8s linear infinite;
+}
+
+.product-grid-loading h2{
+  margin:0;
+  font-size:28px;
+  font-weight:600;
+  color:#6d0019;
+}
+
+.product-grid-loading p{
+  margin:0;
+  font-size:15px;
+  color:#7b6b5d;
+}
+
+@keyframes gridSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}

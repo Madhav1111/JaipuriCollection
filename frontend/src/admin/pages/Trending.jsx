@@ -44,13 +44,17 @@ function Trending() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="admin-trending-page">
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
+ if (loading) {
+  return (
+    <div className="admin-trending-loading">
+      <div className="admin-trending-spinner"></div>
+
+      <h2>Loading Trending Products</h2>
+
+      <p>Preparing your trending collection...</p>
+    </div>
+  );
+}
 
   return (
     <div className="admin-trending-page">

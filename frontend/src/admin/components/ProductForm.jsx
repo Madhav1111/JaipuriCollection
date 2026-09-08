@@ -4,6 +4,7 @@ const ProductForm = ({
   onSubmit,
   initialData = {},
   buttonText = "Save Product",
+  loading = false,
 }) => {
   const categories = ["Bedsheets", "Dohars", "Suits", "Lehengas"];
   const subcategories = {
@@ -230,8 +231,19 @@ const ProductForm = ({
         </label>
       </div>
 
-      <button className="save-btn" type="submit">
-        {buttonText}
+      <button
+        className={loading ? "save-btn loading" : "save-btn"}
+        type="submit"
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <span className="save-btn-spinner"></span>
+            {buttonText}
+          </>
+        ) : (
+          buttonText
+        )}
       </button>
     </form>
   );

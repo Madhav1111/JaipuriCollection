@@ -14,14 +14,14 @@ const Products = () => {
     try {
       const { data } = await API.get("/products");
 
-setProducts(data.products || []);
+      setProducts(data.products || []);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
-  
+
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this product?",
@@ -80,7 +80,13 @@ setProducts(data.products || []);
       />
 
       {loading ? (
-        <h2>Loading...</h2>
+        <div className="products-loading">
+          <div className="products-spinner"></div>
+
+          <h2>Loading Products</h2>
+
+          <p>Fetching your luxury catalogue...</p>
+        </div>
       ) : (
         <div className="products-grid">
           {filteredProducts.length === 0 ? (

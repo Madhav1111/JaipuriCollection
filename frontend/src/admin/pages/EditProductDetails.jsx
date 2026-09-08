@@ -99,12 +99,15 @@ function EditProductDetails() {
 
   if (loading) {
     return (
-      <div className="edit-details-page">
-        <h2>Loading...</h2>
+      <div className="edit-details-loading">
+        <div className="loading-spinner"></div>
+
+        <h2>Loading Product Details</h2>
+
+        <p>Please wait while we prepare the editor...</p>
       </div>
     );
   }
-
   return (
     <div className="edit-details-page">
       <div className="edit-details-header">
@@ -196,11 +199,22 @@ function EditProductDetails() {
 
       <div className="save-btn-wrapper">
         <button
-          className="save-product-details-btn"
+          className={
+            saving
+              ? "save-product-details-btn saving"
+              : "save-product-details-btn"
+          }
           onClick={saveProductDetails}
           disabled={saving}
         >
-          {saving ? "Saving..." : "Save Product Details"}
+          {saving ? (
+            <>
+              <span className="save-spinner"></span>
+              Saving Product Details...
+            </>
+          ) : (
+            "Save Product Details"
+          )}
         </button>
       </div>
     </div>

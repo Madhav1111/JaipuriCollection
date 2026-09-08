@@ -53,13 +53,17 @@ function ProductDetails() {
           return category === selectedCategory;
         });
 
-  if (loading) {
-    return (
-      <div className="admin-productdetails-page">
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
+ if (loading) {
+  return (
+    <div className="admin-productdetails-loading">
+      <div className="admin-loading-spinner"></div>
+
+      <h2>Loading Products</h2>
+
+      <p>Please wait while we fetch all products...</p>
+    </div>
+  );
+}
 
   return (
     <div className="admin-productdetails-page">

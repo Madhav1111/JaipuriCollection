@@ -149,7 +149,15 @@ function ProductGrid({
   };
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="product-grid-loading">
+        <div className="product-grid-spinner"></div>
+
+        <h2>Loading Collection</h2>
+
+        <p>Discovering beautiful handcrafted pieces...</p>
+      </div>
+    );
   }
   // ===========================
   // JSX

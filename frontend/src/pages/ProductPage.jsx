@@ -38,8 +38,23 @@ function ProductPage() {
   }
 
   if (!product) {
-    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
-  }
+  return (
+    <>
+      <AnnouncementBar />
+      <Navbar />
+
+      <div className="product-loading">
+        <div className="product-loading-spinner"></div>
+
+        <h2>Loading Product</h2>
+
+        <p>Please wait while we prepare your selection...</p>
+      </div>
+
+      <Footer />
+    </>
+  );
+}
 
   return (
     <>

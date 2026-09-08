@@ -10,6 +10,7 @@ const EditProduct = () => {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
+  const [saving, setSaving] = useState(false);
 
   // Load product when page opens
   useEffect(() => {
@@ -28,28 +29,37 @@ const EditProduct = () => {
   }, [id]);
 
   // Update product
- const handleUpdate = async (formData) => {
-  try {
-    console.log("Sending:", formData);
+  const handleUpdate = async (formData) => {
+    try {
+      setSaving(true);
 
-    const response = await API.put(`/products/${id}`, formData);
+      console.log("Sending:", formData);
 
-    console.log("Response:", response.data);
+      const response = await API.put(`/products/${id}`, formData);
 
-    alert("Product Updated Successfully!");
-    navigate("/admin/products");
-  } catch (error) {
-    console.log("ERROR:", error);
-    console.log("SERVER:", error.response?.data);
+      console.log("Response:", response.data);
 
-    alert("Unable to update product.");
-  }
-};
+      alert("Product Updated Successfully!");
+
+      navigate("/admin/products");
+    } catch (error) {
+      console.log("ERROR:", error);
+      console.log("SERVER:", error.response?.data);
+
+      alert("Unable to update product.");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   if (!product) {
     return (
-      <div className="add-product-page">
-        <h2 style={{ color: "white", textAlign: "center" }}>Loading...</h2>
+      <div className="add-product-loading">
+        <div className="add-product-spinner"></div>
+
+        <h2>Loading Product</h2>
+
+        <p>Please wait while we prepare the editor...</p>
       </div>
     );
   }
@@ -59,13 +69,15 @@ const EditProduct = () => {
       <div className="add-product-container">
         <div className="page-header">
           <h1>Edit Product</h1>
+
           <p>Update your luxury product</p>
         </div>
 
         <ProductForm
           initialData={product}
           onSubmit={handleUpdate}
-          buttonText="Update Product"
+          buttonText={saving ? "Updating Product..." : "Update Product"}
+          loading={saving}
         />
       </div>
     </div>
