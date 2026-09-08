@@ -14,6 +14,7 @@ import EditProduct from "./admin/pages/EditProduct";
 import Trending from "./admin/pages/Trending";
 import ProductDetails from "./admin/pages/ProductDetails";
 import EditProductDetails from "./admin/pages/EditProductDetails";
+import VipHome from "./vip/pages/VipHome";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           path="/admin/product-details/:id"
           element={<EditProductDetails />}
         />
+        <Route path="/vip" element={<VipHome />} />
       </Routes>
     </BrowserRouter>
   );
