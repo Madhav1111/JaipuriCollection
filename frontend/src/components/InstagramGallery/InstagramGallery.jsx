@@ -4,20 +4,20 @@ import "./InstagramGallery.css";
 const reels = [
   {
     id: 1,
-    video: "/videos/reel1.mp4",
+    video: "/videos/bedsheet.mp4",
     title: "Royal comfort\nin every detail",
     views: "2.4K views",
   },
   {
     id: 2,
-    video: "/videos/reel2.mp4",
+    video: "/videos/lehnghas.mp4",
     title: "Timeless prints.\nHandcrafted with love.",
     views: "3.8K views",
     featured: true,
   },
   {
     id: 3,
-    video: "/videos/reel3.mp4",
+    video: "/videos/suit.mp4",
     title: "New arrivals\njust for you ✨",
     views: "1.9K views",
   },
