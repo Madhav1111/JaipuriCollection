@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductInfo.css";
 import { useCart } from "../../context/useCart";
+import { useToast } from "../../context/useToast";
 
 function ProductInfo({ product }) {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ function ProductInfo({ product }) {
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const { addToCart, clearCart } = useCart();
+  const { showToast } = useToast();
 
   const sizes =
     product.size && product.size.length > 0 ? product.size : ["Standard"];
@@ -24,6 +26,9 @@ function ProductInfo({ product }) {
 
   const handleAddToCart = () => {
     addToCart(product, selectedSize, quantity);
+
+    showToast("Added to Cart", `${product.name} has been added to your cart.`);
+
     navigate("/cart");
   };
   /* ================================
@@ -31,8 +36,11 @@ function ProductInfo({ product }) {
   ================================= */
 
   const handleBuyNow = () => {
-    clearCart(); // Remove existing cart items
-    addToCart(product, selectedSize, quantity); // Add only this product
+    clearCart();
+    addToCart(product, selectedSize, quantity);
+
+    showToast("Ready to Checkout", `${product.name} is ready for checkout.`);
+
     navigate("/checkout");
   };
 

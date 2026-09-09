@@ -1,16 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
+import { useToast } from "../../context/useToast";
 import "./ProductGrid.css";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { showToast } = useToast();
 
   const handleAddToCart = (e) => {
-    e.stopPropagation();
-    addToCart(product, "Double");
-    alert("Added to cart!");
-  };
+  e.stopPropagation();
+
+  addToCart(product, product.size?.[0] || "Standard");
+
+  showToast(
+    "Added to Bag",
+    `${product.name} has been added to your bag.`
+  );
+};
 
   // Badge
   let badge = "";
