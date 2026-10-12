@@ -629,7 +629,7 @@
     ),
     url("/images/cart-textile-banner.webp") center / cover no-repeat;
 
-  opacity: 0.88;
+  opacity: 0.98;
 
   /* Softly fade the rectangular edges */
   -webkit-mask-image: radial-gradient(
