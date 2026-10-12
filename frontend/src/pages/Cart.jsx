@@ -51,7 +51,7 @@ function Cart() {
             {/* Inner Mughal arch */}
             <path
               d="
-      M 16,290
+      M 16,340
       L 16,157
       Q 16,130 41,119
       Q 60,110 60,84
@@ -63,7 +63,7 @@ function Cart() {
       Q 300,65 300,84
       Q 300,110 319,119
       Q 344,130 344,157
-      L 344,290
+      L 344,340
     "
               fill="none"
               stroke="#C6A16A"
