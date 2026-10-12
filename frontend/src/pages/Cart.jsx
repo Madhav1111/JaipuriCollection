@@ -17,12 +17,77 @@ function Cart() {
       {/* ================================
           HEADER
       ================================= */}
-
       <div className="cart-header">
-        <p>YOUR SHOPPING BAG</p>
-        <h1>My Cart</h1>
-      </div>
+        <div className="cart-arch">
+          <svg
+            className="cart-arch-frame"
+            viewBox="0 0 360 300"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            {/* Outer Mughal arch */}
+            <path
+              d="
+      M 8,296
+      L 8,155
+      Q 8,125 35,112
+      Q 52,103 52,82
+      Q 52,57 82,55
+      Q 112,53 128,32
+      Q 145,8 180,8
+      Q 215,8 232,32
+      Q 248,53 278,55
+      Q 308,57 308,82
+      Q 308,103 325,112
+      Q 352,125 352,155
+      L 352,296
+    "
+              fill="none"
+              stroke="#A77B3F"
+              strokeWidth="1.8"
+              vectorEffect="non-scaling-stroke"
+            />
 
+            {/* Inner Mughal arch */}
+            <path
+              d="
+      M 16,290
+      L 16,157
+      Q 16,130 41,119
+      Q 60,110 60,84
+      Q 60,65 87,63
+      Q 117,60 134,38
+      Q 150,16 180,16
+      Q 210,16 226,38
+      Q 243,60 273,63
+      Q 300,65 300,84
+      Q 300,110 319,119
+      Q 344,130 344,157
+      L 344,290
+    "
+              fill="none"
+              stroke="#C6A16A"
+              strokeWidth="1.2"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+          <div className="cart-header-content">
+            <p className="cart-eyebrow">SHOPPING BAG</p>
+
+            <h1>Your Cart</h1>
+
+            <div className="cart-header-divider">
+              <span />
+              <span className="cart-header-diamond">◆</span>
+              <span />
+            </div>
+
+            <p className="cart-header-subtitle">
+              Bringing tradition to your everyday spaces.
+            </p>
+          </div>
+        </div>
+      </div>
       {/* ================================
           CART ITEMS
       ================================= */}

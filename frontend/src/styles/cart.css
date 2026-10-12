@@ -1,26 +1,25 @@
 /* ==========================================
-   CART PAGE
-========================================== */
+    CART PAGE
+  ========================================== */
 
 .cart-page {
   min-height: 100vh;
 
   padding: 28px 18px 50px;
 
-  background:
-    radial-gradient(
-      circle at top,
-      #fffaf1 0%,
-      #fcf8f2 45%,
-      #f7f1e8 100%
-    );
+  background: radial-gradient(
+    circle at top,
+    #fffaf1 0%,
+    #fcf8f2 45%,
+    #f7f1e8 100%
+  );
 
   color: #4b1f2d;
 }
 
 /* ==========================================
-   HEADER
-========================================== */
+    HEADER
+  ========================================== */
 
 .cart-header {
   text-align: center;
@@ -53,8 +52,8 @@
 }
 
 /* ==========================================
-   CART ITEM
-========================================== */
+    CART ITEM
+  ========================================== */
 
 .cart-items {
   margin-bottom: 24px;
@@ -73,13 +72,12 @@
 
   border-radius: 16px;
 
-  box-shadow:
-    0 8px 20px rgba(75, 31, 45, 0.06);
+  box-shadow: 0 8px 20px rgba(75, 31, 45, 0.06);
 }
 
 /* ==========================================
-   IMAGE
-========================================== */
+    IMAGE
+  ========================================== */
 
 .cart-item-image {
   width: 120px;
@@ -105,8 +103,8 @@
 }
 
 /* ==========================================
-   DETAILS
-========================================== */
+    DETAILS
+  ========================================== */
 
 .cart-item-details {
   flex: 1;
@@ -151,8 +149,8 @@
 }
 
 /* ==========================================
-   PRICE
-========================================== */
+    PRICE
+  ========================================== */
 
 .cart-price {
   display: flex;
@@ -179,8 +177,8 @@
 }
 
 /* ==========================================
-   CART BOTTOM
-========================================== */
+    CART BOTTOM
+  ========================================== */
 
 .cart-bottom {
   display: flex;
@@ -195,8 +193,8 @@
 }
 
 /* ==========================================
-   QUANTITY
-========================================== */
+    QUANTITY
+  ========================================== */
 
 .cart-quantity {
   display: flex;
@@ -241,8 +239,8 @@
 }
 
 /* ==========================================
-   REMOVE
-========================================== */
+    REMOVE
+  ========================================== */
 
 .remove-cart-item {
   border: none;
@@ -261,8 +259,8 @@
 }
 
 /* ==========================================
-   ORDER SUMMARY
-========================================== */
+    ORDER SUMMARY
+  ========================================== */
 
 .cart-summary {
   padding: 20px;
@@ -273,8 +271,7 @@
 
   border-radius: 16px;
 
-  box-shadow:
-    0 8px 20px rgba(75, 31, 45, 0.05);
+  box-shadow: 0 8px 20px rgba(75, 31, 45, 0.05);
 }
 
 .cart-summary h2 {
@@ -288,8 +285,8 @@
 }
 
 /* ==========================================
-   SUMMARY ROW
-========================================== */
+    SUMMARY ROW
+  ========================================== */
 
 .summary-row {
   display: flex;
@@ -320,8 +317,8 @@
 }
 
 /* ==========================================
-   DIVIDER
-========================================== */
+    DIVIDER
+  ========================================== */
 
 .summary-divider {
   height: 1px;
@@ -332,8 +329,8 @@
 }
 
 /* ==========================================
-   TOTAL
-========================================== */
+    TOTAL
+  ========================================== */
 
 .summary-total {
   display: flex;
@@ -362,8 +359,8 @@
 }
 
 /* ==========================================
-   CHECKOUT
-========================================== */
+    CHECKOUT
+  ========================================== */
 
 .checkout-btn {
   width: 100%;
@@ -384,8 +381,7 @@
 
   cursor: pointer;
 
-  box-shadow:
-    0 8px 18px rgba(122, 35, 59, 0.2);
+  box-shadow: 0 8px 18px rgba(122, 35, 59, 0.2);
 
   transition: 0.25s ease;
 }
@@ -397,8 +393,8 @@
 }
 
 /* ==========================================
-   SECURE CHECKOUT
-========================================== */
+    SECURE CHECKOUT
+  ========================================== */
 
 .secure-checkout {
   margin: 12px 0 0;
@@ -411,11 +407,10 @@
 }
 
 /* ==========================================
-   MOBILE
-========================================== */
+    MOBILE
+  ========================================== */
 
 @media (max-width: 430px) {
-
   .cart-page {
     padding: 22px 16px 35px;
   }
@@ -457,5 +452,306 @@
 
     border-radius: 13px;
   }
+}
+/* ==========================================
+    LUXURY EMPTY CART
+  ========================================== */
 
+.empty-cart {
+  position: relative;
+  max-width: 520px;
+  margin: 30px auto 0;
+  padding: 48px 28px 42px;
+  text-align: center;
+
+  background: rgba(255, 253, 249, 0.78);
+  border: 1px solid #e8ddce;
+  border-radius: 4px;
+
+  box-shadow: 0 14px 40px rgba(75, 31, 45, 0.045);
+}
+
+/* Subtle gold accent */
+
+.empty-cart::before {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 2px;
+  margin: 0 auto 25px;
+
+  background: #b88943;
+}
+
+/* Heading */
+
+.empty-cart h2 {
+  margin: 0 0 14px;
+
+  color: #4b1f2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+/* Description */
+
+.empty-cart p {
+  max-width: 340px;
+  margin: 0 auto 28px;
+
+  color: #81756c;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* Continue shopping button */
+
+.empty-cart .checkout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  max-width: 330px;
+  height: 50px;
+  margin: 0 auto;
+
+  border: 1px solid #7a233b;
+  border-radius: 2px;
+
+  background: #7a233b;
+  color: #fffaf4;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  box-shadow: none;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.empty-cart .checkout-btn::after {
+  content: "→";
+  font-size: 17px;
+  font-weight: 400;
+  transition: transform 0.25s ease;
+}
+
+.empty-cart .checkout-btn:hover {
+  background: #5f1b30;
+  border-color: #5f1b30;
+  transform: translateY(-1px);
+}
+
+.empty-cart .checkout-btn:hover::after {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+    EMPTY CART — MOBILE
+  ========================================== */
+
+@media (max-width: 430px) {
+  .empty-cart {
+    margin: 26px 0 0;
+    padding: 38px 20px 32px;
+  }
+
+  .empty-cart::before {
+    margin-bottom: 22px;
+  }
+
+  .empty-cart h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+
+  .empty-cart p {
+    max-width: 290px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .empty-cart .checkout-btn {
+    max-width: 100%;
+    height: 48px;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+  }
+} /* ==========================================
+   LUXURY MUGHAL CART HEADER
+========================================== */
+
+.cart-header {
+  width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.cart-arch {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Match the surrounding page */
+  background: #fcf8f2;
+}
+
+/* Textile artwork: faded into the page */
+.cart-arch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(252, 248, 242, 0.05) 0%,
+      rgba(252, 248, 242, 0.12) 55%,
+      #fcf8f2 100%
+    ),
+    url("/images/cart-textile-banner.webp") center / cover no-repeat;
+
+  opacity: 0.88;
+
+  /* Softly fade the rectangular edges */
+  -webkit-mask-image: radial-gradient(
+    ellipse 82% 76% at 50% 42%,
+    #000 48%,
+    rgba(0, 0, 0, 0.85) 68%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse 82% 76% at 50% 42%,
+    #000 48%,
+    rgba(0, 0, 0, 0.85) 68%,
+    transparent 100%
+  );
+}
+
+/* Mughal arch outlines */
+.cart-arch-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Heading above the textile */
+.cart-header-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 70px 16px 30px;
+  text-align: center;
+}
+
+.cart-header .cart-eyebrow {
+  margin: 0 0 12px;
+  color: #8f7046;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.cart-header h1 {
+  margin: 0;
+  color: #4b1f2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 7vw, 46px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.cart-header-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 17px auto 13px;
+}
+
+.cart-header-divider span:not(.cart-header-diamond) {
+  width: 34px;
+  height: 1px;
+  background: #b88943;
+}
+
+.cart-header .cart-header-diamond {
+  color: #b88943;
+  font-size: 9px;
+}
+
+.cart-header .cart-header-subtitle {
+  max-width: 320px;
+  margin: 0 auto;
+  color: #766052;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 430px) {
+  .cart-header {
+    margin-bottom: 24px;
+  }
+
+ .cart-arch {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  min-height: 290px;
+  top: -23px;
+}
+
+  .cart-header-content {
+    padding: 60px 12px 22px;
+  }
+
+  .cart-header .cart-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+  }
+
+  .cart-header h1 {
+    font-size: 32px;
+  }
+
+  .cart-header-divider {
+    margin: 14px auto 11px;
+  }
+
+  .cart-header .cart-header-subtitle {
+    max-width: 100%;
+    width: 100%;
+    white-space: nowrap;
+    font-size: clamp(9px, 2.8vw, 12px);
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
 }
