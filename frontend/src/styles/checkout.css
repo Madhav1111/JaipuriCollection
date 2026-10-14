@@ -509,102 +509,205 @@
    MOBILE
 ========================================== */
 
+/* ==========================================
+MOBILE CHECKOUT — REFINED TYPOGRAPHY
+========================================== */
+
 @media (max-width: 430px) {
 
-  .checkout-page {
-    padding: 25px 14px 40px;
-  }
+.checkout-page {
+padding: 22px 14px 36px;
+}
 
-  .checkout-header {
-    margin-bottom: 22px;
-  }
+.checkout-header {
+margin-bottom: 20px;
+}
 
-  .checkout-header p {
-    font-size: 19px;
+.checkout-header p {
+font-size: 12px;
+letter-spacing: 2.2px;
+margin-bottom: 6px;
+}
 
-    letter-spacing: 2.5px;
-  }
+.checkout-header h1 {
+font-size: 29px;
+line-height: 1.15;
+}
 
-  .checkout-header h1 {
-    font-size: 28px;
-  }
+.checkout-section {
+margin-bottom: 14px;
+padding: 16px 13px;
+border-radius: 13px;
+}
 
-  .checkout-section {
-    margin-bottom: 15px;
+.checkout-section-heading {
+gap: 9px;
+margin-bottom: 15px;
+}
 
-    padding: 17px 13px;
+.checkout-section-heading span {
+width: 25px;
+height: 25px;
+font-size: 10px;
+flex-shrink: 0;
+}
 
-    border-radius: 14px;
-  }
+.checkout-section-heading h2 {
+font-size: 18px;
+line-height: 1.3;
+}
 
-  .checkout-section-heading {
-    margin-bottom: 17px;
-  }
+.checkout-field {
+margin-bottom: 13px;
+}
 
-  .checkout-section-heading h2 {
-    font-size: 20px;
-  }
+.checkout-field label {
+margin-bottom: 6px;
+font-size: 13px;
+}
 
-  .checkout-field label {
-    font-size: 18px;
-  }
+.checkout-field input,
+.checkout-field textarea {
+padding: 11px 12px;
+font-size: 15px;
+border-radius: 9px;
+}
 
-  .checkout-field input,
-  .checkout-field textarea {
-    padding: 11px 12px;
+.checkout-field textarea {
+min-height: 72px;
+}
 
-    font-size: 17px;
-  }
+.checkout-note {
+font-size: 11px;
+line-height: 1.5;
+}
 
-  .payment-option {
-    padding: 12px 10px;
+.checkout-two-column {
+gap: 9px;
+}
 
-    gap: 10px;
-  }
+.payment-options {
+gap: 9px;
+}
 
-  .payment-icon {
-    width: 33px;
+.payment-option {
+padding: 11px 10px;
+gap: 10px;
+border-radius: 10px;
+}
 
-    height: 33px;
+.payment-icon {
+width: 32px;
+height: 32px;
+font-size: 15px;
+border-radius: 8px;
+}
 
-    font-size: 16px;
-  }
+.payment-option strong {
+font-size: 13px;
+line-height: 1.4;
+}
 
-  .payment-option strong {
-    font-size: 13px;
-  }
+.payment-option p {
+font-size: 11px;
+line-height: 1.4;
+}
 
-  .payment-option p {
-    font-size: 13px;
-  }
+.payment-radio {
+font-size: 17px;
+}
 
-  .checkout-summary {
-    padding: 17px 13px;
+.checkout-summary {
+padding: 16px 13px;
+border-radius: 13px;
+}
 
-    border-radius: 14px;
-  }
+.checkout-summary > h2 {
+margin-bottom: 15px;
+font-size: 20px;
+}
 
-  .checkout-summary > h2 {
-    font-size: 22px;
-  }
+.checkout-product {
+gap: 11px;
+padding-bottom: 15px;
+}
 
-  .checkout-product-image {
-    width: 76px;
+.checkout-product-image {
+width: 70px;
+height: 78px;
+border-radius: 9px;
+}
 
-    height: 86px;
-  }
+.checkout-product-info > span {
+font-size: 10px;
+letter-spacing: 1px;
+}
 
-  .checkout-product-info h3 {
-    font-size: 19px;
-  }
+.checkout-product-info h3 {
+margin: 4px 0;
+font-size: 15px;
+line-height: 1.35;
+}
 
-  .checkout-total strong {
-    font-size: 25px;
-  }
+.checkout-product-info p {
+margin-bottom: 5px;
+font-size: 12px;
+}
 
-  .place-order-btn {
-    padding: 14px;
+.checkout-product-info strong {
+font-size: 15px;
+}
 
-    font-size: 16px;
-  }
+.checkout-summary-row {
+padding-top: 12px;
+font-size: 13px;
+}
+
+.checkout-summary-row strong {
+font-size: 15px;
+}
+
+.checkout-summary-row .free {
+font-size: 14px;
+}
+
+.checkout-divider {
+margin: 13px 0;
+}
+
+.checkout-total span {
+font-size: 17px;
+}
+
+.checkout-total strong {
+font-size: 22px;
+}
+
+.place-order-btn {
+margin-top: 16px;
+padding: 13px;
+font-size: 14px;
+border-radius: 10px;
+}
+
+.checkout-secure {
+margin-top: 10px;
+font-size: 10px;
+}
+} 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
 }

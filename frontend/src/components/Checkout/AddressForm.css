@@ -1,0 +1,252 @@
+.address-screen {
+  min-height: 100vh;
+  background: #faf7f2;
+  color: #4b1f2d;
+  margin: -30px -18px -50px;
+  padding-bottom: 22px;
+}
+
+.address-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  min-height: 64px;
+  padding: 8px 16px;
+  background: #fffdf9;
+  border-bottom: 1px solid #e6ddd2;
+}
+
+.address-back {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #4b1f2d;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.address-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.address-brand span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-align: center;
+}
+
+.address-brand small {
+  color: #8b8178;
+  font-size: 10px;
+}
+
+.address-promo {
+  padding: 9px 12px;
+  background: #4b1f2d;
+  color: #fffdf9;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.address-form {
+  padding: 10px 20px 0;
+}
+
+.address-form-section {
+  margin: 0;
+  padding: 8px 0 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.address-form-section h2 {
+  margin: 0 0 5px;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b1f2d;
+}
+
+.address-form-field {
+  min-width: 0;
+  margin: 0;
+}
+
+.address-form-field label {
+  display: block;
+  margin: 0;
+  color: #9b9087;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.address-form-field input,
+.address-form-field textarea,
+.address-form-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 0 9px;
+  border: none;
+  border-bottom: 1px solid #ded7cf;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #3f3430;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.address-form-field input::placeholder,
+.address-form-field textarea::placeholder {
+  color: #b6ada5;
+  font-size: 12px;
+}
+
+.address-form-field input:focus,
+.address-form-field textarea:focus,
+.address-form-field select:focus {
+  border-bottom: 1px solid #b88943;
+  box-shadow: none;
+}
+
+.address-form-field textarea {
+  min-height: 48px;
+  resize: vertical;
+}
+
+.address-form-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  margin: 0;
+}
+
+.address-form-two-column .address-form-field {
+  margin: 0;
+}
+
+.address-form-section > .address-form-field + .address-form-field,
+.address-form-two-column + .address-form-field {
+  margin-top: 9px;
+}
+
+.address-form-section .address-form-field {
+  margin-top: 9px;
+}
+
+.address-continue-btn {
+  display: block;
+  width: 100%;
+  margin-top: 13px;
+  padding: 13px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7a233b;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.address-continue-btn:hover {
+  background: #651c31;
+}
+
+@media (max-width: 430px) {
+  .address-screen {
+    margin: -22px -14px -36px;
+  }
+
+  .address-header {
+    min-height: 58px;
+    padding: 6px 12px;
+  }
+
+  .address-brand span {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+
+  .address-promo {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .address-form {
+    padding: 8px 18px 0;
+  }
+
+  .address-form-section {
+    padding: 6px 0 10px;
+  }
+
+  .address-form-section h2 {
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .address-form-field label {
+    font-size: 10px;
+  }
+
+  .address-form-field input,
+  .address-form-field textarea,
+  .address-form-field select {
+    padding: 6px 0 8px;
+    font-size: 13px;
+  }
+
+  .address-form-field input::placeholder,
+  .address-form-field textarea::placeholder {
+    font-size: 11px;
+  }
+
+  .address-form-field textarea {
+    min-height: 42px;
+  }
+
+  .address-form-section .address-form-field {
+    margin-top: 7px;
+  }
+
+  .address-form-two-column {
+    gap: 12px;
+  }
+
+  .address-continue-btn {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 12px;
+  }
+}
+.address-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  background: #faf7f2;
+}
+
+.address-overlay .address-screen {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
