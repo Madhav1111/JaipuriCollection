@@ -1,144 +1,144 @@
-/* ===============================
-   HERO BANNER
-================================ */
+  /* ===============================
+    HERO BANNER
+  ================================ */
 
-.hero-banner {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  .hero-banner {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
 
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ===============================
-   HERO SLIDE
-================================ */
-
-.hero-bg {
-  position: relative;
-
-  animation: slideInFromRight 0.6s ease-out;
-
-  will-change: transform;
-
-  transform: translate3d(0, 0, 0);
-
-  -webkit-transform: translate3d(0, 0, 0);
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-
-  max-height: 460px;
-
-  display: block;
-
-  will-change: transform;
-
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-/* ===============================
-   SLIDE ANIMATION
-================================ */
-
-@keyframes slideInFromRight {
-
-  from {
-    transform: translate3d(100%, 0, 0);
+    -webkit-overflow-scrolling: touch;
   }
 
-  to {
+  /* ===============================
+    HERO SLIDE
+  ================================ */
+
+  .hero-bg {
+    position: relative;
+
+    animation: slideInFromRight 0.6s ease-out;
+
+    will-change: transform;
+
     transform: translate3d(0, 0, 0);
+
+    -webkit-transform: translate3d(0, 0, 0);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
   }
 
-}
+  .hero-image {
+    width: 100%;
+    height: auto;
 
-/* ===============================
-   SLIDER UI
-================================ */
+    max-height: 460px;
 
-.slider-ui {
-  position: absolute;
+    display: block;
 
-  bottom: -15px;
-  left: 50%;
+    will-change: transform;
 
-  transform: translateX(-50%);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 
-  display: flex;
-  align-items: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
-  gap: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 
-  z-index: 5;
-}
+  /* ===============================
+    SLIDE ANIMATION
+  ================================ */
 
-.slider-dots {
-  display: flex;
-  gap: 6px;
-}
+  @keyframes slideInFromRight {
+
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+
+  }
+
+  /* ===============================
+    SLIDER UI
+  ================================ */
+
+  .slider-ui {
+    position: absolute;
+
+    bottom: -15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 5;
+  }
+
+  .slider-dots {
+    display: flex;
+    gap: 6px;
+  }
 
 
 
 
-.slider-toggle {
-  background: rgba(0,0,0,.55);
+  .slider-toggle {
+    background: rgba(0,0,0,.55);
 
-  color: white;
+    color: white;
 
-  border: none;
+    border: none;
 
-  font-size: 10px;
+    font-size: 10px;
 
-  padding: 4px 6px;
+    padding: 4px 6px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  cursor: pointer;
-}
-.dot-hitbox{
-  width:20px;
-  height:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:none;
-  background:transparent;
-  padding:0;
-  cursor:pointer;
-}
+    cursor: pointer;
+  }
+  .dot-hitbox{
+    width:20px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+  }
 
-.slider-dots{
-  display:flex;
-  align-items:center;
-  gap:4x;
-}
+  .slider-dots{
+    display:flex;
+    align-items:center;
+    gap:4x;
+  }
 
-.dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  border:none;
-  background: rgba(255,255,255,.45);
-}
+  .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    border:none;
+    background: rgba(255,255,255,.45);
+  }
 
-.dot.active{
-  background:#fff;
-}
+  .dot.active{
+    background:#fff;
+  }
