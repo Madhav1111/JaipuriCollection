@@ -1,23 +1,39 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import confetti from "canvas-confetti";
 import { useCart } from "../../context/useCart";
-import { useToast } from "../../context/useToast";
 import "./ProductGrid.css";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const { showToast } = useToast();
+  const [added, setAdded] = useState(false);
 
   const handleAddToCart = (e) => {
-  e.stopPropagation();
+    e.stopPropagation();
 
-  addToCart(product, product.size?.[0] || "Standard");
+    addToCart(product, product.size?.[0] || "Standard");
 
-  showToast(
-    "Added to Bag",
-    `${product.name} has been added to your bag.`
-  );
-};
+    // Elegant Jaipuri Collections celebration
+    confetti({
+      particleCount: 65,
+      spread: 65,
+      startVelocity: 28,
+      gravity: 0.9,
+      origin: { x: 0.5, y: 0.65 },
+      colors: ["#7A233B", "#B88943", "#E8D7B5", "#FAF7F2"],
+      ticks: 130,
+      scalar: 0.85,
+      disableForReducedMotion: true,
+    });
+
+    setAdded(true);
+
+    // Hide confirmation after 2.2 seconds
+    setTimeout(() => {
+      setAdded(false);
+    }, 2200);
+  };
 
   // Badge
   let badge = "";
@@ -51,7 +67,12 @@ function ProductCard({ product }) {
 
         {badge && <span className="product-badge">{badge}</span>}
 
-        <button className="wishlist-btn" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="wishlist-btn"
+          onClick={(e) => e.stopPropagation()}
+          aria-label="Add to wishlist"
+        >
           ♡
         </button>
       </div>
@@ -73,10 +94,21 @@ function ProductCard({ product }) {
             </span>
           </div>
 
-          <button className="add-cart-btn" onClick={handleAddToCart}>
+          <button
+            type="button"
+            className="add-cart-btn"
+            onClick={handleAddToCart}
+            aria-label={`Add ${product.name} to cart`}
+          >
             +
           </button>
         </div>
+
+        {added && (
+          <p className="product-card-added" role="status">
+            ✓ Added to your bag
+          </p>
+        )}
       </div>
     </div>
   );

@@ -819,3 +819,18 @@
   }
 
 }
+/* Minimal, premium add-to-cart feedback */
+.product-cart-message {
+  margin: 12px 0 0;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  animation: none;
+}
+.product-cart-message.success {
+  color: #477b55;
+}
+.product-cart-message.error {
+  color: #7a233b;
+}
