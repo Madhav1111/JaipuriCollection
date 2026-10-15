@@ -583,3 +583,25 @@
     transform: translateY(0);
   }
 }
+.wishlist-btn {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.wishlist-btn.is-wishlisted {
+  color: #7a233b;
+  background: #fffaf5;
+}
+
+.wishlist-btn:active {
+  transform: scale(0.92);
+}
+
+.product-card-added {
+  margin-top: 10px;
+  color: #477b55;
+  font-size: 12px;
+  font-weight: 600;
+}

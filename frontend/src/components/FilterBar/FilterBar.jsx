@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import "./FilterBar.css";
 
-function FilterBar({ productCount, sortOption, setSortOption }) {
+function FilterBar({
+  productCount,
+  sortOption,
+  setSortOption,
+  showFavourites,
+  setShowFavourites,
+}) {
   const [isOpen, setIsOpen] = useState(false);
-
   const dropdownRef = useRef(null);
 
   const sortOptions = [
@@ -17,7 +22,10 @@ function FilterBar({ productCount, sortOption, setSortOption }) {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
         setIsOpen(false);
       }
     };
@@ -29,9 +37,11 @@ function FilterBar({ productCount, sortOption, setSortOption }) {
     };
   }, []);
 
-  const selectedOption =
-    sortOptions.find((option) => option.value === sortOption)?.label ||
-    "Default";
+  const selectedOption = showFavourites
+    ? "♥️ My Favourites"
+    : sortOptions.find(
+        (option) => option.value === sortOption
+      )?.label || "Default";
 
   return (
     <section className="filter-section">
@@ -48,13 +58,14 @@ function FilterBar({ productCount, sortOption, setSortOption }) {
           <span className="count-text">Designs</span>
         </div>
 
-        {/* Sort */}
+        {/* Sort and Favourites */}
         <div className="sort-dropdown" ref={dropdownRef}>
-         <button
-  type="button"
-  className={`sort-trigger ${isOpen ? "active" : ""}`}
-  onClick={() => setIsOpen(!isOpen)}
->
+          <button
+            type="button"
+            className={`sort-trigger ${isOpen ? "active" : ""}`}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+          >
             <span>{selectedOption}</span>
 
             <svg
@@ -75,17 +86,36 @@ function FilterBar({ productCount, sortOption, setSortOption }) {
 
           {isOpen && (
             <div className="sort-menu">
+              {/* Favourites */}
+              <button
+                type="button"
+                className={`sort-item ${
+                  showFavourites ? "active" : ""
+                }`}
+                onClick={() => {
+                  setShowFavourites(!showFavourites);
+                  setIsOpen(false);
+                }}
+              >
+                ♥️ My Favourites
+              </button>
+
+              <div className="sort-divider" />
+
+              {/* Existing Sorting Options */}
               {sortOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   className={
+                    !showFavourites &&
                     sortOption === option.value
                       ? "sort-item active"
                       : "sort-item"
                   }
                   onClick={() => {
                     setSortOption(option.value);
+                    setShowFavourites(false);
                     setIsOpen(false);
                   }}
                 >

@@ -16,8 +16,10 @@ import "../styles/collection.css";
 
 export default function Collection() {
   const { slug } = useParams();
+
   const [sortOption, setSortOption] = useState("default");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [showFavourites, setShowFavourites] = useState(false);
 
   const collectionData = {
     bedsheets: {
@@ -53,7 +55,9 @@ export default function Collection() {
     },
   };
 
-  const currentCollection = collectionData[slug] || collectionData.bedsheets;
+  const currentCollection =
+    collectionData[slug] || collectionData.bedsheets;
+
   const categoryKey =
     slug === "bedsheets"
       ? "Bedsheets"
@@ -79,7 +83,9 @@ export default function Collection() {
 
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setShowPlayButton(false);
+
     setSelectedCategory("");
+    setShowFavourites(false);
   }, [slug]);
 
   const handleVideoLoad = async () => {
@@ -149,13 +155,16 @@ export default function Collection() {
               type="button"
               className="video-play-btn"
               onClick={handleManualPlay}
+              aria-label="Play collection video"
             />
           )}
 
           <div className="overlay" />
 
           <div className="hero-content">
-            <p className="collection-label">{currentCollection.label}</p>
+            <p className="collection-label">
+              {currentCollection.label}
+            </p>
 
             <h1>{currentCollection.title}</h1>
 
@@ -175,19 +184,24 @@ export default function Collection() {
           setSelectedCategory={setSelectedCategory}
         />
 
-        {/* FILTER */}
+        {/* FILTER AND SORT */}
 
         <FilterBar
           productCount={productCount}
           sortOption={sortOption}
           setSortOption={setSortOption}
+          showFavourites={showFavourites}
+          setShowFavourites={setShowFavourites}
         />
+
+        {/* PRODUCTS */}
 
         <ProductGrid
           category={slug}
           selectedCategory={selectedCategory}
           sortOption={sortOption}
           setProductCount={setProductCount}
+          showFavourites={showFavourites}
         />
 
         {/* MORE COLLECTIONS */}

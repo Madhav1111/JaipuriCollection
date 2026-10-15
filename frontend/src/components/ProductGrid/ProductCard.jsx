@@ -2,19 +2,22 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import { useCart } from "../../context/useCart";
+import { useWishlist } from "../../context/useWishlist";
 import "./ProductGrid.css";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { toggleWishlist, isWishlisted } = useWishlist();
+
   const [added, setAdded] = useState(false);
+  const favorite = isWishlisted(product._id);
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
 
     addToCart(product, product.size?.[0] || "Standard");
 
-    // Elegant Jaipuri Collections celebration
     confetti({
       particleCount: 65,
       spread: 65,
@@ -28,14 +31,14 @@ function ProductCard({ product }) {
     });
 
     setAdded(true);
-
-    // Hide confirmation after 2.2 seconds
-    setTimeout(() => {
-      setAdded(false);
-    }, 2200);
+    setTimeout(() => setAdded(false), 2200);
   };
 
-  // Badge
+  const handleWishlist = (e) => {
+    e.stopPropagation();
+    toggleWishlist(product);
+  };
+
   let badge = "";
 
   if (product.bestSeller) {
@@ -53,7 +56,6 @@ function ProductCard({ product }) {
       className="product-card"
       onClick={() => navigate(`/product/${product._id}`)}
     >
-      {/* Image */}
       <div className="product-image-wrapper">
         <img
           src={
@@ -69,15 +71,19 @@ function ProductCard({ product }) {
 
         <button
           type="button"
-          className="wishlist-btn"
-          onClick={(e) => e.stopPropagation()}
-          aria-label="Add to wishlist"
+          className={`wishlist-btn ${favorite ? "is-wishlisted" : ""}`}
+          onClick={handleWishlist}
+          aria-label={
+            favorite
+              ? `Remove ${product.name} from favourites`
+              : `Add ${product.name} to favourites`
+          }
+          aria-pressed={favorite}
         >
-          ♡
+          {favorite ? "♥️" : "♡"}
         </button>
       </div>
 
-      {/* Details */}
       <div className="product-info">
         <h3>{product.name}</h3>
 
