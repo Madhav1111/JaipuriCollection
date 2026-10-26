@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 import "./SideMenu.css";
 
 function SideMenu({ open, setOpen }) {
@@ -25,11 +26,29 @@ function SideMenu({ open, setOpen }) {
     },
   ];
 
+  const handleWhatsAppSupport = () => {
+    const message = encodeURIComponent(
+      "Hello Jaipuri Collections, I need assistance with your products or my order."
+    );
+
+    window.open(
+      `https://wa.me/918872154985?text=${message}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    setOpen(false);
+  };
+
   return (
     <div className={`side-menu ${open ? "open" : ""}`}>
       {/* CLOSE BUTTON */}
 
-      <button className="close-btn" onClick={() => setOpen(false)}>
+      <button
+        className="close-btn"
+        onClick={() => setOpen(false)}
+        aria-label="Close menu"
+      >
         ✕
       </button>
 
@@ -107,7 +126,6 @@ function SideMenu({ open, setOpen }) {
 
             <div className="premium-collection-info">
               <h4>{item.title}</h4>
-
               <p>{item.subtitle}</p>
             </div>
 
@@ -143,7 +161,17 @@ function SideMenu({ open, setOpen }) {
           <p>Track Order</p>
         </button>
 
-    
+        {/* WHATSAPP SUPPORT */}
+
+        <button
+          className="premium-support-item"
+          onClick={handleWhatsAppSupport}
+        >
+          <span className="premium-support-icon">
+            <FaWhatsapp />
+          </span>
+          <p>WhatsApp Support</p>
+        </button>
       </div>
 
       {/* FOOTER */}
