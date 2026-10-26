@@ -817,3 +817,76 @@
   background: #7a233b;
   border-color: #7a233b;
 }
+
+/* BACK BUTTON — CART BANNER */
+.cart-arch {
+  position: relative;
+}
+
+.cart-back-btn {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  background: rgba(250, 247, 242, 0.92);
+  color: #4b1f2d;
+
+  border: 1px solid rgba(184, 137, 67, 0.55);
+  border-radius: 30px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.cart-back-btn span:first-child {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.cart-back-btn:hover {
+  background: #7a233b;
+  color: #faf7f2;
+  border-color: #7a233b;
+}
+
+.cart-back-btn:active {
+  transform: scale(0.96);
+}
+
+.cart-back-btn:focus-visible {
+  outline: 2px solid #b88943;
+  outline-offset: 3px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .cart-back-btn {
+    top: 12px;
+    left: 12px;
+    gap: 5px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .cart-back-btn span:first-child {
+    font-size: 17px;
+  }
+}

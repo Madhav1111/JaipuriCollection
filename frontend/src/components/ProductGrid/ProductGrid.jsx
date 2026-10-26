@@ -39,36 +39,23 @@ function ProductGrid({
         product.subcategory === selectedCategory;
 
       const matchesFavourite =
-        !showFavourites ||
-        wishlist.some((item) => item._id === product._id);
+        !showFavourites || wishlist.some((item) => item._id === product._id);
 
-      return (
-        matchesCategory &&
-        matchesSubcategory &&
-        matchesFavourite
-      );
+      return matchesCategory && matchesSubcategory && matchesFavourite;
     });
 
     switch (sortOption) {
       case "low-high":
-        return [...filtered].sort(
-          (a, b) => Number(a.price) - Number(b.price)
-        );
+        return [...filtered].sort((a, b) => Number(a.price) - Number(b.price));
 
       case "high-low":
-        return [...filtered].sort(
-          (a, b) => Number(b.price) - Number(a.price)
-        );
+        return [...filtered].sort((a, b) => Number(b.price) - Number(a.price));
 
       case "az":
-        return [...filtered].sort((a, b) =>
-          a.name.localeCompare(b.name)
-        );
+        return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
 
       case "za":
-        return [...filtered].sort((a, b) =>
-          b.name.localeCompare(a.name)
-        );
+        return [...filtered].sort((a, b) => b.name.localeCompare(a.name));
 
       case "newest":
         return [...filtered].reverse();
@@ -133,9 +120,7 @@ function ProductGrid({
     return displayProducts.slice(start, start + PRODUCTS_PER_PAGE);
   }, [displayProducts, currentPage]);
 
-  const totalPages = Math.ceil(
-    displayProducts.length / PRODUCTS_PER_PAGE
-  );
+  const totalPages = Math.ceil(displayProducts.length / PRODUCTS_PER_PAGE);
 
   // ===========================
   // SCROLL REVEAL
@@ -148,16 +133,13 @@ function ProductGrid({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (
-          entry.isIntersecting &&
-          visibleCount < pageProducts.length
-        ) {
+        if (entry.isIntersecting && visibleCount < pageProducts.length) {
           setVisibleCount((prev) =>
-            Math.min(prev + LOAD_BATCH, pageProducts.length)
+            Math.min(prev + LOAD_BATCH, pageProducts.length),
           );
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(target);
@@ -179,9 +161,7 @@ function ProductGrid({
       if (!gridRef.current) return;
 
       const y =
-        gridRef.current.getBoundingClientRect().top +
-        window.pageYOffset -
-        250;
+        gridRef.current.getBoundingClientRect().top + window.pageYOffset - 250;
 
       window.scrollTo({
         top: y,
@@ -212,9 +192,10 @@ function ProductGrid({
     <section className="product-grid-section" ref={gridRef}>
       {showFavourites && displayProducts.length === 0 && (
         <div className="product-grid-empty">
-          <h2>No favourites in this collection yet</h2>
+          <h2>Your favourites await</h2>
           <p>
-            Tap the heart on a product to save it to your favourites.
+            You haven't saved any designs from this collection yet. Tap the
+            heart on a product to keep your favourite designs close.
           </p>
         </div>
       )}
@@ -259,9 +240,7 @@ function ProductGrid({
             <button
               type="button"
               key={index}
-              className={
-                currentPage === index + 1 ? "active-page" : ""
-              }
+              className={currentPage === index + 1 ? "active-page" : ""}
               onClick={() => changePage(index + 1)}
             >
               {index + 1}

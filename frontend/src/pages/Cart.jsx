@@ -2,24 +2,47 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/useCart";
 import "../styles/cart.css";
+
 function Cart() {
   const navigate = useNavigate();
   const { cart, updateQuantity, removeItem } = useCart();
   const [itemToRemove, setItemToRemove] = useState(null);
+
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
   );
+
   const handleRemove = () => {
     if (!itemToRemove) return;
     removeItem(itemToRemove._id);
     setItemToRemove(null);
   };
+
+  const handleGoBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <main className="cart-page">
       {/* HEADER */}
       <div className="cart-header">
         <div className="cart-arch">
+          {/* BACK BUTTON */}
+          <button
+            type="button"
+            className="cart-back-btn"
+            onClick={handleGoBack}
+            aria-label="Go back"
+          >
+            <span aria-hidden="true">←</span>
+            <span>Back</span>
+          </button>
+
           <svg
             className="cart-arch-frame"
             viewBox="0 0 360 300"
@@ -48,6 +71,7 @@ function Cart() {
               strokeWidth="1.8"
               vectorEffect="non-scaling-stroke"
             />
+
             {/* Inner Mughal arch */}
             <path
               d="
@@ -71,29 +95,37 @@ function Cart() {
               vectorEffect="non-scaling-stroke"
             />
           </svg>
+
           <div className="cart-header-content">
             <p className="cart-eyebrow">SHOPPING BAG</p>
+
             <h1>Your Cart</h1>
+
             <div className="cart-header-divider">
               <span />
               <span className="cart-header-diamond">◆</span>
               <span />
             </div>
+
             <p className="cart-header-subtitle">
               Bringing tradition to your everyday spaces.
             </p>
           </div>
         </div>
       </div>
+
       {/* CART ITEMS */}
       <section className="cart-items">
         {cart.length === 0 ? (
           <div className="empty-cart">
             <h2>Your cart is empty</h2>
+
             <p>
               Discover something beautiful from our Jaipuri collection.
             </p>
+
             <button
+              type="button"
               className="checkout-btn"
               onClick={() => navigate("/")}
             >
@@ -116,19 +148,24 @@ function Cart() {
                   alt={item.name}
                 />
               </div>
+
               <div className="cart-item-details">
                 <span className="cart-collection">
                   {item.collection || "JAIPURI COLLECTION"}
                 </span>
+
                 <h2>{item.name}</h2>
+
                 <p className="cart-size">
                   Size:{" "}
                   <strong>{item.selectedSize || "Standard"}</strong>
                 </p>
+
                 <div className="cart-price">
                   <strong>
                     ₹{Number(item.price).toLocaleString("en-IN")}
                   </strong>
+
                   {item.originalPrice && (
                     <span>
                       ₹
@@ -138,6 +175,7 @@ function Cart() {
                     </span>
                   )}
                 </div>
+
                 {/* QUANTITY AND REMOVE */}
                 <div className="cart-bottom">
                   <div className="cart-quantity">
@@ -148,7 +186,9 @@ function Cart() {
                     >
                       −
                     </button>
+
                     <span>{item.quantity}</span>
+
                     <button
                       type="button"
                       aria-label={`Increase quantity of ${item.name}`}
@@ -157,6 +197,7 @@ function Cart() {
                       +
                     </button>
                   </div>
+
                   <button
                     type="button"
                     className="remove-cart-item"
@@ -170,38 +211,47 @@ function Cart() {
           ))
         )}
       </section>
+
       {/* ORDER SUMMARY */}
       {cart.length > 0 && (
         <section className="cart-summary">
           <h2>Order Summary</h2>
+
           <div className="summary-row">
             <span>Subtotal</span>
             <strong>
               ₹{subtotal.toLocaleString("en-IN")}
             </strong>
           </div>
+
           <div className="summary-row">
             <span>Delivery</span>
             <span className="free-delivery">FREE</span>
           </div>
+
           <div className="summary-divider" />
+
           <div className="summary-total">
             <span>Total</span>
             <strong>
               ₹{subtotal.toLocaleString("en-IN")}
             </strong>
           </div>
+
           <button
+            type="button"
             className="checkout-btn"
             onClick={() => navigate("/checkout")}
           >
             Proceed to Checkout →
           </button>
+
           <p className="secure-checkout">
             🔒 Secure &amp; Safe Checkout
           </p>
         </section>
       )}
+
       {/* REMOVE CONFIRMATION MODAL */}
       {itemToRemove && (
         <div
@@ -216,11 +266,14 @@ function Cart() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="remove-confirm-ornament">✦</div>
+
             <h3 id="remove-confirm-title">Remove this item?</h3>
+
             <p>
               Are you sure you want to remove{" "}
               <strong>{itemToRemove.name}</strong> from your bag?
             </p>
+
             <div className="remove-confirm-actions">
               <button
                 type="button"
@@ -228,6 +281,7 @@ function Cart() {
               >
                 Keep Item
               </button>
+
               <button
                 type="button"
                 className="confirm-remove-btn"
@@ -242,4 +296,5 @@ function Cart() {
     </main>
   );
 }
+
 export default Cart;
