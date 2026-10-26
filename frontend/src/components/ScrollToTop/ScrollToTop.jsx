@@ -1,35 +1,26 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 function ScrollToTop() {
-  const location = useLocation();
+  const { pathname } = useLocation();
+  const navigationType = useNavigationType();
 
-  // Save scroll position before leaving a page
-  useEffect(() => {
-    return () => {
-      sessionStorage.setItem(
-        `scroll-${location.pathname}`,
-        window.scrollY.toString()
-      );
-    };
-  }, [location.pathname]);
-
-  // Restore or scroll to top
-  useEffect(() => {
-    const saved = sessionStorage.getItem(`scroll-${location.pathname}`);
-
-    if (saved) {
-      window.scrollTo({
-        top: Number(saved),
-        behavior: "instant",
-      });
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "instant",
-      });
+  useLayoutEffect(() => {
+    // Disable browser scroll restoration
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, [location.pathname]);
+
+    // Always move to the top after route navigation
+    window.scrollTo(0, 0);
+
+    // Handle browsers that restore scroll asynchronously
+    const frame = requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, navigationType]);
 
   return null;
 }
