@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 
 import SideMenu from "./SideMenu";
-
 import "./Navbar.css";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
-
   const { cart } = useCart();
 
   const cartCount = cart.reduce(
@@ -18,22 +16,41 @@ function Navbar() {
     0
   );
 
+  const handleLogoClick = () => {
+    setOpen(false);
+    navigate("/");
+  };
+
+  const handleLogoKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleLogoClick();
+    }
+  };
+
   return (
     <>
-      {/* NAVBAR */}
-
       <header className="navbar">
+        {/* MENU */}
         <button
+          type="button"
           className="menu-btn"
           onClick={() => setOpen(true)}
+          aria-label="Open menu"
         >
           <span className="menu-icon">☰</span>
           <span className="menu-text">MENU</span>
         </button>
 
-        {/* LOGO */}
-
-        <div className="logo-wrapper">
+        {/* CLICKABLE LOGO */}
+        <div
+          className="logo-wrapper"
+          onClick={handleLogoClick}
+          onKeyDown={handleLogoKeyDown}
+          role="link"
+          tabIndex={0}
+          aria-label="Go to Jaipuri Collections home page"
+        >
           <img
             src="/images/logo.png"
             alt="Jaipuri Collections"
@@ -42,12 +59,15 @@ function Navbar() {
         </div>
 
         {/* CART */}
-
         <div
           className="cart-icon-wrapper"
           onClick={() => navigate("/cart")}
         >
-          <button className="cart-btn">
+          <button
+            type="button"
+            className="cart-btn"
+            aria-label="Open shopping cart"
+          >
             🛒
           </button>
 
@@ -60,14 +80,9 @@ function Navbar() {
       </header>
 
       {/* SIDE MENU */}
-
-      <SideMenu
-        open={open}
-        setOpen={setOpen}
-      />
+      <SideMenu open={open} setOpen={setOpen} />
 
       {/* BACKDROP */}
-
       {open && (
         <div
           className="backdrop"

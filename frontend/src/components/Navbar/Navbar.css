@@ -198,4 +198,19 @@
     font-size: 22px;
   }
 
+}.logo-wrapper {
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo-wrapper img {
+  pointer-events: none;
+}
+
+.logo-wrapper:focus-visible {
+  outline: 2px solid #b88943;
+  outline-offset: 4px;
 }
